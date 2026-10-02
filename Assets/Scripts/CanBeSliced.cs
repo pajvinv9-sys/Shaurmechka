@@ -67,12 +67,7 @@ public class CanBeSliced : MonoBehaviour
     /// Собственный Rigidbody.
     /// </summary>
     public Rigidbody Rb { get; private set; }
-
-    /// <summary>
-    /// Флаг защиты от повторной нарезки за один кадр.
-    /// </summary>
-    private bool isSliced;
-
+    
     private void Awake()
     {
         Rb = GetComponent<Rigidbody>();
@@ -85,11 +80,7 @@ public class CanBeSliced : MonoBehaviour
     /// <param name="cutDirection">Направление реза ножа.</param>
     public void Slice(Vector3 cutDirection)
     {
-        if (isSliced)
-            return;
-
-        isSliced = true;
-
+  
         // Воспроизводим звук и частицы (если назначены)
         if (CutSound != null)
         {
@@ -128,7 +119,7 @@ public class CanBeSliced : MonoBehaviour
 
             piece.name = $"{gameObject.name}_Piece_{i + 1}";
 
-            // Навешиваем маркер InteractiveObject, чтобы игрок мог поднять кусочек через Grab (ЛКМ/ПКМ)
+            // Навешиваем маркер InteractiveObject, чтобы игрок мог поднять кусочек через Grab
             if (piece.GetComponent<InteractiveObject>() == null)
             {
                 piece.AddComponent<InteractiveObject>();
