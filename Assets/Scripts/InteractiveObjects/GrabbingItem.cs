@@ -17,7 +17,7 @@ public class GrabbingItem : MonoBehaviour
     public Rigidbody Rb { get; private set; }
     public InteractiveObject Io { get; private set; }
 
-    void Start()
+    void Awake()
     {
         Rb = GetComponent<Rigidbody>();
 
