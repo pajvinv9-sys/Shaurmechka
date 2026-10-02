@@ -41,7 +41,7 @@ public class Knife : MonoBehaviour
         if (Rb.linearVelocity.magnitude < MinCutSpeed)
             return;
 
-        Ingredient ingredient = other.GetComponent<Ingredient>();
+        CanBeSliced ingredient = other.GetComponent<CanBeSliced>();
 
         if (ingredient != null)
         {
