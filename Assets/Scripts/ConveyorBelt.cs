@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Физическая конвейерная лента с эффектом мгновенного прилипания предметов (Sticky Belt).
+/// Физическая конвейерная лента для транспортировки интерактивных объектов.
 /// 
 /// Вешается на: GameObject конвейера.
 /// Требует: Collider (Is Trigger = true) в качестве зоны ленты.
 /// 
-/// Основная задача:
-/// - При попадании предмета мгновенно гасит отскок и вращение (эффект прилипания).
-/// - Прижимает предметы к полотну во время движения, предотвращая подпрыгивание.
-/// - Плавно перемещает все тела вдоль направления движения ленты.
-/// - Отображает 3D-стрелку направления в окне Scene.
+/// Особенности:
+/// - Работает на наклонных конвейерах (корректная проекция на плоскость ленты).
+/// - Двигает исключительно объекты с маркером InteractiveObject.
+/// - Высокая производительность: HashSet для O(1) и MaterialPropertyBlock без утечек памяти.
+/// - Мгновенное гашение отскока при падении.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
@@ -25,24 +25,10 @@ public class ConveyorBelt : MonoBehaviour
     public float Speed { get; private set; } = 2.0f;
 
     /// <summary>
-    /// Локальное направление движения ленты.
+    /// Локальное направление движения конвейера.
     /// </summary>
     [field: SerializeField]
     public Vector3 Direction { get; private set; } = Vector3.forward;
-
-    [Header("Настройки прилипания (Анти-отскок)")]
-    /// <summary>
-    /// Мгновенно гасить вертикальную скорость при приземлении на ленту.
-    /// </summary>
-    [field: SerializeField]
-    public bool DampVelocityOnLand { get; private set; } = true;
-
-    /// <summary>
-    /// Сила постоянного легкого прижима предметов к ленте во время движения.
-    /// Предотвращает случайные подскоки при соударении с другими овощами.
-    /// </summary>
-    [field: SerializeField]
-    public float StickDownForce { get; private set; } = 9.81f;
 
     [Header("Визуализация ленты (Необязательно)")]
     /// <summary>
@@ -57,34 +43,29 @@ public class ConveyorBelt : MonoBehaviour
     [field: SerializeField]
     public float TextureScrollSpeed { get; private set; } = 1.0f;
 
-    [Header("Настройки Gizmos (Scene View)")]
     /// <summary>
-    /// Показывать ли стрелку направления в окне сцены.
+    /// Множество физических тел интерактивных объектов на ленте.
     /// </summary>
-    [field: SerializeField]
-    public bool ShowGizmos { get; private set; } = true;
+    private readonly HashSet<Rigidbody> itemsOnBelt = new HashSet<Rigidbody>();
 
     /// <summary>
-    /// Цвет стрелки направления в редакторе.
+    /// Список для очистки уничтоженных объектов (нарезка прямо на ленте).
     /// </summary>
-    [field: SerializeField]
-    public Color GizmoColor { get; private set; } = Color.cyan;
+    private readonly List<Rigidbody> deadItemsBuffer = new List<Rigidbody>();
 
     /// <summary>
-    /// Длина стрелки направления в окне Scene.
+    /// Блок свойств материала для производительного смещения UV без создания копий материалов.
     /// </summary>
-    [field: SerializeField]
-    public float ArrowLength { get; private set; } = 1.5f;
+    private MaterialPropertyBlock propertyBlock;
 
     /// <summary>
-    /// Список тел, находящихся в данный момент на ленте.
+    /// Идентификатор шейдерного свойства смещения текстуры.
     /// </summary>
-    private List<Rigidbody> itemsOnBelt = new List<Rigidbody>();
+    private static readonly int MainTexST = Shader.PropertyToID("_MainTex_ST");
+    private static readonly int BaseMapST = Shader.PropertyToID("_BaseMap_ST"); // Для URP
 
-    /// <summary>
-    /// Текущее смещение текстуры.
-    /// </summary>
     private float textureOffset;
+    private int targetTexturePropertyId;
 
     private void Awake()
     {
@@ -98,6 +79,15 @@ public class ConveyorBelt : MonoBehaviour
         {
             BeltRenderer = GetComponent<Renderer>();
         }
+
+        if (BeltRenderer != null)
+        {
+            propertyBlock = new MaterialPropertyBlock();
+            // Поддержка стандартного шейдера (Built-in) и URP Lit
+            targetTexturePropertyId = BeltRenderer.sharedMaterial != null && BeltRenderer.sharedMaterial.HasProperty(BaseMapST)
+                ? BaseMapST
+                : MainTexST;
+        }
     }
 
     private void Update()
@@ -110,119 +100,117 @@ public class ConveyorBelt : MonoBehaviour
         MoveItems();
     }
 
-    /// <summary>
-    /// При попадании предмета на ленту моментально гасим отскок и вращение.
-    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
+        // Проверка №1: Объект ОБЯЗАН быть InteractiveObject
+        InteractiveObject interactiveObj = other.GetComponent<InteractiveObject>();
+        if (interactiveObj == null)
+            return;
+
         Rigidbody rb = other.attachedRigidbody;
-
-        if (rb != null && !rb.isKinematic && !itemsOnBelt.Contains(rb))
+        if (rb != null && !rb.isKinematic)
         {
-            itemsOnBelt.Add(rb);
-
-            if (DampVelocityOnLand)
+            if (itemsOnBelt.Add(rb))
             {
-                // Полностью гасим вертикальный отскок и кувыркание
+                // Мгновенное прилипание: гасим вертикальный отскок и хаотичное вращение
                 Vector3 currentVel = rb.linearVelocity;
-                currentVel.y = Mathf.Min(0f, currentVel.y * 0.1f); // Убираем положительную скорость вверх
-                currentVel.x *= 0.5f;
-                currentVel.z *= 0.5f;
+                currentVel.y = 0f;
                 rb.linearVelocity = currentVel;
-
-                // Останавливаем хаотичное вращение от падения
                 rb.angularVelocity = Vector3.zero;
             }
         }
     }
 
-    /// <summary>
-    /// При выходе предмета с конвейера или взятии игроком в руки.
-    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         Rigidbody rb = other.attachedRigidbody;
-
-        if (rb != null && itemsOnBelt.Contains(rb))
+        if (rb != null)
         {
             itemsOnBelt.Remove(rb);
         }
     }
 
     /// <summary>
-    /// Перемещение и мягкий прижим предметов к поверхности ленты.
+    /// Перемещение объектов с учетом наклона поверхности ленты.
     /// </summary>
     private void MoveItems()
     {
+        if (itemsOnBelt.Count == 0)
+            return;
+
+        // Вектор с учетом локального поворота и наклона конвейера
         Vector3 worldDirection = transform.TransformDirection(Direction.normalized);
         Vector3 movementStep = worldDirection * (Speed * Time.fixedDeltaTime);
 
-        for (int i = itemsOnBelt.Count - 1; i >= 0; i--)
-        {
-            Rigidbody rb = itemsOnBelt[i];
+        deadItemsBuffer.Clear();
 
-            // Если предмет был разрезан/уничтожен прямо на ленте
+        foreach (Rigidbody rb in itemsOnBelt)
+        {
             if (rb == null)
             {
-                itemsOnBelt.RemoveAt(i);
+                deadItemsBuffer.Add(rb);
                 continue;
             }
-
-            // Мягко прижимаем предмет к поверхности конвейера
-            if (StickDownForce > 0f)
-            {
-                rb.AddForce(Vector3.down * StickDownForce, ForceMode.Acceleration);
-            }
-
-            // Плавное физическое перемещение вперед
+            
             rb.MovePosition(rb.position + movementStep);
+        }
+
+        // Удаляем собранные null ссылки
+        for (int i = 0; i < deadItemsBuffer.Count; i++)
+        {
+            itemsOnBelt.Remove(deadItemsBuffer[i]);
         }
     }
 
     /// <summary>
-    /// Анимация текстуры полотна конвейера.
+    /// Оптимизированная анимация текстуры через MaterialPropertyBlock.
     /// </summary>
     private void AnimateBeltTexture()
     {
-        if (BeltRenderer == null || BeltRenderer.material == null)
+        if (BeltRenderer == null || propertyBlock == null)
             return;
 
-        textureOffset += Speed * TextureScrollSpeed * Time.deltaTime * 0.5f;
-        BeltRenderer.material.mainTextureOffset = new Vector2(0f, textureOffset);
+        textureOffset += Speed * TextureScrollSpeed * Time.deltaTime;
+
+        BeltRenderer.GetPropertyBlock(propertyBlock);
+        // Vector4(Tiling.x, Tiling.y, Offset.x, Offset.y)
+        propertyBlock.SetVector(targetTexturePropertyId, new Vector4(1f, 1f, 0f, textureOffset));
+        BeltRenderer.SetPropertyBlock(propertyBlock);
     }
 
-    /// <summary>
-    /// Отрисовка стрелки направления и начальной точки в окне Scene.
-    /// </summary>
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (!ShowGizmos)
-            return;
+        Color gizmoColor = Color.cyan;
+        float arrowLength = 1.5f;
+        float arrowHeadSize = 0.35f;
 
-        Gizmos.color = GizmoColor;
+        Gizmos.color = gizmoColor;
 
         Vector3 startPoint = transform.position;
         Collider col = GetComponent<Collider>();
         if (col != null)
         {
-            startPoint = col.bounds.center + Vector3.up * (col.bounds.extents.y + 0.05f);
+            startPoint = col.bounds.center + transform.up * (col.bounds.extents.y + 0.05f);
         }
 
         Vector3 worldDirection = transform.TransformDirection(Direction.normalized);
-        Vector3 endPoint = startPoint + worldDirection * ArrowLength;
+        Vector3 endPoint = startPoint + worldDirection * arrowLength;
 
+        // Основной луч направления
         Gizmos.DrawLine(startPoint, endPoint);
 
-        float arrowHeadSize = 0.35f;
-        Vector3 right = Vector3.Cross(worldDirection, Vector3.up).normalized;
+        // Расчет наконечника с учетом наклона плоскости ленты
+        Vector3 right = Vector3.Cross(worldDirection, transform.up).normalized;
         if (right == Vector3.zero)
-            right = Vector3.Cross(worldDirection, Vector3.right).normalized;
+            right = transform.right;
 
         Vector3 arrowSideA = endPoint - worldDirection * arrowHeadSize + right * (arrowHeadSize * 0.5f);
         Vector3 arrowSideB = endPoint - worldDirection * arrowHeadSize - right * (arrowHeadSize * 0.5f);
 
         Gizmos.DrawLine(endPoint, arrowSideA);
         Gizmos.DrawLine(endPoint, arrowSideB);
-        Gizmos.DrawSphere(startPoint, 0.06f);
+        Gizmos.DrawSphere(startPoint, 0.05f);
     }
+#endif
 }
