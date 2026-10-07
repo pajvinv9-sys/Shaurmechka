@@ -8,10 +8,10 @@ using UnityEngine;
 /// Требует: Collider (Is Trigger = true) в качестве зоны ленты.
 /// 
 /// Особенности:
-/// - Работает на наклонных конвейерах (корректная проекция на плоскость ленты).
+/// - Двигает предметы через rb.linearVelocity (мягкая физика без жестких рывков MovePosition).
 /// - Двигает исключительно объекты с маркером InteractiveObject.
-/// - Высокая производительность: HashSet для O(1) и MaterialPropertyBlock без утечек памяти.
-/// - Мгновенное гашение отскока при падении.
+/// - Безопасно удаляет уничтоженные объекты (нарезка на ленте) без лишних буферов.
+/// - Эффективная анимация текстуры через MaterialPropertyBlock.
 /// </summary>
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Collider))]
@@ -44,25 +44,18 @@ public class ConveyorBelt : MonoBehaviour
     public float TextureScrollSpeed { get; private set; } = 1.0f;
 
     /// <summary>
-    /// Множество физических тел интерактивных объектов на ленте.
+    /// Список физических тел предметов на ленте.
+    /// Проход с конца позволяет безопасно удалять элементы на месте без дополнительных буферов.
     /// </summary>
-    private readonly HashSet<Rigidbody> itemsOnBelt = new HashSet<Rigidbody>();
+    private readonly List<Rigidbody> itemsOnBelt = new List<Rigidbody>();
 
     /// <summary>
-    /// Список для очистки уничтоженных объектов (нарезка прямо на ленте).
-    /// </summary>
-    private readonly List<Rigidbody> deadItemsBuffer = new List<Rigidbody>();
-
-    /// <summary>
-    /// Блок свойств материала для производительного смещения UV без создания копий материалов.
+    /// Блок свойств материала для анимации UV без утечек памяти.
     /// </summary>
     private MaterialPropertyBlock propertyBlock;
 
-    /// <summary>
-    /// Идентификатор шейдерного свойства смещения текстуры.
-    /// </summary>
     private static readonly int MainTexST = Shader.PropertyToID("_MainTex_ST");
-    private static readonly int BaseMapST = Shader.PropertyToID("_BaseMap_ST"); // Для URP
+    private static readonly int BaseMapST = Shader.PropertyToID("_BaseMap_ST");
 
     private float textureOffset;
     private int targetTexturePropertyId;
@@ -83,7 +76,6 @@ public class ConveyorBelt : MonoBehaviour
         if (BeltRenderer != null)
         {
             propertyBlock = new MaterialPropertyBlock();
-            // Поддержка стандартного шейдера (Built-in) и URP Lit
             targetTexturePropertyId = BeltRenderer.sharedMaterial != null && BeltRenderer.sharedMaterial.HasProperty(BaseMapST)
                 ? BaseMapST
                 : MainTexST;
@@ -102,22 +94,20 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Проверка №1: Объект ОБЯЗАН быть InteractiveObject
         InteractiveObject interactiveObj = other.GetComponent<InteractiveObject>();
         if (interactiveObj == null)
             return;
 
         Rigidbody rb = other.attachedRigidbody;
-        if (rb != null && !rb.isKinematic)
+        if (rb != null && !rb.isKinematic && !itemsOnBelt.Contains(rb))
         {
-            if (itemsOnBelt.Add(rb))
-            {
-                // Мгновенное прилипание: гасим вертикальный отскок и хаотичное вращение
-                Vector3 currentVel = rb.linearVelocity;
-                currentVel.y = 0f;
-                rb.linearVelocity = currentVel;
-                rb.angularVelocity = Vector3.zero;
-            }
+            itemsOnBelt.Add(rb);
+
+            // При приземлении гасим вертикальный подскок
+            Vector3 currentVel = rb.linearVelocity;
+            currentVel.y = 0f;
+            rb.linearVelocity = currentVel;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 
@@ -131,34 +121,40 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     /// <summary>
-    /// Перемещение объектов с учетом наклона поверхности ленты.
+    /// Мягкое физическое перемещение предметов через linearVelocity с удалением на месте.
     /// </summary>
     private void MoveItems()
     {
         if (itemsOnBelt.Count == 0)
             return;
 
-        // Вектор с учетом локального поворота и наклона конвейера
-        Vector3 worldDirection = transform.TransformDirection(Direction.normalized);
-        Vector3 movementStep = worldDirection * (Speed * Time.fixedDeltaTime);
+        Vector3 targetBeltVelocity = transform.TransformDirection(Direction.normalized) * Speed;
 
-        deadItemsBuffer.Clear();
-
-        foreach (Rigidbody rb in itemsOnBelt)
+        // Идем с конца: позволяет удалять прямо перед continue без промежуточных буферов
+        for (int i = itemsOnBelt.Count - 1; i >= 0; i--)
         {
+            Rigidbody rb = itemsOnBelt[i];
+
+            // Если объект был уничтожен прямо на ленте (разрезан ножом)
             if (rb == null)
             {
-                deadItemsBuffer.Add(rb);
+                itemsOnBelt.RemoveAt(i);
                 continue;
             }
+            rb.angularVelocity = Vector3.zero;
             
-            rb.MovePosition(rb.position + movementStep);
-        }
+            Vector3 velocity = rb.linearVelocity;
+            velocity.x = targetBeltVelocity.x;
+            velocity.z = targetBeltVelocity.z;            
 
-        // Удаляем собранные null ссылки
-        for (int i = 0; i < deadItemsBuffer.Count; i++)
-        {
-            itemsOnBelt.Remove(deadItemsBuffer[i]);
+
+            // Если лента наклонная, учитываем и вертикальный уклон targetBeltVelocity.y
+            if (Mathf.Abs(targetBeltVelocity.y) > 0.01f)
+            {
+                velocity.y = targetBeltVelocity.y;
+            }
+
+            rb.linearVelocity = velocity;
         }
     }
 
@@ -173,7 +169,6 @@ public class ConveyorBelt : MonoBehaviour
         textureOffset += Speed * TextureScrollSpeed * Time.deltaTime;
 
         BeltRenderer.GetPropertyBlock(propertyBlock);
-        // Vector4(Tiling.x, Tiling.y, Offset.x, Offset.y)
         propertyBlock.SetVector(targetTexturePropertyId, new Vector4(1f, 1f, 0f, textureOffset));
         BeltRenderer.SetPropertyBlock(propertyBlock);
     }
@@ -181,11 +176,9 @@ public class ConveyorBelt : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Color gizmoColor = Color.cyan;
+        Gizmos.color = Color.cyan;
         float arrowLength = 1.5f;
         float arrowHeadSize = 0.35f;
-
-        Gizmos.color = gizmoColor;
 
         Vector3 startPoint = transform.position;
         Collider col = GetComponent<Collider>();
@@ -197,10 +190,8 @@ public class ConveyorBelt : MonoBehaviour
         Vector3 worldDirection = transform.TransformDirection(Direction.normalized);
         Vector3 endPoint = startPoint + worldDirection * arrowLength;
 
-        // Основной луч направления
         Gizmos.DrawLine(startPoint, endPoint);
 
-        // Расчет наконечника с учетом наклона плоскости ленты
         Vector3 right = Vector3.Cross(worldDirection, transform.up).normalized;
         if (right == Vector3.zero)
             right = transform.right;
