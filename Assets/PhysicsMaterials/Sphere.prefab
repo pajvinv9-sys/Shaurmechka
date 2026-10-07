@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8928988414727726864}
   - component: {fileID: 2481761158592833927}
   - component: {fileID: 9035371766752915619}
+  - component: {fileID: 4792110335883684534}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b942b9315273b46ad09c0d5bb8d7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrabbingItem
+--- !u!114 &4792110335883684534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442060694856272227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637832d250f098e4db827623ad1c7835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cutlet
+  cookedMaterial: {fileID: 2100000, guid: c6e7c0a5503ee8a488e9163f76eca7f3, type: 2}
+  sizzleSound: {fileID: 8300000, guid: f369c3fc71dc3ad459bf4c4398cc306f, type: 3}
