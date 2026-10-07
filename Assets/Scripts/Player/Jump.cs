@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,7 +7,10 @@ public class Jump : MonoBehaviour
 {
     [field: SerializeField] public InputAction JumpButton {  get; private set; }
     [field: SerializeField] public float JumpForce { get; private set; }
+    [field: SerializeField] public bool OverJump { get; private set; }
+
     private Rigidbody rb;
+    private bool canJump;
 
     private void OnEnable()
     {
@@ -26,6 +30,25 @@ public class Jump : MonoBehaviour
 
     private void JumpVoid(InputAction.CallbackContext context)
     {
-        rb.AddForce(0, JumpForce, 0);
+        if (OverJump || canJump)
+        {
+            rb.AddForce(0, JumpForce, 0);
+            canJump = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<GroundMarker>() != null)
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                if (contact.normal.y > 0.5f)
+                {
+                    canJump = true;
+                    break;
+                }
+            }
+        }
     }
 }
