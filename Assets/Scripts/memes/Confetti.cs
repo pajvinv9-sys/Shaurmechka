@@ -41,7 +41,7 @@ public class ConfettiTriggerZone : MonoBehaviour
     /// Звук хлопушки / фанфар / победы.
     /// </summary>
     [field: SerializeField]
-    public AudioClip CelebrateSound { get; private set; }
+    public AudioClip[] CelebrateSounds { get; private set; }
     
     private float lastTriggerTime;
 
@@ -62,10 +62,15 @@ public class ConfettiTriggerZone : MonoBehaviour
         TriggerConfetti();
 
         // 2. Звук хлопушки
-        if (CelebrateSound != null)
+        if (CelebrateSounds != null && CelebrateSounds.Length > 0)
         {
             Vector3 soundPos = ConfettiSpawnPoint != null ? ConfettiSpawnPoint.position : transform.position;
-            AudioSource.PlayClipAtPoint(CelebrateSound, soundPos, 1.0f);
+    
+            // Выбираем случайный индекс
+            int randomIndex = Random.Range(0, CelebrateSounds.Length);
+    
+            // Передаем конкретный случайный клип из массива по индексу
+            AudioSource.PlayClipAtPoint(CelebrateSounds[randomIndex], soundPos, 1.0f);
         }
     }
 
