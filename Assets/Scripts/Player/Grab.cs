@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -78,6 +79,20 @@ public class Grab : MonoBehaviour
     /// </summary>
     private Coroutine takeCoroutine;
 
+
+    /// <summary>
+    /// Нашли объект для взятияы
+    /// </summary>
+    public event Action<InteractiveObject> ItemFound;
+
+    /// <summary>
+    /// Вызывается, когда текущий интерактивный объект перестаёт быть выбранным.
+    /// </summary>
+    public event Action ItemLost;
+
+
+
+
     private void Awake()
     {
         // Если LaunchBeam не назначен, пытаемся получить его с этого же GameObject.
@@ -88,8 +103,10 @@ public class Grab : MonoBehaviour
     private void OnEnable()
     {
         // Подписываемся на события обнаружения и потери интерактивного объекта.
-        Lb.ItemFound += OnStartTake;
-        Lb.ItemLost += OnEndTake;
+        ItemFound += OnStartTake;
+        ItemLost += OnEndTake;
+        Lb.ItemFound += ItemFound;
+        Lb.ItemLost += ItemLost;
 
         // Включаем Input Action и подписываемся на событие отпускания объекта.
         DropKey.started += Drop;
@@ -99,8 +116,10 @@ public class Grab : MonoBehaviour
     private void OnDisable()
     {
         // Отписываемся от событий LaunchBeam.
-        Lb.ItemFound -= OnStartTake;
-        Lb.ItemLost -= OnEndTake;
+        ItemFound -= OnStartTake;
+        ItemLost -= OnEndTake;
+        Lb.ItemFound -= ItemFound;
+        Lb.ItemLost -= ItemLost;
 
         // Отписываемся от Input Action и отключаем его.
         DropKey.started -= Drop;
@@ -119,9 +138,18 @@ public class Grab : MonoBehaviour
         // Получаем компонент, позволяющий захватывать объект.
         Item = interactiveObject.GetComponent<GrabbingItem>();
 
-        // Если объект не поддерживает захват, ничего не делаем.
+        // Если объект не поддерживает захват, проверяем, является ли он контейнером
         if (Item == null)
-            return;
+        {
+            if (interactiveObject.GetComponent<InfiniteBox>())
+            {
+                Item = Instantiate(interactiveObject.GetComponent<InfiniteBox>().ContentPrefab);
+                Item.transform.position = interactiveObject.transform.position;
+            }
+        }
+
+        //Если ничего не подходит, ничего не делаем
+        if (Item == null) return;
 
         // Запускаем Coroutine для постоянного удержания объекта перед игроком.
         takeCoroutine = StartCoroutine(Take());
