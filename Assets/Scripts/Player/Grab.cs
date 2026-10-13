@@ -135,6 +135,9 @@ public class Grab : MonoBehaviour
     /// <param name="interactiveObject">Обнаруженный интерактивный объект.</param>
     private void OnStartTake(InteractiveObject interactiveObject)
     {
+        if (!interactiveObject.CanBeGrabbed)
+            return;
+
         // Получаем компонент, позволяющий захватывать объект.
         Item = interactiveObject.GetComponent<GrabbingItem>();
 
