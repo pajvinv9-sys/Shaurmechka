@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -38,14 +39,10 @@ public class Knife : MonoBehaviour
     /// <param name="other">Коллайдер коснувшегося объекта.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (Rb.linearVelocity.magnitude < MinCutSpeed)
-            return;
-
         CanBeSliced ingredient = other.GetComponent<CanBeSliced>();
 
-        if (ingredient != null)
-        {
-            ingredient.Slice(transform.right);
-        }
+        if (ingredient == null) return;
+
+        
     }
 }

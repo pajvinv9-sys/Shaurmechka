@@ -77,8 +77,7 @@ public class CanBeSliced : MonoBehaviour
     /// Метод нарезки объекта на дольки или слайсы.
     /// Вызывается ножом (Knife.cs) при соприкосновении.
     /// </summary>
-    /// <param name="cutDirection">Направление реза ножа.</param>
-    public void Slice(Vector3 cutDirection)
+    public void Slice()
     {
   
         // Воспроизводим звук и частицы (если назначены)

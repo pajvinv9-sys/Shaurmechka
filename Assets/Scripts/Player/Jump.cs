@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<GroundMarker>() != null)
+        if (collision.gameObject.GetComponent<Ground>() != null)
         {
             foreach (ContactPoint contact in collision.contacts)
             {

@@ -176,10 +176,10 @@ public class Grab : MonoBehaviour
             // Первая часть работает как пружина, вторая уменьшает скорость объекта.
             Vector3 force =
                 positionError * spring -
-                Item.Rb.linearVelocity * damping;
+                Item.InteractiveObject.Rigidbody.linearVelocity * damping;
 
             // Прикладываем рассчитанную силу к Rigidbody объекта.
-            Item.Rb.AddForce(force, ForceMode.Force);
+            Item.InteractiveObject.Rigidbody.AddForce(force, ForceMode.Force);
 
             // Рассчитываем направление от объекта к игроку.
             Vector3 directionToPlayer =
@@ -198,13 +198,13 @@ public class Grab : MonoBehaviour
                 // Плавно приближаем текущий поворот объекта к целевому.
                 Quaternion newRotation =
                     Quaternion.RotateTowards(
-                        Item.Rb.rotation,
+                        Item.InteractiveObject.Rigidbody.rotation,
                         targetRotation,
                         RotationSpeed * Time.deltaTime
                     );
 
                 // Применяем новый поворот через Rigidbody.
-                Item.Rb.MoveRotation(newRotation);
+                Item.InteractiveObject.Rigidbody.MoveRotation(newRotation);
             }
 
             // Ждём следующий кадр перед повторным расчётом.
@@ -250,7 +250,7 @@ public class Grab : MonoBehaviour
             return;
 
         // Придаём объекту импульс в направлении взгляда игрока.
-        Item.Rb.AddForce(
+        Item.InteractiveObject.Rigidbody.AddForce(
             transform.forward * DropForce,
             ForceMode.Impulse
         );
