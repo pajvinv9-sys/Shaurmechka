@@ -1,41 +1,41 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 /// <summary>
-/// Управляет вращением игрока и камеры от движения мыши.
+/// РЈРїСЂР°РІР»СЏРµС‚ РІСЂР°С‰РµРЅРёРµРј РёРіСЂРѕРєР° Рё РєР°РјРµСЂС‹ РѕС‚ РґРІРёР¶РµРЅРёСЏ РјС‹С€Рё.
 ///
-/// Крепится на: GameObject игрока.
-/// Вертикальное вращение применяется к дочерней камере.
-/// Горизонтальное вращение применяется к игроку.
+/// РљСЂРµРїРёС‚СЃСЏ РЅР°: GameObject РёРіСЂРѕРєР°.
+/// Р’РµСЂС‚РёРєР°Р»СЊРЅРѕРµ РІСЂР°С‰РµРЅРёРµ РїСЂРёРјРµРЅСЏРµС‚СЃСЏ Рє РґРѕС‡РµСЂРЅРµР№ РєР°РјРµСЂРµ.
+/// Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРµ РІСЂР°С‰РµРЅРёРµ РїСЂРёРјРµРЅСЏРµС‚СЃСЏ Рє РёРіСЂРѕРєСѓ.
 /// </summary>
 public class Rotate : MonoBehaviour
 {
     /// <summary>
-    /// Камера игрока, вращаемая по вертикальной оси.
+    /// РљР°РјРµСЂР° РёРіСЂРѕРєР°, РІСЂР°С‰Р°РµРјР°СЏ РїРѕ РІРµСЂС‚РёРєР°Р»СЊРЅРѕР№ РѕСЃРё.
     /// </summary>
     [field: SerializeField] public Transform Camera { get; private set; }
 
     /// <summary>
-    /// Input Action, содержащий дельту движения мыши.
+    /// Input Action, СЃРѕРґРµСЂР¶Р°С‰РёР№ РґРµР»СЊС‚Сѓ РґРІРёР¶РµРЅРёСЏ РјС‹С€Рё.
     /// </summary>
     [field: SerializeField] public InputAction MouseDelta { get; private set; }
 
     /// <summary>
-    /// Чувствительность горизонтального вращения.
+    /// Р§СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚СЊ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅРѕРіРѕ РІСЂР°С‰РµРЅРёСЏ.
     /// </summary>
     [field: SerializeField] public float SensitiveX { get; private set; } = 1f;
 
     /// <summary>
-    /// Чувствительность вертикального вращения.
+    /// Р§СѓРІСЃС‚РІРёС‚РµР»СЊРЅРѕСЃС‚СЊ РІРµСЂС‚РёРєР°Р»СЊРЅРѕРіРѕ РІСЂР°С‰РµРЅРёСЏ.
     /// </summary>
     [field: SerializeField] public float SensitiveY { get; private set; } = 1f;
 
     /// <summary>
-    /// Минимальный угол наклона камеры по вертикали.
+    /// РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СѓРіРѕР» РЅР°РєР»РѕРЅР° РєР°РјРµСЂС‹ РїРѕ РІРµСЂС‚РёРєР°Р»Рё.
     /// </summary>
     [field: SerializeField] public float MinCameraAngle { get; private set; } = -80f;
 
     /// <summary>
-    /// Максимальный угол наклона камеры по вертикали.
+    /// РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СѓРіРѕР» РЅР°РєР»РѕРЅР° РєР°РјРµСЂС‹ РїРѕ РІРµСЂС‚РёРєР°Р»Рё.
     /// </summary>
     [field: SerializeField] public float MaxCameraAngle { get; private set; } = 80f;
 
@@ -46,10 +46,10 @@ public class Rotate : MonoBehaviour
     private void Awake()
     {
         if (Camera == null)
-            Debug.LogError("Camera не найдена", this);
+            Debug.LogError("Camera РЅРµ РЅР°Р№РґРµРЅР°", this);
 
         if (MouseDelta == null || MouseDelta.bindings.Count == 0)
-            Debug.LogError("MouseDelta не назначен", this);
+            Debug.LogError("MouseDelta РЅРµ РЅР°Р·РЅР°С‡РµРЅ", this);
 
         _yaw = transform.eulerAngles.y;
         _pitch = Camera.localEulerAngles.x;

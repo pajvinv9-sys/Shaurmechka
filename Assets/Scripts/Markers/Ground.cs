@@ -1,7 +1,7 @@
 using UnityEngine;
 /// <summary>
-/// Маркер земли.
-/// Юзается в методе прыжка персонажа
+/// РњР°СЂРєРµСЂ Р·РµРјР»Рё.
+/// Р®Р·Р°РµС‚СЃСЏ РІ РјРµС‚РѕРґРµ РїСЂС‹Р¶РєР° РїРµСЂСЃРѕРЅР°Р¶Р°
 /// </summary>
 [RequireComponent (typeof(Collider))]
 public class Ground : MonoBehaviour

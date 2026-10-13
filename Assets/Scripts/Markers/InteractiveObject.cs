@@ -1,7 +1,7 @@
 using UnityEngine;
 /// <summary>
-/// Компонент-маркер для объектов, с которыми можно взаимодействовать
-/// Для примера смотри GrabbingItem.cs и LaunchBeam.cs
+/// РљРѕРјРїРѕРЅРµРЅС‚-РјР°СЂРєРµСЂ РґР»СЏ РѕР±СЉРµРєС‚РѕРІ, СЃ РєРѕС‚РѕСЂС‹РјРё РјРѕР¶РЅРѕ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРѕРІР°С‚СЊ
+/// Р”Р»СЏ РїСЂРёРјРµСЂР° СЃРјРѕС‚СЂРё GrabbingItem.cs Рё LaunchBeam.cs
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]

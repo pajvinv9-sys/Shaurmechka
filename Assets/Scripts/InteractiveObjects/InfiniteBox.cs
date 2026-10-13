@@ -1,21 +1,21 @@
 using UnityEngine;
 
 /// <summary>
-/// Бесконечный контейнер, который создаёт предметы для захвата.
+/// Р‘РµСЃРєРѕРЅРµС‡РЅС‹Р№ РєРѕРЅС‚РµР№РЅРµСЂ, РєРѕС‚РѕСЂС‹Р№ СЃРѕР·РґР°С‘С‚ РїСЂРµРґРјРµС‚С‹ РґР»СЏ Р·Р°С…РІР°С‚Р°.
 ///
-/// Крепится на GameObject контейнера.
+/// РљСЂРµРїРёС‚СЃСЏ РЅР° GameObject РєРѕРЅС‚РµР№РЅРµСЂР°.
 ///
-/// Требует:
-/// - InteractiveObject на этом же GameObject.
+/// РўСЂРµР±СѓРµС‚:
+/// - InteractiveObject РЅР° СЌС‚РѕРј Р¶Рµ GameObject.
 ///
-/// Настройка:
-/// - В поле ContentPrefab указывается Prefab предмета.
-/// - У Prefab должен быть GrabbingItem.
+/// РќР°СЃС‚СЂРѕР№РєР°:
+/// - Р’ РїРѕР»Рµ ContentPrefab СѓРєР°Р·С‹РІР°РµС‚СЃСЏ Prefab РїСЂРµРґРјРµС‚Р°.
+/// - РЈ Prefab РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ GrabbingItem.
 /// </summary>
 public class InfiniteBox : InteractiveObject
 {
     /// <summary>
-    /// Prefab предмета, который будет создаваться контейнером.
+    /// Prefab РїСЂРµРґРјРµС‚Р°, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ СЃРѕР·РґР°РІР°С‚СЊСЃСЏ РєРѕРЅС‚РµР№РЅРµСЂРѕРј.
     /// </summary>
     [field: SerializeField]
     public GrabbingItem ContentPrefab { get; private set; }
