@@ -135,9 +135,6 @@ public class Grab : MonoBehaviour
     /// <param name="interactiveObject">Обнаруженный интерактивный объект.</param>
     private void OnStartTake(InteractiveObject interactiveObject)
     {
-        if (!interactiveObject.CanBeGrabbed)
-            return;
-
         // Получаем компонент, позволяющий захватывать объект.
         Item = interactiveObject.GetComponent<GrabbingItem>();
 
@@ -149,10 +146,11 @@ public class Grab : MonoBehaviour
                 Item = Instantiate(interactiveObject.GetComponent<InfiniteBox>().ContentPrefab);
                 Item.transform.position = interactiveObject.transform.position;
             }
+
+            else return;
         }
 
-        //Если ничего не подходит, ничего не делаем
-        if (Item == null) return;
+        if (!Item.CanBeGrab) return;
 
         // Запускаем Coroutine для постоянного удержания объекта перед игроком.
         takeCoroutine = StartCoroutine(Take());

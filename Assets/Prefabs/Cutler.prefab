@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9035371766752915619}
   - component: {fileID: 4792110335883684534}
   m_Layer: 0
-  m_Name: "\u043A\u043E\u0442\u043B\u0435\u0442\u0430"
+  m_Name: Cutler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 3162104097703056909}
   - component: {fileID: 6959358526889619551}
   m_Layer: 0
-  m_Name: "\u043A\u043E\u0440\u0437\u0438\u043D\u0430 \u0441 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0430\u043C\u0438"
+  m_Name: InfiniteBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

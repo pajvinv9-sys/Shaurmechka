@@ -10,8 +10,10 @@ using UnityEngine;
 /// 
 /// </summary>
 
-[RequireComponent (typeof(InteractiveObject))]
+[RequireComponent(typeof(InteractiveObject))]
 public class GrabbingItem : MonoBehaviour
 {
     public InteractiveObject InteractiveObject { get; private set; }
+
+    [field: SerializeField] public bool CanBeGrab { get; set; } = true;
 }

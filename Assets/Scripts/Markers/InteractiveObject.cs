@@ -9,7 +9,6 @@ public class InteractiveObject : MonoBehaviour
 {
     public Rigidbody Rigidbody { get; private set; }
     public Collider Collider { get; private set; }
-    [field: SerializeField] public bool CanBeGrabbed { get; set; } = true;
 
     private void Awake()
     {
