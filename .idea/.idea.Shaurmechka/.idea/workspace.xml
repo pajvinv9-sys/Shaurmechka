@@ -4,9 +4,926 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6598ff0a-f03b-4c34-910e-e49d5a30934d" name="Изменения" comment="">
+    <list default="true" id="6598ff0a-f03b-4c34-910e-e49d5a30934d" name="Изменения" comment="новая карта">
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Meshes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Meshes/Tetrahedron_128.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Meshes/Tetrahedron_128.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Resources/BlockadeLabsConfiguration.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Resources/BlockadeLabsConfiguration.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Resources/New Terrain Material.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Blockade Labs SDK/Resources/New Terrain Material.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Customizable Skybox Documentaion.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Customizable Skybox Documentaion.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/Clouds.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/Clouds.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/Material.003.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/Material.003.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/No Name.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/No Name.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/dark trunk.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/dark trunk.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/darken leafs.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/darken leafs.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/earth.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/earth.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/green tree.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/green tree.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/pine tree green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/pine tree green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/trunk.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Materials/trunk.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Low Poly Island.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Low Poly Island.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/Material.003.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/Material.003.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/No Name.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/No Name.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/dark trunk.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/dark trunk.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/darken leafs.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/darken leafs.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/earth.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/earth.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/green tree.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/green tree.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/pine brown.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/pine brown.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/pine tree green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/pine tree green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/trunk.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Model/Materials/trunk.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Scenes/DemoScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Scenes/DemoScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day5.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day5.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day6.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day6.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day7.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Day7.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Morning4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Night4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset2.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset2.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset3.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset3.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset5.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Materials/Sunset5.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Shaders/Stylized Sky.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Customizable Skybox/Stylized Sky/Shaders/Stylized Sky.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Doc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Doc/Free Tree Shaders Guide.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Doc/Free Tree Shaders Guide.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Doc/TreeMakerPacks.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Doc/TreeMakerPacks.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/Floor.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/Floor.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/Leaf_TreePack_1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/Leaf_TreePack_1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/TreePack_1_Leaf.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/TreePack_1_Leaf.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/TreePack_1_Leaf_MaskMap.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/TreePack_1_Leaf_MaskMap.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/Trunk_TreePack_1.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Materials/Trunk_TreePack_1.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/TreePack_1_Leaf.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/TreePack_1_Leaf.tga.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/TreePack_1_Leaf_MaskMap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/TreePack_1_Leaf_MaskMap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/TreePack_1_Trunk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/TreePack_1_Trunk.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Tree_1_Sample.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Models/Tree_1_Sample.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Prefabs/Tree_1_Sample.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Prefabs/Tree_1_Sample.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Scene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Scene/FreeTreeShaders.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Scene/FreeTreeShaders.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Shaders/TreeLeaf_ShaderGraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Shaders/TreeLeaf_ShaderGraph/Tree Leaf MaskMap.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Shaders/TreeLeaf_ShaderGraph/Tree Leaf MaskMap.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Shaders/TreeLeaf_ShaderGraph/Tree Leaf.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FreeTreeShaders/Shaders/TreeLeaf_ShaderGraph/Tree Leaf.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Grass And Moss Decals Pack.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/LowlyPoly.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/LowlyPoly/Stylized Grass Texture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/LowlyPoly/Stylized Grass Texture/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/LowlyPoly/Stylized Grass Texture/Textures/Grass.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/LowlyPoly/Stylized Grass Texture/Textures/Grass.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/New Terrain.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Capsule.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Capsule.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesFixtureEmissive.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesFixtureEmissive.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesRoughBlack.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesRoughBlack.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesSpotlightEmissive.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesSpotlightEmissive.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesTurntable_White.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/SamplesTurntable_White.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_BackdropFabric.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_BackdropFabric.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_BackdropFabric_Red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_BackdropFabric_Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_BlackPaint.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_BlackPaint.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Checker.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Checker.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Curtain.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Curtain.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Platform.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Platform.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_RoughGrey.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_RoughGrey.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_RoughSteel.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_RoughSteel.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Tripod.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Samples_Tripod.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shader Graphs_MaterialBall_Black.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shader Graphs_MaterialBall_Black.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shader Graphs_MaterialBall_Gold.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shader Graphs_MaterialBall_Gold.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shader Graphs_MaterialBall_White.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shader Graphs_MaterialBall_White.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/MaterialBall.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/MaterialBall.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesArrow.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesArrow.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesBackdrop.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesBackdrop.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesChecker.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesChecker.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesCrossLit.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesCrossLit.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesCyclo.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesCyclo.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesEmissive.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesEmissive.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesGenericTextured.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesGenericTextured.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesTransparentInfos.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesTransparentInfos.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesTurntable.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Materials/Shaders/SamplesTurntable.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Backdrop.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Backdrop.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/BackgroundMesh.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/BackgroundMesh.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/CubePanel.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/CubePanel.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Curtain.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Curtain.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/FrameCorner.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/FrameCorner.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/FrameSide.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/FrameSide.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/InfosStand.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/InfosStand.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Lion.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Lion.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/NameHolder.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/NameHolder.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Panel.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/Panel.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/SamplesFixture.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/SamplesFixture.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/SamplesFloorSpotlight.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/SamplesFloorSpotlight.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/SamplesSpotlightModel.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/SamplesSpotlightModel.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/TurntableBackdrop.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/TurntableBackdrop.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/UnityLogo.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/UnityLogo.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/UnityMaterialBall.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/UnityMaterialBall.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/platform_Turntable.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Models/platform_Turntable.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/Arrow.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/Arrow.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/FloatingInfo.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/FloatingInfo.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/InfoPanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/InfoPanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/InfoStand.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/InfoStand.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/NameHolder.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/NameHolder.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/TitlePanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Info/TitlePanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Backdrop.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Backdrop.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/CubePanel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/CubePanel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Curtain.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Curtain.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Open45Stand.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Open45Stand.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Platform.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Platform.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Turntable.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/Turntable.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/TurntableWithBackdrop.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/TurntableWithBackdrop.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/UnityLogo.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/Presentation/UnityLogo.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/UnityBall.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/UnityBall/UnityMaterialBall_Black.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/UnityBall/UnityMaterialBall_Black.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/UnityBall/UnityMaterialBall_Gold.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Prefabs/UnityBall/UnityMaterialBall_Gold.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/AlignSceneView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/AlignSceneView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/InstallPackageEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/InstallPackageEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/SamplesShowcaseEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/SamplesShowcaseEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/SamplesShowcaseEditorWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/SamplesShowcaseEditorWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/Unity.RenderPipelines.Core.Samples.Editor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Editor/Unity.RenderPipelines.Core.Samples.Editor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/GetSampleInfos.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/GetSampleInfos.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/InstallPackage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/InstallPackage.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings/IRequiredSetting.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings/IRequiredSetting.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings/RequiredSettingBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings/RequiredSettingBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings/RequiredSettingsSOT.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/RequiredSettings/RequiredSettingsSOT.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Resources/SamplesSelectionUSS.uss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Resources/SamplesSelectionUSS.uss.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Resources/SamplesSelectionUXML.uxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Resources/SamplesSelectionUXML.uxml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Samples.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Samples.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/SamplesFreeCamera.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/SamplesFreeCamera.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/SamplesLinkLightToEmissive.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/SamplesLinkLightToEmissive.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/SamplesShowcase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/SamplesShowcase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Unity.RenderPipelines.Core.Samples.Runtime.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Scripts/Unity.RenderPipelines.Core.Samples.Runtime.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-LICENSE.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-Regular SDF Emissive Variant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-Regular SDF Emissive Variant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-Regular SDF.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-Regular SDF.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-Regular.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/Inter-Regular.otf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/SamplesLit_Inter.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/SamplesLit_Inter.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/TMP_Node.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/Fonts &amp; Materials/TMP_Node.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/TMP Settings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/TextMesh Pro/Resources/TMP Settings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Textures/Samples_FractalNoises.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Scriptable Render Pipeline Core/17.3.0/Common/Textures/Samples_FractalNoises.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/NegativeX.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/NegativeX.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/NegativeY.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/NegativeY.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/NegativeZ.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/NegativeZ.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/PositiveX.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/PositiveX.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/PositiveY.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/PositiveY.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/PositiveZ.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Billboard/PositiveZ.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles/ParticleStack100.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles/ParticleStack100.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles/ParticleStack25.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles/ParticleStack25.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles/ParticleStack50.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Particles/ParticleStack50.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_01.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_01.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_01.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_01.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_02.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_02.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_02.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_A_02.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_LOD0.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/Rock_LOD0.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/flag.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/flag.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/grass_bladeNoLOD10.FBX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/grass_bladeNoLOD10.FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/teapot.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/teapot.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/waterPlane2x2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Meshes/waterPlane2x2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Scripts/DisableGizmos.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Scripts/DisableGizmos.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Scripts/Rotate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Scripts/Rotate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Shaders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Shaders/ParticleEffect.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Shaders/ParticleEffect.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AlphaMerge.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AlphaMerge.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AlphaSplit.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AlphaSplit.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AltitudeMask.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AltitudeMask.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AngleMask.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AngleMask.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AnimatedGrassPhase.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/AnimatedGrassPhase.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BendDeformer.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BendDeformer.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Billboard.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Billboard.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BillboardCylindrical.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BillboardCylindrical.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BiplanarSample.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BiplanarSample.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BranchOnRP.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BranchOnRP.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BrightnessContrast.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/BrightnessContrast.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/ColorToGrayscale.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/ColorToGrayscale.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/CustomLightingPBRAmbient.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/CustomLightingPBRAmbient.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/DistanceCutoff.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/DistanceCutoff.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/DistanceMask.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/DistanceMask.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/ExpandVec2.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/ExpandVec2.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/ExpandVec4.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/ExpandVec4.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/FoliageWind.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/FoliageWind.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/GerstnerWave.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/GerstnerWave.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash11.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash11.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash21.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash21.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash23.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash23.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash31.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash31.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash33.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Hash33.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/HexGrid.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/HexGrid.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Levels.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Levels.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/MainLight.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/MainLight.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/MotionChaos.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/MotionChaos.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/PixelClip.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/PixelClip.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/PseudoSubsurface.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/PseudoSubsurface.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/PseudoSubsurface.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/PseudoSubsurface.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/RandomFromPosition.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/RandomFromPosition.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/SampleReflectionProbes.hlsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/SampleReflectionProbes.hlsl.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/SampleReflectionProbes.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/SampleReflectionProbes.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Switch7.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Switch7.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/TriplanarDirectionMasks.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/TriplanarDirectionMasks.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVInteriorCubemap.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVInteriorCubemap.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVLatLong.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVLatLong.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVSphereMap.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVSphereMap.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVTriplanar.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVTriplanar.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVTriplanarNormalTransform.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UVTriplanarNormalTransform.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UnpackCSNOH.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UnpackCSNOH.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UnpackDetailNOS.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/UnpackDetailNOS.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Wind.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Subgraphs/Wind.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Cloud04_8x8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Cloud04_8x8.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Explosion02_5x5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Explosion02_5x5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/FlipbookTest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/FlipbookTest.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/MipChecker.dds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/MipChecker.dds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Moss_CO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Moss_CO.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Moss_N.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Moss_N.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_A_CS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_A_CS.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_A_NO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_A_NO.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_Macro_NOS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_Macro_NOS.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_Micro_NOS.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_Micro_NOS.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_Projection_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/Rock_Projection_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/SoftNoise.tga" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/SoftNoise.tga.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cloud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cloud.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_d.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_detail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_detail.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_e.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_h1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_h1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_mohs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_mohs.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/cobblestones_n.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/flowmap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/flowmap.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/interior_cube_sample.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/interior_cube_sample.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/matcap_example2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/matcap_example2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/sunset_sky_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/sunset_sky_02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil_c.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil_m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil_m.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil_n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/dry_soil/dry_soil_n.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy_c.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy_m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy_m.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy_n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_grass_fells_mossy/ground_grass_fells_mossy_n.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty_c.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty_m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty_m.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty_n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/ground_rockgrass_fellsdirty/ground_rockgrass_fellsdirty_n.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground_c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground_c.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground_m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground_m.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground_n.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/terrain/stone_ground/stone_ground_n.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/test_texture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/test_texture.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/water_churn_8x4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/water_churn_8x4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/windows_d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Common/Textures/windows_d.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/.sample.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/AltitudeMask.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/AltitudeMask.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/AngleMask.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/AngleMask.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/CameraDistanceMask.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/CameraDistanceMask.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/HeightMask.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Blending Masks/HeightMask.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnMaterialQuality.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnMaterialQuality.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnMaterialQuality.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnMaterialQuality.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnRP.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnRP.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnRP.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Condition/BranchOnRP.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorNdotL.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorNdotL.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorNdotL.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorNdotL.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorUVScrolling.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorUVScrolling.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorUVScrolling.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Interpolator/CustomInterpolatorUVScrolling.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Cel Shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Cel Shader/CustomLightingCelShader.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Cel Shader/CustomLightingCelShader.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Cel Shader/DiffuseCelShader.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Cel Shader/DiffuseCelShader.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLighting.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLighting.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingCelShader.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingCelShader.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingCelShader.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingCelShader.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingDistanceFog.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingDistanceFog.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingPBR.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingPBR.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingPBR.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingPBR.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingSimple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingSimple.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingSimple.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/CustomLightingSimple.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/MainLight.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/MainLight.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingAdditionalLights.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingAdditionalLights.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingMainLight.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingMainLight.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingPBR.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingPBR.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingPBRAmbient.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/CustomLightingPBRAmbient.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/DiffusePBR.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/DiffusePBR.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/HalfAngle.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/HalfAngle.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/NormalDistributionTrowReitz.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/NormalDistributionTrowReitz.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/PBRSpecular.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/PBRSpecular.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/SchlickFresnelReflectance.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/SchlickFresnelReflectance.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/SmithGGXGeometryTerm.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/PBRSpecular/SmithGGXGeometryTerm.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/SampleReflectionProbes.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/PBR/SampleReflectionProbes.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/AdjustSmoothness.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/AdjustSmoothness.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/CustomLightingSimple.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/CustomLightingSimple.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/CustomLightingSimpleAdditionalLights.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/CustomLightingSimpleAdditionalLights.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/CustomLightingSimpleAmbient.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Custom Lighting/Simple/CustomLightingSimpleAmbient.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingColor.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingColor.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingColor.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingColor.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingFull.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingFull.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingFull.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingFull.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingNormal.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingNormal.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingNormal.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Detail Mapping/DetailMappingNormal.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Blending Masks.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Blending Masks.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Custom Interpolator.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Custom Interpolator.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Detail Mapping.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Detail Mapping.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/HD Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/HD Prefabs/HDRPSamplesFreeCamera.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/HD Prefabs/HDRPSamplesFreeCamera.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/HD Prefabs/HDRP_SceneTemplate_Outdoor.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/HD Prefabs/HDRP_SceneTemplate_Outdoor.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Particles.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Particles.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Procedural Noise and Shapes.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Procedural Noise and Shapes.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Altitude Mask.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Altitude Mask.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Angle Mask.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Angle Mask.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Animated Flag.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Animated Flag.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Billboard.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Billboard.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Branch on Material Quality.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Branch on Material Quality.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Branch on RP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Branch on RP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Camera Distance Mask.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Camera Distance Mask.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Color Detail Map.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Color Detail Map.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Custom Lighting.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Custom Lighting.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Deformer.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Deformer.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Flipbook.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Flipbook.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Flow Mapping.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Flow Mapping.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Full Detail Map.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Full Detail Map.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Gerstner Wave.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Gerstner Wave.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Height Mask.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Height Mask.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Hexagon Grid.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Hexagon Grid.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Blending Masks Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Blending Masks Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Condition - Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Condition - Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Custom Interpolator Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Custom Interpolator Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/CustomLighting Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/CustomLighting Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Detail Mapping Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Detail Mapping Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Particles Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Particles Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Procedural Noise and Shapes Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Procedural Noise and Shapes Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/UV Projection 1 Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/UV Projection 1 Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/UV Projection 2 Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/UV Projection 2 Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Vertex Animation Info Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Info Panels/Vertex Animation Info Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Interior Cubemapping.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Interior Cubemapping.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Interpolation Artifacts.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Interpolation Artifacts.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Interpolation Savings.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Interpolation Savings.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Lat Long Projection.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Lat Long Projection.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Mist Particles.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Mist Particles.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Normal Detail Map.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Normal Detail Map.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Parallax Mapping.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Parallax Mapping.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Particle Fountain.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Particle Fountain.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Procedural Brick.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Procedural Brick.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/SDF Shapes.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/SDF Shapes.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Smoke Particles.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Smoke Particles.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Sphere Mapping.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Sphere Mapping.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Triplanar Projection.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Triplanar Projection.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Waterfall.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/ShowCasePrefabs/Waterfall.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/UV Projection 1.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/UV Projection 1.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/UV Projection 2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/UV Projection 2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/UV Projection.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/UV Projection.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Vertex Animation.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Prefabs/Vertex Animation.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/HexGrid.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/HexGrid.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/ProceduralBrick.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/ProceduralBrick.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Ellipse.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Ellipse.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Polygon.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Polygon.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Rectangle.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Rectangle.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Rounded Polygon.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Rounded Polygon.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Rounded Rectangle.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/Rounded Rectangle.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/SDFShapes.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/SDFShapes.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/SDFShapes.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/SDF Shapes/SDFShapes.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/Shader Graphs_ProceduralBrick.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Procedural Noise and Shapes/Shader Graphs_ProceduralBrick.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/BiRPBackground.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/BiRPBackground.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/BiRPFeatureExamplesScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/BiRPFeatureExamplesScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/ExteriorVolumeProfile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/ExteriorVolumeProfile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/FeatureExamplesDescriptions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/FeatureExamplesDescriptions.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set-Default.CellData.bytes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set-Default.CellData.bytes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set-Default.CellOptionalData.bytes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set-Default.CellOptionalData.bytes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.CellBricksData.bytes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.CellBricksData.bytes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.CellSharedData.bytes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.CellSharedData.bytes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.CellSupportData.bytes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.CellSupportData.bytes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/HDRPFeatureExampleScene Baking Set.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/HDRPFeatureExampleScene/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/URPFeatureExamplesScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Scenes/URPFeatureExamplesScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Shader Graph Feature Examples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Shader Graph Feature Examples/Subgraph Dropdown.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Shader Graph Feature Examples/Subgraph Dropdown.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Shader Graph Feature Examples/Subgraph Port Defaults.shadersubgraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/Shader Graph Feature Examples/Subgraph Port Defaults.shadersubgraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Flipbook.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Flipbook/Flipbook.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Flipbook/Flipbook.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Flipbook/Flipbook.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Flipbook/Flipbook.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/FlowMapping.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/FlowMapping/FlowMapping.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/FlowMapping/FlowMapping.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/FlowMapping/FlowMapping.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/FlowMapping/FlowMapping.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/InteriorCubemapping.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/InteriorCubemapping/InteriorCubemapping.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/InteriorCubemapping/InteriorCubemapping.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/LatLongProjection.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/LatLongProjection/LatLongProjection.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/LatLongProjection/LatLongProjection.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/LatLongProjection/LatLongProjection.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/LatLongProjection/LatLongProjection.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/MatCap.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/MatCap/MatCap.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/MatCap/MatCap.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/MatCap/MatCap.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/MatCap/MatCap.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/ParallaxMapping.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/ParallaxMapping/ParallaxMapping.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/ParallaxMapping/ParallaxMapping.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/ParallaxMapping/Shader Graphs_ParallaxMapping.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/ParallaxMapping/Shader Graphs_ParallaxMapping.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Triplanar Projection.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Triplanar Projection/TriplanarProjection.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Triplanar Projection/TriplanarProjection.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Triplanar Projection/TriplanarProjection.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/UV Projection/Triplanar Projection/TriplanarProjection.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/AnimatedFlag.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/AnimatedFlag/AnimatedFlag.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/AnimatedFlag/AnimatedFlag.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/BendDeformer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/BendDeformer/BendDeformer.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/BendDeformer/BendDeformer.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/BendDeformer/BendDeformer.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/BendDeformer/BendDeformer.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Billboard.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Billboard/Billboard.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Billboard/Billboard.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Billboard/BillboardPositiveZ.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Billboard/BillboardPositiveZ.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/FoliageWind.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/FoliageWind/FoliageWind.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/FoliageWind/FoliageWind.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/GerstnerWave.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/GerstnerWave/GerstnerWave.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/GerstnerWave/GerstnerWave.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Fountain.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Fountain.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Mist.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Mist.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Smoke.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Smoke.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/SoftEdgeTest.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/SoftEdgeTest.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Waterfall.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/Waterfall.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/WaterfallSplash.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/VertexAnimation/Particles/WaterfallSplash.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/memes/Jump.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/memes/Jump.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/memes/Playerontrols.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/memes/Playerontrols.inputactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/Global Volume Profile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/Global Volume Profile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/Lightmap-0_comp_dir.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/XDXD/ReflectionProbe-0.exr.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shaurmechka/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shaurmechka/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/memes/Confetti.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/memes/Confetti.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +954,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Samples/Shader Graph/17.3.0/Feature Examples/.sample.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/memes/Confetti.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/memes/NotificationZoneTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@97f77d4dda9a/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@97f77d4dda9a/Shaders/Particles/ParticlesUnlit.shader" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@97f77d4dda9a/Shaders/Terrain/TerrainLit.shader" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/projects/Shaurmechka/Packages/manifest.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -129,6 +1050,8 @@
       <workItem from="1791303239006" duration="1568000" />
       <workItem from="1791307092031" duration="10000" />
       <workItem from="1791307953648" duration="6536000" />
+      <workItem from="1791875106389" duration="1981000" />
+      <workItem from="1791888523261" duration="1883000" />
     </task>
     <task id="LOCAL-00001" summary="добавлена система нарезки предметов">
       <option name="closed" value="true" />
@@ -223,7 +1146,8 @@
     <MESSAGE value="Fix CanBeSliced.cs" />
     <MESSAGE value="Добавил конвейер" />
     <MESSAGE value="Поправил конвейер" />
-    <option name="LAST_COMMIT_MESSAGE" value="Поправил конвейер" />
+    <MESSAGE value="новая карта" />
+    <option name="LAST_COMMIT_MESSAGE" value="новая карта" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
