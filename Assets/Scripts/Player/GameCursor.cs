@@ -1,26 +1,25 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Управляет состоянием системного курсора.
+/// Управляет видимостью и фиксацией системного курсора.
 ///
 /// Крепится на GameObject, который присутствует в сцене при запуске.
+/// Сохраняется между сценами, чтобы состояние курсора управлялось одним экземпляром.
 ///
-/// При запуске:
-/// - Скрывает системный курсор.
-/// - Фиксирует курсор в центре окна приложения.
-///
-/// Сохраняется между сценами.
+/// При запуске курсор скрывается и фиксируется в центре окна.
 /// </summary>
 public class GameCursor : MonoBehaviour
 {
+    // Единственный экземпляр GameCursor, доступный из других компонентов.
     public static GameCursor Instance { get; private set; }
 
+    // Текущее состояние фиксации курсора.
     public bool IsLocked { get; private set; }
 
     private void Awake()
     {
+        // Удаляем дубликаты, чтобы избежать конфликтов управления курсором.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -28,6 +27,8 @@ public class GameCursor : MonoBehaviour
         }
 
         Instance = this;
+
+        // Сохраняем объект при переходе между сценами.
         DontDestroyOnLoad(gameObject);
 
         Lock();
@@ -35,6 +36,7 @@ public class GameCursor : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Сбрасываем ссылку, если уничтожается текущий экземпляр.
         if (Instance == this)
             Instance = null;
     }
@@ -54,6 +56,7 @@ public class GameCursor : MonoBehaviour
     }
 
 #if UNITY_EDITOR
+    // В редакторе позволяет переключать состояние курсора с помощью Input Action.
     [SerializeField] private InputAction unlockButton;
 
     private void OnEnable()
@@ -70,6 +73,7 @@ public class GameCursor : MonoBehaviour
 
     private void SwitchLockState(InputAction.CallbackContext context)
     {
+        // Переключаем курсор между зафиксированным и свободным состояниями.
         if (IsLocked)
             Unlock();
         else

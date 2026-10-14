@@ -5,17 +5,17 @@ using UnityEngine.InputSystem;
 
 /// <summary>
 /// Управляет лучом поиска интерактивных объектов перед игроком.
-/// 
+///
 /// Крепится на: GameObject игрока.
 /// Использует: Input Action для активации луча.
-/// 
+///
 /// Основная логика:
-/// - Активирует поиск при нажатии BeamKey.
+/// - Запускает поиск при нажатии BeamKey.
 /// - Выпускает Raycast в направлении взгляда объекта.
-/// - Ищет InteractiveObject на объекте или его родительском GameObject.
+/// - Ищет InteractiveObject на объекте или его родителях.
 /// - Ограничивает дальность поиска параметром MaxLengthOfBeam.
-/// - Сообщает о найденном объекте через событие ItemFound.
-/// - Сообщает о прекращении поиска или потере объекта через ItemLost.
+/// - Передаёт найденный объект в обработчик взаимодействия.
+/// - Останавливает поиск при отпускании клавиши или отключении компонента.
 /// </summary>
 public class LaunchBeam : MonoBehaviour
 {
@@ -26,73 +26,40 @@ public class LaunchBeam : MonoBehaviour
     public InputAction BeamKey { get; private set; }
 
     /// <summary>
-    /// Текущий интерактивный объект, найденный лучом.
-    /// Если объект не найден, значение равно null.
-    /// </summary>
-    public InteractiveObject Item { get; private set; }
-
-    /// <summary>
     /// Максимальная дальность действия луча поиска.
     /// </summary>
     [field: SerializeField]
     public float MaxLengthOfBeam { get; private set; }
 
-    /// <summary>
-    /// Вызывается, когда луч обнаруживает интерактивный объект.
-    /// Передаёт найденный объект в качестве аргумента.
-    /// </summary>
-    public event Action<InteractiveObject> ItemFound;
-
-    /// <summary>
-    /// Вызывается, когда текущий интерактивный объект перестаёт быть выбранным.
-    /// </summary>
-    public event Action ItemLost;
-
-    /// <summary>
-    /// Луч, используемый для поиска интерактивных объектов.
-    /// </summary>
+    // Луч и результат его пересечения с объектами сцены.
     private Ray ray;
-
-    /// <summary>
-    /// Информация о пересечении луча с объектом.
-    /// </summary>
     private RaycastHit hit;
 
-    /// <summary>
-    /// Coroutine, отвечающая за поиск интерактивного объекта.
-    /// </summary>
+    // Ссылка на текущую корутину поиска, чтобы не запускать её повторно.
     private Coroutine searchingCoroutine;
 
     private void OnEnable()
     {
-        // Включаем Input Action для получения ввода.
         BeamKey.Enable();
 
-        // Начинаем поиск при нажатии и прекращаем при отпускании клавиши.
+        // Запускаем поиск при нажатии и останавливаем при отпускании клавиши.
         BeamKey.started += OnLaunchBeam;
         BeamKey.canceled += OnStopBeam;
     }
 
     private void OnDisable()
     {
-        // Отписываемся от событий Input Action.
         BeamKey.started -= OnLaunchBeam;
         BeamKey.canceled -= OnStopBeam;
-
-        // Отключаем Input Action.
         BeamKey.Disable();
 
-        // Останавливаем поиск и сбрасываем найденный объект.
+        // При отключении компонента прекращаем поиск и текущее взаимодействие.
         StopSearching();
     }
 
-    /// <summary>
-    /// Запускает Coroutine поиска интерактивного объекта.
-    /// </summary>
-    /// <param name="context">Контекст вызова Input Action.</param>
-    private void OnLaunchBeam(InputAction.CallbackContext context)
+    public void StartSearching()
     {
-        // Не запускаем дополнительный поиск, если он уже выполняется.
+        // Не допускаем одновременного запуска нескольких корутин поиска.
         if (searchingCoroutine != null)
             return;
 
@@ -100,7 +67,54 @@ public class LaunchBeam : MonoBehaviour
     }
 
     /// <summary>
-    /// Останавливает поиск интерактивного объекта.
+    /// Ищет интерактивный объект перед игроком, пока удерживается BeamKey.
+    /// </summary>
+    private IEnumerator Searching()
+    {
+        while (BeamKey.IsPressed())
+        {
+            // Каждый кадр проверяем пространство перед игроком с учётом его текущего направления.
+            ray = new Ray(transform.position, transform.forward);
+
+            if (Physics.Raycast(ray, out hit, MaxLengthOfBeam))
+            {
+                // Ищем компонент на объекте попадания или выше по иерархии.
+                InteractiveObject newItem =
+                    hit.collider.GetComponentInParent<InteractiveObject>();
+
+                if (newItem != null)
+                {
+                    // Передаём найденный объект его собственному обработчику обнаружения.
+                    newItem.ObjectFound();
+                    yield break;
+                }
+            }
+
+            // Продолжаем поиск на следующем кадре.
+            yield return null;
+        }
+
+        // Сбрасываем ссылку после естественного завершения поиска.
+        searchingCoroutine = null;
+    }
+
+    public void StopSearching()
+    {
+        if (searchingCoroutine != null)
+        {
+            StopCoroutine(searchingCoroutine);
+            searchingCoroutine = null;
+        }
+
+        // Если объект удерживается, прекращаем взаимодействие с ним.
+        if (Grab.Instance != null && Grab.Instance.Item != null)
+        {
+            Grab.Instance.StopTake();
+        }
+    }
+
+    /// <summary>
+    /// Обрабатывает отпускание клавиши поиска.
     /// </summary>
     /// <param name="context">Контекст вызова Input Action.</param>
     private void OnStopBeam(InputAction.CallbackContext context)
@@ -109,60 +123,11 @@ public class LaunchBeam : MonoBehaviour
     }
 
     /// <summary>
-    /// Останавливает Coroutine поиска и сбрасывает текущий найденный объект.
+    /// Обрабатывает нажатие клавиши и запускает поиск.
     /// </summary>
-    private void StopSearching()
+    /// <param name="context">Контекст вызова Input Action.</param>
+    private void OnLaunchBeam(InputAction.CallbackContext context)
     {
-        // Если поиск выполняется, останавливаем его.
-        if (searchingCoroutine != null)
-        {
-            StopCoroutine(searchingCoroutine);
-            searchingCoroutine = null;
-        }
-
-        // Если объект был найден, очищаем ссылку и уведомляем подписчиков.
-        if (Item != null)
-        {
-            Item = null;
-            ItemLost?.Invoke();
-        }
-    }
-
-    /// <summary>
-    /// Выполняет поиск интерактивного объекта перед игроком
-    /// до тех пор, пока BeamKey удерживается.
-    /// </summary>
-    private IEnumerator Searching()
-    {
-        while (BeamKey.IsPressed())
-        {
-            // Создаём луч из текущей позиции объекта в направлении его взгляда.
-            ray = new Ray(transform.position, transform.forward);
-
-            // Проверяем пересечение луча с объектами в пределах максимальной дальности.
-            if (Physics.Raycast(ray, out hit, MaxLengthOfBeam))
-            {
-                // Ищем InteractiveObject на объекте или одном из его родителей.
-                InteractiveObject newItem =
-                    hit.collider.GetComponentInParent<InteractiveObject>();
-
-                // Если интерактивный объект найден, сохраняем его и уведомляем подписчиков.
-                if (newItem != null)
-                {
-                    Item = newItem;
-
-                    ItemFound?.Invoke(Item);
-
-                    // Объект найден, поэтому дальнейший поиск не требуется.
-                    yield break;
-                }
-            }
-
-            // Ждём следующий кадр и повторяем проверку.
-            yield return null;
-        }
-
-        // Coroutine завершена без нахождения объекта.
-        searchingCoroutine = null;
+        StartSearching();
     }
 }

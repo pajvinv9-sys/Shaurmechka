@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6323688534500088582}
   - component: {fileID: 2215563521567584507}
   - component: {fileID: 961337369341738809}
-  - component: {fileID: 2030444411035378617}
   - component: {fileID: 2939097740552253957}
   - component: {fileID: 4695940204393826827}
   - component: {fileID: 4566425340193434451}
@@ -145,19 +144,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2030444411035378617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65758105111946507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81889d4c280e7244cbc5317c3b3e5ae9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InfiniteBox
-  <ContentPrefab>k__BackingField: {fileID: 9035371766752915619, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
 --- !u!65 &2939097740552253957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -324,7 +310,6 @@ GameObject:
   - component: {fileID: 1482130060262970151}
   - component: {fileID: 1758351850151325242}
   - component: {fileID: 1317717362914832304}
-  - component: {fileID: 7886769685511669460}
   - component: {fileID: 7199390717176211156}
   - component: {fileID: 7959233164335268824}
   - component: {fileID: 976062960498558388}
@@ -456,19 +441,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &7886769685511669460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485296821805008396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81889d4c280e7244cbc5317c3b3e5ae9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InfiniteBox
-  <ContentPrefab>k__BackingField: {fileID: 9035371766752915619, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
 --- !u!65 &7199390717176211156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -635,7 +607,6 @@ GameObject:
   - component: {fileID: 7708404514421451949}
   - component: {fileID: 2482693436928407794}
   - component: {fileID: 5627834779926439488}
-  - component: {fileID: 3497833156211735154}
   - component: {fileID: 4160919439802570750}
   - component: {fileID: 4213952862116400154}
   - component: {fileID: 8877284352740448106}
@@ -767,19 +738,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &3497833156211735154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2256436237490339964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81889d4c280e7244cbc5317c3b3e5ae9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InfiniteBox
-  <ContentPrefab>k__BackingField: {fileID: 9035371766752915619, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
 --- !u!65 &4160919439802570750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -965,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4095992375775651238}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.032779, y: 0.20928508, z: 7.0094023}
   m_LocalScale: {x: 2.05, y: 0.41857538, z: 2.05}
   m_ConstrainProportionsScale: 0
@@ -1107,7 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81889d4c280e7244cbc5317c3b3e5ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfiniteBox
-  <ContentPrefab>k__BackingField: {fileID: 9035371766752915619, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
+  <ContentPrefab>k__BackingField: {fileID: 4792110335883684534, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
 --- !u!65 &4449664172659099399
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1274,7 +1232,6 @@ GameObject:
   - component: {fileID: 416611879338992461}
   - component: {fileID: 7124056683350480545}
   - component: {fileID: 5153585602305989242}
-  - component: {fileID: 7352345564781472360}
   - component: {fileID: 6407084210048507785}
   - component: {fileID: 3559753105141366904}
   - component: {fileID: 3793330459624690750}
@@ -1406,19 +1363,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &7352345564781472360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361548948757061344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81889d4c280e7244cbc5317c3b3e5ae9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InfiniteBox
-  <ContentPrefab>k__BackingField: {fileID: 9035371766752915619, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
 --- !u!65 &6407084210048507785
 BoxCollider:
   m_ObjectHideFlags: 0

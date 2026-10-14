@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 30661675}
   - component: {fileID: 30661674}
   - component: {fileID: 30661673}
+  - component: {fileID: 30661677}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -450,12 +451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4228e6990fdae47ba0d936f1565300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorBelt
-  <Speed>k__BackingField: 5
-  <Direction>k__BackingField: {x: 1, y: 0, z: 0}
-  <BeltAcceleration>k__BackingField: 15
-  <BeltAccelerationEnd>k__BackingField: 0.2
-  <BeltRenderer>k__BackingField: {fileID: 0}
-  <TextureScrollSpeed>k__BackingField: 1
+  speed: 2
+  direction: {x: 1, y: 0, z: 0}
+  beltAcceleration: 12
+  compensateGravity: 1
+  lateralCorrection: 3
 --- !u!65 &30661674
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -534,6 +534,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30661671}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &30661677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30661671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &33876454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,9 +1095,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 71264035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &81516726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,6 +1751,65 @@ Transform:
   - {fileID: 1625746929}
   m_Father: {fileID: 1253114428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &162782550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4095992375775651238, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_Name
+      value: "\u0431\u0435\u0441\u043A\u043E\u043D\u0435\u0447\u043D\u0430\u044F
+        \u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0441 \u043C\u044F\u0447\u0438\u043A\u0430\u043C\u0438
+        (2)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.20928508
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.0094023
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
 --- !u!1 &163957970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,9 +2257,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 201922334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &204061189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,12 +2346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4228e6990fdae47ba0d936f1565300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorBelt
-  <Speed>k__BackingField: 5
-  <Direction>k__BackingField: {x: 1, y: 0, z: 0}
-  <BeltAcceleration>k__BackingField: 15
-  <BeltAccelerationEnd>k__BackingField: 0.2
-  <BeltRenderer>k__BackingField: {fileID: 0}
-  <TextureScrollSpeed>k__BackingField: 1
+  speed: 2
+  direction: {x: 1, y: 0, z: 0}
+  beltAcceleration: 12
+  compensateGravity: 1
+  lateralCorrection: 3
 --- !u!65 &207147543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2700,6 +2770,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274303673}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &296670457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964602097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &330503377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,65 +2981,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c0c273c2ac9a9844ba380cdfbdad9ad, type: 3}
---- !u!1001 &346535994
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2981357316785119562, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_Name
-      value: "\u0431\u0435\u0441\u043A\u043E\u043D\u0435\u0447\u043D\u0430\u044F
-        \u043A\u043E\u0440\u043E\u0431\u043A\u0430 \u0441 \u043C\u044F\u0447\u0438\u043A\u0430\u043C\u0438
-        (2)"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9326257
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.20928793
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.4355736
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008667785655110581, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 393a8048bcfdeeb49823f3b3489977e0, type: 3}
 --- !u!1 &357007698
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,12 +3170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4228e6990fdae47ba0d936f1565300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorBelt
-  <Speed>k__BackingField: 5
-  <Direction>k__BackingField: {x: 1, y: 0, z: 0}
-  <BeltAcceleration>k__BackingField: 15
-  <BeltAccelerationEnd>k__BackingField: 0.2
-  <BeltRenderer>k__BackingField: {fileID: 0}
-  <TextureScrollSpeed>k__BackingField: 1
+  speed: 2
+  direction: {x: 1, y: 0, z: 0}
+  beltAcceleration: 12
+  compensateGravity: 1
+  lateralCorrection: 3
 --- !u!65 &399715004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4956,9 +4978,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 629974000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &643388456
 GameObject:
   m_ObjectHideFlags: 0
@@ -5960,6 +5982,7 @@ GameObject:
   - component: {fileID: 845719447}
   - component: {fileID: 845719446}
   - component: {fileID: 845719445}
+  - component: {fileID: 845719449}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -6061,6 +6084,18 @@ Transform:
   - {fileID: 2042180528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &845719449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845719444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &889064352
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,9 +6359,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 938407723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1001 &950857400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7854,9 +7889,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1143512140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &1174390151
 GameObject:
   m_ObjectHideFlags: 0
@@ -8806,6 +8841,7 @@ GameObject:
   - component: {fileID: 1308993500}
   - component: {fileID: 1308993499}
   - component: {fileID: 1308993498}
+  - component: {fileID: 1308993502}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -8907,6 +8943,18 @@ Transform:
   - {fileID: 399715002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.623}
+--- !u!114 &1308993502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308993497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1001 &1335480813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10085,12 +10133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4228e6990fdae47ba0d936f1565300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorBelt
-  <Speed>k__BackingField: 5
-  <Direction>k__BackingField: {x: -1, y: 0, z: 0}
-  <BeltAcceleration>k__BackingField: 15
-  <BeltAccelerationEnd>k__BackingField: 0.2
-  <BeltRenderer>k__BackingField: {fileID: 0}
-  <TextureScrollSpeed>k__BackingField: 1
+  speed: 2
+  direction: {x: -1, y: 0, z: 0}
+  beltAcceleration: 12
+  compensateGravity: 1
+  lateralCorrection: 3
 --- !u!65 &1441454339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10465,6 +10512,7 @@ GameObject:
   - component: {fileID: 1499061174}
   - component: {fileID: 1499061173}
   - component: {fileID: 1499061172}
+  - component: {fileID: 1499061176}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -10566,6 +10614,18 @@ Transform:
   - {fileID: 30661672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1499061176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499061171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &1517674013
 GameObject:
   m_ObjectHideFlags: 0
@@ -10689,9 +10749,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517674013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &1529253605
 GameObject:
   m_ObjectHideFlags: 0
@@ -12542,6 +12602,7 @@ GameObject:
   - component: {fileID: 1702799950}
   - component: {fileID: 1702799949}
   - component: {fileID: 1702799948}
+  - component: {fileID: 1702799952}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -12643,6 +12704,18 @@ Transform:
   - {fileID: 1441454337}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1702799952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702799947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1001 &1713987716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14118,9 +14191,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1946426704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58e7e2778d04f9a4db79355bf7db3f05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de29ea5a25b19744bcd75a90109d999, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GroundMarker
+  m_EditorClassIdentifier: Assembly-CSharp::Ground
 --- !u!1 &1956192474
 GameObject:
   m_ObjectHideFlags: 0
@@ -14275,6 +14348,7 @@ GameObject:
   - component: {fileID: 1964602100}
   - component: {fileID: 1964602099}
   - component: {fileID: 1964602098}
+  - component: {fileID: 296670457}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -15096,6 +15170,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7100724029584140667, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
   m_PrefabInstance: {fileID: 2032742418}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2040853346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040853348}
+  - component: {fileID: 2040853347}
+  m_Layer: 0
+  m_Name: GameCursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2040853347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040853346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc798d265c932346a3a21ecb29366e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cursor
+  unlockButton:
+    m_Name: Unlock Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c5b7b47f-b966-4f98-b5e4-3eeac63e7fe4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: cbea0321-7f9c-41da-8bee-f906cea59172
+      m_Path: <Keyboard>/backquote
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Unlock Button
+      m_Flags: 0
+    m_Flags: 0
+--- !u!4 &2040853348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040853346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.47926, y: 1.28635, z: -8.1211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042180527
 GameObject:
   m_ObjectHideFlags: 0
@@ -15143,12 +15278,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4228e6990fdae47ba0d936f1565300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConveyorBelt
-  <Speed>k__BackingField: 5
-  <Direction>k__BackingField: {x: -1, y: 0, z: 0}
-  <BeltAcceleration>k__BackingField: 15
-  <BeltAccelerationEnd>k__BackingField: 0.2
-  <BeltRenderer>k__BackingField: {fileID: 0}
-  <TextureScrollSpeed>k__BackingField: 1
+  speed: 2
+  direction: {x: -1, y: 0, z: 0}
+  beltAcceleration: 12
+  compensateGravity: 1
+  lateralCorrection: 3
 --- !u!65 &2042180530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16532,8 +16666,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 865678797148117300, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
+      propertyPath: <OverJump>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 865678797148117300, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       propertyPath: <JumpForce>k__BackingField
-      value: -3000
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1146245176612406143, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       propertyPath: m_Name
@@ -16542,6 +16680,10 @@ PrefabInstance:
     - target: {fileID: 2165386034967718810, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2423935939880137821, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
+      propertyPath: unlockButton.m_Name
+      value: Unlock Button
       objectReference: {fileID: 0}
     - target: {fileID: 4767804652868576686, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       propertyPath: <SensitiveX>k__BackingField
@@ -16576,7 +16718,7 @@ SceneRoots:
   - {fileID: 4070944615066462252}
   - {fileID: 2066998645}
   - {fileID: 5483188283423481143}
-  - {fileID: 346535994}
+  - {fileID: 162782550}
   - {fileID: 1702799951}
   - {fileID: 1499061175}
   - {fileID: 1308993501}
@@ -16590,3 +16732,4 @@ SceneRoots:
   - {fileID: 207886484}
   - {fileID: 1298765169}
   - {fileID: 1137966942}
+  - {fileID: 2040853348}

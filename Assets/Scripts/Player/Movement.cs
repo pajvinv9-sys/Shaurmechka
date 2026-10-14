@@ -1,48 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-/// <summary>
-/// Управляет перемещением объекта по горизонтальной плоскости
-/// на основе ввода с клавиатуры.
-///
-/// Крепится на: GameObject игрока.
-/// Требует: Rigidbody.
-/// Использует: Input Action с Vector2 для получения направления движения.
-///
-/// Основная логика:
-/// - Получает направление движения из Input System.
-/// - Двигает объект относительно его локальных осей.
-/// - Сохраняет текущую вертикальную скорость Rigidbody.
-/// - Перемещение выполняется в FixedUpdate.
-/// </summary>
-/// 
+
 public class Movement : MonoBehaviour
 {
-    /// <summary>
-    /// Скорость перемещения объекта.
-    /// </summary>
+    // Скорость перемещения персонажа.
     [field: SerializeField] public float Speed { get; private set; } = 5f;
 
-    /// <summary>
-    /// Rigidbody, используемый для физического перемещения объекта.
-    /// Если не назначен, компонент ищется автоматически.
-    /// </summary>
-    public Rigidbody Rb { get; private set; }
+    public Rigidbody Rigidbody { get; private set; }
 
-    /// <summary>
-    /// Input Action для получения направления движения.
-    /// Должен возвращать Vector2.
-    /// </summary>
+    // Действие Input System, отвечающее за ввод направления движения.
     [field: SerializeField] public InputAction MovementKeys { get; private set; }
 
     private Vector2 _moveInput;
 
     private void Awake()
     {
-        if (Rb == null)
+        if (Rigidbody == null)
         {
-            Rb = GetComponent<Rigidbody>();
+            Rigidbody = GetComponent<Rigidbody>();
 
-            if (Rb == null)
+            if (Rigidbody == null)
             {
                 Debug.LogError("Rigidbody не найден");
             }
@@ -56,6 +33,7 @@ public class Movement : MonoBehaviour
 
     private void OnEnable()
     {
+        // Подписываемся на изменение ввода и включаем обработку действия.
         MovementKeys.Enable();
         MovementKeys.performed += OnMovement;
         MovementKeys.canceled += OnMovement;
@@ -63,6 +41,7 @@ public class Movement : MonoBehaviour
 
     private void OnDisable()
     {
+        // Удаляем подписки, чтобы избежать повторных вызовов обработчика.
         MovementKeys.performed -= OnMovement;
         MovementKeys.canceled -= OnMovement;
         MovementKeys.Disable();
@@ -70,6 +49,7 @@ public class Movement : MonoBehaviour
 
     private void OnMovement(InputAction.CallbackContext context)
     {
+        // Сохраняем направление ввода; нормализация исключает ускорение по диагонали.
         _moveInput = context.ReadValue<Vector2>().normalized;
     }
 
@@ -80,16 +60,19 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
+        // Переводим ввод в направление относительно поворота персонажа.
         Vector3 moveDirection =
             transform.right * _moveInput.x +
             transform.forward * _moveInput.y;
 
         moveDirection.Normalize();
 
-        Vector3 velocity = Rb.linearVelocity;
+        // Меняем скорость по горизонтальным осям, сохраняя вертикальную скорость,
+        // чтобы не мешать гравитации и прыжкам.
+        Vector3 velocity = Rigidbody.linearVelocity;
         velocity.x = moveDirection.x * Speed;
         velocity.z = moveDirection.z * Speed;
 
-        Rb.linearVelocity = velocity;
+        Rigidbody.linearVelocity = velocity;
     }
 }

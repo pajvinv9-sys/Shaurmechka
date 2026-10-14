@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 /// <summary>
 /// Управляет вращением игрока и камеры от движения мыши.
 ///
@@ -51,9 +52,11 @@ public class Rotate : MonoBehaviour
         if (MouseDelta == null || MouseDelta.bindings.Count == 0)
             Debug.LogError("MouseDelta не назначен", this);
 
+        // Сохраняем текущие углы, чтобы вращение начиналось с положения объекта в сцене.
         _yaw = transform.eulerAngles.y;
         _pitch = Camera.localEulerAngles.x;
 
+        // Преобразуем угол из диапазона 0–360 в диапазон -180–180.
         if (_pitch > 180f)
             _pitch -= 360f;
     }
@@ -73,23 +76,28 @@ public class Rotate : MonoBehaviour
         Vector2 input = MouseDelta.ReadValue<Vector2>();
         RotatePlayer(input);
     }
+
     private void RotatePlayer(Vector2 input)
     {
+        // Горизонтальное движение мыши поворачивает игрока, вертикальное — камеру.
         _yaw += input.x * SensitiveX;
         _pitch -= input.y * SensitiveY;
 
+        // Ограничиваем вертикальный угол, чтобы камера не вращалась слишком высоко или низко.
         _pitch = Mathf.Clamp(
             _pitch,
             MinCameraAngle,
             MaxCameraAngle
         );
 
+        // Поворачиваем игрока только вокруг вертикальной оси.
         transform.rotation = Quaternion.Euler(
             0f,
             _yaw,
             0f
         );
 
+        // Поворачиваем дочернюю камеру только по вертикальной оси.
         Camera.localRotation = Quaternion.Euler(
             _pitch,
             0f,

@@ -1,12 +1,14 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Jump : MonoBehaviour
 {
-    [field: SerializeField] public InputAction JumpButton {  get; private set; }
+    // Действие Input System, запускающее прыжок.
+    [field: SerializeField] public InputAction JumpButton { get; private set; }
+
     [field: SerializeField] public float JumpForce { get; private set; }
+
+    // Если включено, прыжок доступен даже без контакта с землёй.
     [field: SerializeField] public bool OverJump { get; private set; }
 
     private Rigidbody rb;
@@ -17,6 +19,7 @@ public class Jump : MonoBehaviour
         JumpButton.Enable();
         JumpButton.started += JumpVoid;
     }
+
     private void OnDisable()
     {
         JumpButton.Disable();
@@ -30,6 +33,7 @@ public class Jump : MonoBehaviour
 
     private void JumpVoid(InputAction.CallbackContext context)
     {
+        // Прыжок разрешён, если персонаж на земле или включён OverJump.
         if (OverJump || canJump)
         {
             rb.AddForce(0, JumpForce, 0);
@@ -39,13 +43,31 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // Проверяем, что персонаж столкнулся с объектом, помеченным компонентом Ground.
         if (collision.gameObject.GetComponent<Ground>() != null)
         {
             foreach (ContactPoint contact in collision.contacts)
             {
+                // Проверяем, что поверхность находится под персонажем, а не сбоку.
                 if (contact.normal.y > 0.5f)
                 {
                     canJump = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<Ground>() != null)
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                // Сбрасываем возможность прыжка при потере контакта с землёй.
+                if (contact.normal.y > 0.5f)
+                {
+                    canJump = false;
                     break;
                 }
             }

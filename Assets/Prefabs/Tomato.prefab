@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d8662732b1885b34f8f20e5fb8ca027e, type: 3}
       propertyPath: m_Name
-      value: "\u043F\u043E\u043C\u0438\u0434\u043E\u0440 (4)"
+      value: Tomato
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -76,10 +76,7 @@ PrefabInstance:
       addedObject: {fileID: 5611224949372266549}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d8662732b1885b34f8f20e5fb8ca027e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3359278755343643636}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d8662732b1885b34f8f20e5fb8ca027e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7221134303974979280}
+      addedObject: {fileID: 2652706168122202835}
   m_SourcePrefab: {fileID: 100100000, guid: d8662732b1885b34f8f20e5fb8ca027e, type: 3}
 --- !u!1 &9183691227826938973 stripped
 GameObject:
@@ -134,7 +131,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3359278755343643636
+--- !u!114 &2652706168122202835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,25 +140,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9183691227826938973}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 814e933203bffb742bb010cca1b5f6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: d458ad3a7694daa4fb4ef96ae45c7620, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CanBeSliced
+  m_EditorClassIdentifier: Assembly-CSharp::Tomato
+  <CanBeGrab>k__BackingField: 1
   <SlicedPiecePrefab>k__BackingField: {fileID: 9020827779927949329, guid: 4a9dc53addca3424186200e549ce405d, type: 3}
   <SliceCount>k__BackingField: 3
-  <SeparationForce>k__BackingField: 2
-  <UpwardBias>k__BackingField: 0.6
-  <TorqueAmount>k__BackingField: 1.5
-  <CutSound>k__BackingField: {fileID: 0}
-  <JuiceVFX>k__BackingField: {fileID: 0}
---- !u!114 &7221134303974979280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9183691227826938973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b942b9315273b46ad09c0d5bb8d7e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabbingItem
+  <SeparationForce>k__BackingField: 3
+  <UpwardBias>k__BackingField: 3
+  <TorqueAmount>k__BackingField: 3
+  <stepOffset>k__BackingField: 0.1

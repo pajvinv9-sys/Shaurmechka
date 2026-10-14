@@ -4,38 +4,33 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Управляет захватом и перемещением интерактивного объекта перед игроком.
-/// 
+/// Управляет захватом, перемещением и отпусканием интерактивных объектов.
+///
 /// Крепится на: GameObject игрока.
-/// Требует: LaunchBeam, GrabbingItem у захватываемого объекта, Rigidbody.
+/// Требует: LaunchBeam и Rigidbody у захватываемого объекта.
 /// Использует: Input Action для отпускания объекта.
-/// 
-/// Основная логика:
-/// - Получает интерактивный объект через события LaunchBeam.
-/// - Перемещает объект к точке перед игроком с помощью пружинной силы.
-/// - Использует демпфирование для уменьшения колебаний объекта.
-/// - Поворачивает захваченный объект в сторону игрока.
-/// - Позволяет отпустить объект по нажатию DropKey.
-/// - При отпускании добавляет объекту импульс в направлении взгляда игрока.
+///
+/// Перемещает захваченный объект к точке перед игроком с помощью пружинной силы
+/// и демпфирования, плавно поворачивает его в сторону игрока и позволяет
+/// отпустить объект с импульсом в направлении взгляда.
 /// </summary>
 public class Grab : MonoBehaviour
 {
     /// <summary>
-    /// Расстояние от игрока до точки, в которую перемещается захваченный объект.
+    /// Расстояние от игрока до точки удержания объекта.
     /// </summary>
     [field: SerializeField]
     public float Distance { get; private set; }
 
     /// <summary>
-    /// Текущий захваченный объект.
-    /// Если объект не захвачен, значение равно null.
+    /// Текущий захваченный объект. Null, если захват не выполняется.
     /// </summary>
     public GrabbingItem Item { get; private set; }
 
     /// <summary>
-    /// Компонент, отвечающий за поиск интерактивных объектов перед игроком.
+    /// Компонент, отвечающий за поиск интерактивных объектов.
     /// </summary>
-    public LaunchBeam Lb { get; private set; }
+    public LaunchBeam LaunchBeam { get; private set; }
 
     /// <summary>
     /// Input Action для отпускания захваченного объекта.
@@ -44,15 +39,13 @@ public class Grab : MonoBehaviour
     public InputAction DropKey { get; private set; }
 
     /// <summary>
-    /// Коэффициент пружинной силы, которая притягивает объект к точке захвата.
-    /// Чем выше значение, тем быстрее объект стремится к точке захвата.
+    /// Коэффициент пружинной силы, возвращающей объект к точке удержания.
     /// </summary>
     [field: SerializeField]
     public float spring { get; private set; } = 20f;
 
     /// <summary>
-    /// Коэффициент демпфирования скорости захваченного объекта.
-    /// Используется для уменьшения колебаний при перемещении.
+    /// Коэффициент демпфирования, уменьшающего колебания объекта.
     /// </summary>
     [field: SerializeField]
     public float damping { get; private set; } = 5f;
@@ -69,19 +62,14 @@ public class Grab : MonoBehaviour
     [field: SerializeField]
     public float RotationSpeed { get; private set; } = 5f;
 
-    /// <summary>
-    /// Текущая точка, в которую должен перемещаться захваченный объект.
-    /// </summary>
+    // Текущая целевая позиция захваченного объекта.
     private Vector3 grabPoint;
 
-    /// <summary>
-    /// Coroutine, отвечающий за удержание объекта перед игроком.
-    /// </summary>
+    // Ссылка на корутину, управляющую удержанием объекта.
     private Coroutine takeCoroutine;
 
-
     /// <summary>
-    /// Нашли объект для взятияы
+    /// Вызывается при обнаружении объекта, доступного для захвата.
     /// </summary>
     public event Action<InteractiveObject> ItemFound;
 
@@ -90,173 +78,155 @@ public class Grab : MonoBehaviour
     /// </summary>
     public event Action ItemLost;
 
-
-
+    // Позволяет другим компонентам получить доступ к единственному экземпляру Grab.
+    public static Grab Instance;
 
     private void Awake()
     {
-        // Если LaunchBeam не назначен, пытаемся получить его с этого же GameObject.
-        if (Lb == null)
-            Lb = GetComponent<LaunchBeam>();
+        // Не допускаем существования нескольких экземпляров Grab.
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        // Получаем компонент поиска с того же GameObject, если он не назначен.
+        if (LaunchBeam == null)
+            LaunchBeam = GetComponent<LaunchBeam>();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 
     private void OnEnable()
     {
-        // Подписываемся на события обнаружения и потери интерактивного объекта.
-        ItemFound += OnStartTake;
-        ItemLost += OnEndTake;
-        Lb.ItemFound += ItemFound;
-        Lb.ItemLost += ItemLost;
+        LaunchBeam.BeamKey.canceled += OnEndTake;
 
-        // Включаем Input Action и подписываемся на событие отпускания объекта.
+        // Подписываемся на отпускание объекта и активируем соответствующее действие.
         DropKey.started += Drop;
         DropKey.Enable();
     }
 
     private void OnDisable()
     {
-        // Отписываемся от событий LaunchBeam.
-        ItemFound -= OnStartTake;
-        ItemLost -= OnEndTake;
-        Lb.ItemFound -= ItemFound;
-        Lb.ItemLost -= ItemLost;
+        LaunchBeam.BeamKey.canceled -= OnEndTake;
 
-        // Отписываемся от Input Action и отключаем его.
         DropKey.started -= Drop;
         DropKey.Disable();
 
-        // Останавливаем захват при отключении компонента.
+        // Завершаем захват, если компонент отключается во время взаимодействия.
         StopTake();
     }
 
     /// <summary>
-    /// Начинает захват обнаруженного интерактивного объекта.
+    /// Начинает удержание переданного объекта.
     /// </summary>
-    /// <param name="interactiveObject">Обнаруженный интерактивный объект.</param>
-    private void OnStartTake(InteractiveObject interactiveObject)
+    /// <param name="interactiveObject">Объект, который необходимо захватить.</param>
+    public void StartTake(GrabbingItem interactiveObject)
     {
-        // Получаем компонент, позволяющий захватывать объект.
-        Item = interactiveObject.GetComponent<GrabbingItem>();
-
-        // Если объект не поддерживает захват, проверяем, является ли он контейнером
-        if (Item == null)
-        {
-            if (interactiveObject.GetComponent<InfiniteBox>())
-            {
-                Item = Instantiate(interactiveObject.GetComponent<InfiniteBox>().ContentPrefab);
-                Item.transform.position = interactiveObject.transform.position;
-            }
-
-            else return;
-        }
-
-        if (!Item.CanBeGrab) return;
-
-        // Запускаем Coroutine для постоянного удержания объекта перед игроком.
+        Item = interactiveObject;
         takeCoroutine = StartCoroutine(Take());
     }
 
     /// <summary>
-    /// Удерживает захваченный объект в точке перед игроком
-    /// и постепенно поворачивает его в сторону игрока.
+    /// Удерживает объект на заданном расстоянии перед игроком
+    /// и плавно поворачивает его в сторону игрока.
     /// </summary>
     private IEnumerator Take()
     {
         while (Item != null)
         {
-            // Рассчитываем точку захвата относительно позиции и направления игрока.
+            // Пересчитываем точку удержания с учётом текущего положения игрока.
             grabPoint =
                 transform.position +
                 transform.forward * Distance;
 
-            // Определяем расстояние от объекта до точки захвата.
             Vector3 positionError =
                 grabPoint - Item.transform.position;
 
-            // Рассчитываем силу, которая возвращает объект к точке захвата.
-            // Первая часть работает как пружина, вторая уменьшает скорость объекта.
+            // Пружина тянет объект к целевой точке, демпфирование гасит его скорость.
             Vector3 force =
                 positionError * spring -
-                Item.InteractiveObject.Rigidbody.linearVelocity * damping;
+                Item.Rigidbody.linearVelocity * damping;
 
-            // Прикладываем рассчитанную силу к Rigidbody объекта.
-            Item.InteractiveObject.Rigidbody.AddForce(force, ForceMode.Force);
+            Item.Rigidbody.AddForce(force, ForceMode.Force);
 
-            // Рассчитываем направление от объекта к игроку.
+            // Определяем направление от объекта к игроку без учёта высоты.
             Vector3 directionToPlayer =
                 transform.position - Item.transform.position;
 
-            // Игнорируем вертикальное направление при расчёте поворота.
             directionToPlayer.y = 0f;
 
-            // Проверяем, что направление достаточно большое для расчёта поворота.
             if (directionToPlayer.sqrMagnitude > 0.001f)
             {
-                // Создаём поворот, направляющий объект в сторону игрока.
                 Quaternion targetRotation =
                     Quaternion.LookRotation(directionToPlayer);
 
-                // Плавно приближаем текущий поворот объекта к целевому.
+                // Плавно поворачиваем объект к игроку с заданной угловой скоростью.
                 Quaternion newRotation =
                     Quaternion.RotateTowards(
-                        Item.InteractiveObject.Rigidbody.rotation,
+                        Item.Rigidbody.rotation,
                         targetRotation,
                         RotationSpeed * Time.deltaTime
                     );
 
-                // Применяем новый поворот через Rigidbody.
-                Item.InteractiveObject.Rigidbody.MoveRotation(newRotation);
+                Item.Rigidbody.MoveRotation(newRotation);
             }
 
-            // Ждём следующий кадр перед повторным расчётом.
             yield return null;
         }
 
-        // Coroutine завершена, поэтому очищаем её ссылку.
+        // Очищаем ссылку после естественного завершения корутины.
         takeCoroutine = null;
     }
 
     /// <summary>
-    /// Обрабатывает потерю текущего интерактивного объекта.
+    /// Завершает захват при отмене действия поиска.
     /// </summary>
-    private void OnEndTake()
+    private void OnEndTake(InputAction.CallbackContext context)
     {
         StopTake();
     }
 
     /// <summary>
-    /// Прекращает захват текущего объекта и очищает состояние захвата.
+    /// Прекращает удержание объекта и сбрасывает состояние захвата.
     /// </summary>
-    private void StopTake()
+    public void StopTake()
     {
-        // Если Coroutine захвата запущена, останавливаем её.
         if (takeCoroutine != null)
         {
             StopCoroutine(takeCoroutine);
             takeCoroutine = null;
         }
 
-        // Сбрасываем ссылку на захваченный объект.
+        if (Item != null)
+            Item.ObjectLost();
+
         Item = null;
     }
 
     /// <summary>
-    /// Отпускает захваченный объект и придаёт ему импульс вперёд.
+    /// Отпускает объект и придаёт ему импульс в направлении взгляда игрока.
     /// </summary>
     /// <param name="context">Контекст вызова Input Action.</param>
     private void Drop(InputAction.CallbackContext context)
     {
-        // Если объект не захвачен, ничего не делаем.
         if (Item == null)
             return;
 
-        // Придаём объекту импульс в направлении взгляда игрока.
-        Item.InteractiveObject.Rigidbody.AddForce(
+        Item.Rigidbody.AddForce(
             transform.forward * DropForce,
             ForceMode.Impulse
         );
 
-        // Завершаем захват после применения импульса.
+        Item.ObjectDrop();
+
+        // Завершаем захват после передачи объекту импульса.
         StopTake();
     }
 }

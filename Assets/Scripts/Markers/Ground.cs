@@ -1,10 +1,11 @@
 using UnityEngine;
+
 /// <summary>
-/// Маркер земли.
-/// Юзается в методе прыжка персонажа
+/// Компонент-маркер, обозначающий поверхность, на которой может стоять персонаж.
+/// Используется Jump для определения контакта персонажа с землёй.
 /// </summary>
-[RequireComponent (typeof(Collider))]
+[RequireComponent(typeof(Collider))]
 public class Ground : MonoBehaviour
 {
-    public InteractiveObject InteractiveObject { get; private set; }
+
 }

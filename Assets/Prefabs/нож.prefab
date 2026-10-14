@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 4543835166532234214}
   - component: {fileID: 8453901555736203494}
   - component: {fileID: 5985635190411015457}
-  - component: {fileID: 7522868827743823069}
   - component: {fileID: 1384725339848186022}
   - component: {fileID: 8453978830347396047}
   m_Layer: 0
@@ -256,18 +255,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7522868827743823069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7518404699327374229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b942b9315273b46ad09c0d5bb8d7e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GrabbingItem
 --- !u!65 &1384725339848186022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -301,4 +288,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff827d40f2c6f5344ac89bbd1eee0426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Knife
+  <CanBeGrab>k__BackingField: 1
   <MinCutSpeed>k__BackingField: 0.5

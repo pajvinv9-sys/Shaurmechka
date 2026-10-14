@@ -304,6 +304,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   <JumpForce>k__BackingField: 1000
+  <OverJump>k__BackingField: 0
 --- !u!1 &2165386034967718810
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +317,6 @@ GameObject:
   - component: {fileID: 7587760450473614885}
   - component: {fileID: 8379437761333580775}
   - component: {fileID: 7897704027429958040}
-  - component: {fileID: 2423935939880137821}
   - component: {fileID: 3585313877193432808}
   - component: {fileID: 548851900778798103}
   m_Layer: 0
@@ -444,18 +444,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &2423935939880137821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165386034967718810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cc798d265c932346a3a21ecb29366e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cursor
 --- !u!114 &3585313877193432808
 MonoBehaviour:
   m_ObjectHideFlags: 0
