@@ -12,6 +12,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class ConveyorBelt : MonoBehaviour
 {
+    [field: SerializeField] bool isActive = true;
+
     [Header("Движение")]
     [SerializeField, Min(0f)]
     private float speed = 2f;
@@ -56,32 +58,83 @@ public class ConveyorBelt : MonoBehaviour
 
     private void Awake()
     {
-        // Используем триггер для определения объектов, попавших на конвейер.
         GetComponent<Collider>().isTrigger = true;
     }
 
     private void FixedUpdate()
     {
-        Vector3 normal = BeltNormal;
-        Vector3 forward = BeltDirection;
+        if (isActive) Move();
+    }
 
-        // Пропускаем обновление, если направление движения не задано корректно.
-        if (forward.sqrMagnitude < 0.001f)
+    private void OnTriggerEnter(Collider other)
+    {
+        InteractiveObject interactive =
+            other.GetComponent<InteractiveObject>();
+
+        if (interactive == null)
             return;
 
-        foreach (Rigidbody rb in itemsOnBelt)
+        itemsOnBelt.Add(interactive.Rigidbody);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        InteractiveObject interactive =
+            other.GetComponent<InteractiveObject>();
+
+        if (interactive == null) 
+            return;
+        
+        itemsOnBelt.Remove(interactive.Rigidbody);
+    }
+
+    private void OnDisable()
+    {
+        // Очищаем список при отключении конвейера.
+        itemsOnBelt.Clear();
+    }
+
+    public void SwitchActive()
+    {
+        if (!isActive) On();
+        else Off();
+    }
+
+    public void On() 
+        => isActive = true;
+
+    public void Off()
+    {
+        isActive = false;
+
+        foreach (var item in itemsOnBelt)
+        {
+            item.linearVelocity *= 0.03f;
+            item.angularVelocity *= 0.03f;
+        }
+    }
+
+    public void SwitchDirection()
+        => direction *= -1;
+
+
+    private void Move()
+    {
+        // Пропускаем обновление, если направление движения не задано корректно.
+        if (BeltDirection.sqrMagnitude < 0.001f)
+            return;
+
+        foreach (var rb in itemsOnBelt)
         {
             if (rb == null || rb.isKinematic)
                 continue;
 
-            Vector3 velocity = rb.linearVelocity;
-
             // Выделяем составляющую скорости вдоль поверхности конвейера.
             Vector3 tangentVelocity =
-                Vector3.ProjectOnPlane(velocity, normal);
+                Vector3.ProjectOnPlane(rb.linearVelocity, BeltNormal);
 
             // Задаём скорость, к которой должен постепенно разогнаться предмет.
-            Vector3 targetVelocity = forward * speed;
+            Vector3 targetVelocity = BeltDirection * speed;
 
             // Постепенно приближаем скорость предмета к скорости ленты.
             tangentVelocity = Vector3.MoveTowards(
@@ -94,10 +147,10 @@ public class ConveyorBelt : MonoBehaviour
             if (lateralCorrection > 0f)
             {
                 float forwardSpeed =
-                    Vector3.Dot(tangentVelocity, forward);
+                    Vector3.Dot(tangentVelocity, BeltDirection);
 
                 Vector3 lateralVelocity =
-                    tangentVelocity - forward * forwardSpeed;
+                    tangentVelocity - BeltDirection * forwardSpeed;
 
                 lateralVelocity = Vector3.MoveTowards(
                     lateralVelocity,
@@ -106,7 +159,7 @@ public class ConveyorBelt : MonoBehaviour
                 );
 
                 tangentVelocity =
-                    forward * forwardSpeed + lateralVelocity;
+                    BeltDirection * forwardSpeed + lateralVelocity;
             }
 
             // Компенсируем влияние гравитации вдоль поверхности,
@@ -114,7 +167,7 @@ public class ConveyorBelt : MonoBehaviour
             if (compensateGravity)
             {
                 Vector3 gravityAlongSurface =
-                    Vector3.ProjectOnPlane(Physics.gravity, normal);
+                    Vector3.ProjectOnPlane(Physics.gravity, BeltNormal);
 
                 rb.AddForce(
                     -gravityAlongSurface,
@@ -125,7 +178,7 @@ public class ConveyorBelt : MonoBehaviour
             // Сохраняем скорость перпендикулярно поверхности,
             // чтобы конвейер не подавлял падение и подпрыгивание предмета.
             Vector3 normalVelocity =
-                Vector3.Project(velocity, normal);
+                Vector3.Project(rb.linearVelocity, BeltNormal);
 
             rb.linearVelocity =
                 tangentVelocity + normalVelocity;
@@ -135,58 +188,7 @@ public class ConveyorBelt : MonoBehaviour
         itemsOnBelt.RemoveWhere(rb => rb == null);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        // Проверяем, относится ли объект к системе интерактивных объектов.
-        InteractiveObject interactive =
-            other.GetComponentInParent<InteractiveObject>();
 
-        if (interactive == null)
-            return;
-
-        // Получаем Rigidbody объекта, вошедшего в триггер.
-        Rigidbody rb = other.attachedRigidbody;
-
-        if (rb == null)
-            rb = interactive.GetComponentInParent<Rigidbody>();
-
-        // Добавляем физический объект в список управляемых конвейером.
-        if (rb != null && !rb.isKinematic)
-            itemsOnBelt.Add(rb);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // Определяем Rigidbody объекта, покинувшего триггер.
-        Rigidbody rb = other.attachedRigidbody;
-
-        if (rb == null)
-        {
-            InteractiveObject interactive =
-                other.GetComponentInParent<InteractiveObject>();
-
-            if (interactive != null)
-                rb = interactive.GetComponentInParent<Rigidbody>();
-        }
-
-        // Прекращаем управлять объектом после выхода из триггера.
-        if (rb != null)
-            itemsOnBelt.Remove(rb);
-    }
-
-    private void OnDisable()
-    {
-        // Очищаем список при отключении конвейера.
-        itemsOnBelt.Clear();
-    }
-
-    private void OnValidate()
-    {
-        // Не допускаем отрицательных значений параметров движения.
-        speed = Mathf.Max(0f, speed);
-        beltAcceleration = Mathf.Max(0f, beltAcceleration);
-        lateralCorrection = Mathf.Max(0f, lateralCorrection);
-    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

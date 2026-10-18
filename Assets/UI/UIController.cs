@@ -21,7 +21,7 @@ public class UIController
 
         if (button == null)
         {
-            Debug.LogWarning($"Кнопка '{buttonName}' не найдена.");
+            Debug.LogWarning($"РљРЅРѕРїРєР° '{buttonName}' РЅРµ РЅР°Р№РґРµРЅР°.");
             return;
         }
 
@@ -35,7 +35,7 @@ public class UIController
 
         if (e == null)
         {
-            Debug.LogWarning($"Панель '{elementName}' не найдена.");
+            Debug.LogWarning($"РџР°РЅРµР»СЊ '{elementName}' РЅРµ РЅР°Р№РґРµРЅР°.");
             return;
         }
 
@@ -60,7 +60,7 @@ public class UIController
         {
             if (!panels.TryGetValue(panelName, out var panel))
             {
-                Debug.LogWarning($"Панель '{panelName}' не зарегистрирована.");
+                Debug.LogWarning($"РџР°РЅРµР»СЊ '{panelName}' РЅРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅР°.");
                 return;
             }
 

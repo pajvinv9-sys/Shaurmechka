@@ -68,16 +68,6 @@ public class Grab : MonoBehaviour
     // Ссылка на корутину, управляющую удержанием объекта.
     private Coroutine takeCoroutine;
 
-    /// <summary>
-    /// Вызывается при обнаружении объекта, доступного для захвата.
-    /// </summary>
-    public event Action<InteractiveObject> ItemFound;
-
-    /// <summary>
-    /// Вызывается, когда текущий интерактивный объект перестаёт быть выбранным.
-    /// </summary>
-    public event Action ItemLost;
-
     // Позволяет другим компонентам получить доступ к единственному экземпляру Grab.
     public static Grab Instance;
 

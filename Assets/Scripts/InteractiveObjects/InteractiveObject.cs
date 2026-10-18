@@ -7,8 +7,7 @@ using UnityEngine;
 ///
 /// Наследники должны реализовать логику реакции на обнаружение объекта.
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
+
 public abstract class InteractiveObject : MonoBehaviour
 {
     // Компоненты физики, необходимые для взаимодействия с объектом.
