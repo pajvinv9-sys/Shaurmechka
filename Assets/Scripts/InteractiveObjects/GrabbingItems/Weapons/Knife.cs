@@ -14,9 +14,11 @@ public class Knife : GrabbingItem
     /// <summary>
     /// Минимальная скорость ножа, необходимая для нарезки объекта.
     /// </summary>
-    [field: SerializeField]
-    public float MinCutSpeed { get; private set; } = 1f;
+    [field: SerializeField] public float MinCutSpeed { get; private set; } = 1f;
+    [field: SerializeField] private float Reloading { get; set; } = 0.5f;
 
+    private float lastSlice;
+    
     public override void ObjectDrop()
     {
         return;
@@ -33,6 +35,11 @@ public class Knife : GrabbingItem
     /// <param name="other">Коллайдер объекта, вошедшего в триггер.</param>
     private void OnTriggerEnter(Collider other)
     {
+        if (Time.time - lastSlice < Reloading) 
+            return;
+
+        lastSlice = Time.time;
+
         // Получаем интерфейс, определяющий возможность нарезки объекта.
         ISliced ingredient = other.GetComponent<ISliced>();
 

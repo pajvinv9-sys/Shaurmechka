@@ -18,7 +18,6 @@ public class ButtonScript : InteractiveObject
     public override void ObjectFound()
     {
         StartCoroutine(Indentation());
-        Event?.Invoke();
     }
 
     private IEnumerator Indentation()
@@ -26,6 +25,9 @@ public class ButtonScript : InteractiveObject
         if (isPressed) yield break  ;
 
         isPressed = true;
+
+        Event?.Invoke();
+
         var counter = indentValue / indentSpeed;
 
         for (int i = 0; i < counter; i++)
