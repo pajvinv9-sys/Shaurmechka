@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   <CanBeGrab>k__BackingField: 1
+  <NeedRotateInStart>k__BackingField: 0
   <SlicedPiecePrefab>k__BackingField: {fileID: 919132149155446097, guid: d6b2e6048570a124fa627c45f2e29286, type: 3}
   <SliceCount>k__BackingField: 5
   <SeparationForce>k__BackingField: 3

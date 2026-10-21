@@ -289,5 +289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Knife
   <CanBeGrab>k__BackingField: 1
+  <NeedRotateInStart>k__BackingField: 1
   <MinCutSpeed>k__BackingField: 0.5
   <Reloading>k__BackingField: 0.5

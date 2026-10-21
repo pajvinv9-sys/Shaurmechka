@@ -8,53 +8,47 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class Grab : MonoBehaviour
 {
-    [field: SerializeField]
-    public InputAction ActionKey { get; private set; }
+    [Header("Управление")]
+    [field: SerializeField] public InputAction DropKey { get; private set; }
+    [field: SerializeField] public InputAction ActionKey { get; private set; }
+    [field: SerializeField] public InputAction RotateObjectKey { get; private set; }
+    public InputAction TakeKey => LaunchBeam.BeamKey;
 
-    [field: SerializeField]
-    public float Distance { get; private set; }
+    [Header("Параметры перемещения")]
+    [field: SerializeField] public float Distance { get; private set; }
+    [field: SerializeField] public float spring { get; private set; } = 20f;
+    [field: SerializeField] public float damping { get; private set; } = 5f;
+
+    [Header("Параметры вращения")]
+    [field: SerializeField] public float RotationSpeed { get; private set; } = 5f;
+    [field: SerializeField] public float ObjectRotationSensitivity { get; private set; } = 10f;
+    [field: SerializeField] public float ObjectRotationSmoothness { get; private set; } = 12f;
+
+    [Header("Параметры броска")]
+    [field: SerializeField] public float DropForce { get; private set; } = 5f;
+
+
 
     public GrabbingItem Item { get; private set; }
-
-    private IActivate activate;
-
+    public IActivate ItemActivate { get; private set; }
     public LaunchBeam LaunchBeam { get; private set; }
 
-    [field: SerializeField]
-    public InputAction DropKey { get; private set; }
 
-    [field: SerializeField]
-    public float spring { get; private set; } = 20f;
-
-    [field: SerializeField]
-    public float damping { get; private set; } = 5f;
-
-    [field: SerializeField]
-    public float DropForce { get; private set; } = 5f;
-
-    [field: SerializeField]
-    public InputAction RotateObjectKey { get; private set; }
-
-    [field: SerializeField]
-    public float ObjectRotationSensitivity { get; private set; } = 0.2f;
-
-    [field: SerializeField]
-    public float ObjectRotationSmoothness { get; private set; } = 12f;
 
     private Vector3 grabPoint;
     private Coroutine takeCoroutine;
     private bool isRotating;
     private bool previousFixedCamera;
-
     private Quaternion targetObjectRotation;
     private Quaternion cameraRotationOffset;
+    private Rotate Rotate;
+
+
 
     public static Grab Instance;
 
-    private Rotate Rotate;
 
-    [field: SerializeField]
-    public float RotationSpeed { get; private set; } = 5f;
+
 
     private void Awake()
     {
@@ -92,7 +86,7 @@ public class Grab : MonoBehaviour
         ActionKey.Enable();
 
         RotateObjectKey.started += StartObjectRotation;
-        RotateObjectKey.canceled += OnStopObjectRotation;
+        RotateObjectKey.canceled += StopObjectRotation;
         RotateObjectKey.Enable();
     }
 
@@ -108,10 +102,9 @@ public class Grab : MonoBehaviour
         ActionKey.Disable();
 
         RotateObjectKey.started -= StartObjectRotation;
-        RotateObjectKey.canceled -= OnStopObjectRotation;
+        RotateObjectKey.canceled -= StopObjectRotation;
         RotateObjectKey.Disable();
 
-        StopObjectRotation();
         StopTake();
     }
 
@@ -126,7 +119,7 @@ public class Grab : MonoBehaviour
         StopTake();
 
         Item = interactiveObject;
-        activate = Item.GetComponent<IActivate>();
+        ItemActivate = Item.GetComponent<IActivate>();
 
         Item.Rigidbody.useGravity = false;
 
@@ -147,6 +140,8 @@ public class Grab : MonoBehaviour
     {
         WaitForFixedUpdate wait = new WaitForFixedUpdate();
 
+        var wasRotate = !Item.NeedRotateInStart;
+
         while (Item != null)
         {
             if (Item.Rigidbody == null)
@@ -155,6 +150,7 @@ public class Grab : MonoBehaviour
             // Вращаем предмет мышью, пока зажата клавиша вращения.
             if (isRotating && Rotate != null)
             {
+                wasRotate = true;
                 Vector2 mouseDelta = Rotate.Input;
 
                 Quaternion yaw = Quaternion.AngleAxis(
@@ -167,35 +163,54 @@ public class Grab : MonoBehaviour
                     Vector3.right
                 );
 
-                cameraRotationOffset =
-                    yaw * pitch * cameraRotationOffset;
+                cameraRotationOffset = yaw * pitch * cameraRotationOffset;
             }
 
-            // Сохраняем ориентацию предмета относительно камеры.
-            targetObjectRotation =
-                transform.rotation * cameraRotationOffset;
+            if (wasRotate)
+            {
+                // Сохраняем ориентацию предмета относительно камеры.
+                targetObjectRotation =
+                    transform.rotation * cameraRotationOffset;
 
-            // Плавное физическое вращение.
-            Item.Rigidbody.MoveRotation(
-                Quaternion.Slerp(
-                    Item.Rigidbody.rotation,
-                    targetObjectRotation,
-                    1f - Mathf.Exp(
-                        -ObjectRotationSmoothness * Time.fixedDeltaTime
+                // Плавное физическое вращение.
+                Item.Rigidbody.MoveRotation(
+                    Quaternion.Slerp(
+                        Item.Rigidbody.rotation,
+                        targetObjectRotation,
+                        1f - Mathf.Exp(
+                            -ObjectRotationSmoothness * Time.fixedDeltaTime
+                        )
                     )
-                )
-            );
+                );
+            }
+            else
+            {
+                Vector3 directionToPlayer =
+                transform.position - Item.Rigidbody.position;
 
+                directionToPlayer.y = 0f;
+
+                if (directionToPlayer.sqrMagnitude > 0.001f)
+                {
+                    Quaternion targetRotation =
+                        Quaternion.LookRotation(directionToPlayer, Vector3.up);
+
+                    Item.Rigidbody.MoveRotation(
+                        Quaternion.RotateTowards(
+                            Item.Rigidbody.rotation,
+                            targetRotation,
+                            RotationSpeed * Time.fixedDeltaTime
+                        )
+                    );
+                }
+            }
+            
             // Точка удержания перед камерой.
-            grabPoint =
-                transform.position + transform.forward * Distance;
+            grabPoint = transform.position + transform.forward * Distance;
 
-            Vector3 positionError =
-                grabPoint - Item.Rigidbody.position;
+            Vector3 positionError = grabPoint - Item.Rigidbody.position;
 
-            Vector3 force =
-                positionError * spring -
-                Item.Rigidbody.linearVelocity * damping;
+            Vector3 force = positionError * spring - Item.Rigidbody.linearVelocity * damping;
 
             Item.Rigidbody.AddForce(force, ForceMode.Force);
 
@@ -230,7 +245,7 @@ public class Grab : MonoBehaviour
         }
 
         Item = null;
-        activate = null;
+        ItemActivate = null;
         isRotating = false;
     }
 
@@ -253,7 +268,7 @@ public class Grab : MonoBehaviour
 
     private void Activate(InputAction.CallbackContext context)
     {
-        activate?.Activate();
+        ItemActivate?.Activate();
     }
 
     /// <summary>
@@ -261,25 +276,24 @@ public class Grab : MonoBehaviour
     /// </summary>
     private void StartObjectRotation(InputAction.CallbackContext context)
     {
-        if (Item == null || Rotate == null)
+        if (Item == null || Item.Rigidbody == null || Rotate == null)
             return;
 
         previousFixedCamera = Rotate.FixedCamera;
+
+        // Сохраняем текущую ориентацию объекта относительно камеры
+        cameraRotationOffset =
+            Quaternion.Inverse(transform.rotation) *
+            Item.Rigidbody.rotation;
+
+        // Начинаем вращение с текущего положения объекта
+        targetObjectRotation = Item.Rigidbody.rotation;
 
         isRotating = true;
         Rotate.FixedCamera = true;
     }
 
-    private void OnStopObjectRotation(InputAction.CallbackContext context)
-    {
-        StopObjectRotation();
-    }
-
-    /// <summary>
-    /// Завершает вращение мышью.
-    /// Предмет продолжает следовать за камерой, пока захвачен.
-    /// </summary>
-    private void StopObjectRotation()
+    private void StopObjectRotation(InputAction.CallbackContext context)
     {
         isRotating = false;
 
