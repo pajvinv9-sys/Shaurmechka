@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   <Speed>k__BackingField: 6
+  <RunModify>k__BackingField: 5
+  <RunFieldOfView>k__BackingField: 65
+  <WalkFieldOfView>k__BackingField: 60
   <MovementKeys>k__BackingField:
     m_Name: Movement Keys
     m_Type: 0
@@ -181,6 +184,16 @@ MonoBehaviour:
       m_Action: Movement Keys
       m_Flags: 8
     m_Flags: 0
+  <RunKey>k__BackingField:
+    m_Name: Run Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2df89250-b6f0-44ac-9b9a-d5df6ee0e592
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  <Camera>k__BackingField: {fileID: 0}
 --- !u!54 &8897564592712119734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -456,6 +469,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a83b323bef314428f9ef4d839e4f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grab
+  <ActionKey>k__BackingField:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1864404d-a6ea-46bf-b660-8f3bae78bc86
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   <Distance>k__BackingField: 3
   <DropKey>k__BackingField:
     m_Name: Drop Key

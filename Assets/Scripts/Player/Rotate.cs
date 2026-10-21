@@ -3,62 +3,69 @@ using UnityEngine.InputSystem;
 
 /// <summary>
 /// Управляет вращением игрока и камеры от движения мыши.
-///
-/// Крепится на: GameObject игрока.
-/// Вертикальное вращение применяется к дочерней камере.
-/// Горизонтальное вращение применяется к игроку.
+/// Скрипт должен висеть на игроке.
 /// </summary>
 public class Rotate : MonoBehaviour
 {
     /// <summary>
-    /// Камера игрока, вращаемая по вертикальной оси.
+    /// Камера, являющаяся дочерним объектом игрока.
     /// </summary>
-    [field: SerializeField] public Transform Camera { get; private set; }
+    [field: SerializeField]
+    public Transform Camera { get; private set; }
 
     /// <summary>
-    /// Input Action, содержащий дельту движения мыши.
+    /// Input Action с binding на <Mouse>/delta.
     /// </summary>
-    [field: SerializeField] public InputAction MouseDelta { get; private set; }
+    [field: SerializeField]
+    public InputAction MouseDelta { get; private set; }
+
+    [field: SerializeField]
+    public float SensitiveX { get; private set; } = 1f;
+
+    [field: SerializeField]
+    public float SensitiveY { get; private set; } = 1f;
+
+    [field: SerializeField]
+    public float MinCameraAngle { get; private set; } = -80f;
+
+    [field: SerializeField]
+    public float MaxCameraAngle { get; private set; } = 80f;
+
+    private float yaw;
+    private float pitch;
 
     /// <summary>
-    /// Чувствительность горизонтального вращения.
+    /// Дельта мыши, считанная за текущий кадр.
     /// </summary>
-    [field: SerializeField] public float SensitiveX { get; private set; } = 1f;
+    public Vector2 Input { get; private set; }
 
     /// <summary>
-    /// Чувствительность вертикального вращения.
+    /// Если true, камера не вращается от мыши.
     /// </summary>
-    [field: SerializeField] public float SensitiveY { get; private set; } = 1f;
-
-    /// <summary>
-    /// Минимальный угол наклона камеры по вертикали.
-    /// </summary>
-    [field: SerializeField] public float MinCameraAngle { get; private set; } = -80f;
-
-    /// <summary>
-    /// Максимальный угол наклона камеры по вертикали.
-    /// </summary>
-    [field: SerializeField] public float MaxCameraAngle { get; private set; } = 80f;
-
-    private float _yaw;
-    private float _pitch;
-    private Vector2 input;
+    [field: SerializeField]
+    public bool FixedCamera { get; set; }
 
     private void Awake()
     {
         if (Camera == null)
-            Debug.LogError("Camera не найдена", this);
+        {
+            Debug.LogError("Camera не назначена в Rotate.", this);
+            enabled = false;
+            return;
+        }
 
         if (MouseDelta == null || MouseDelta.bindings.Count == 0)
-            Debug.LogError("MouseDelta не назначен", this);
+        {
+            Debug.LogError("MouseDelta не назначен в Rotate.", this);
+            enabled = false;
+            return;
+        }
 
-        // Сохраняем текущие углы, чтобы вращение начиналось с положения объекта в сцене.
-        _yaw = transform.eulerAngles.y;
-        _pitch = Camera.localEulerAngles.x;
+        yaw = transform.eulerAngles.y;
+        pitch = Camera.localEulerAngles.x;
 
-        // Преобразуем угол из диапазона 0–360 в диапазон -180–180.
-        if (_pitch > 180f)
-            _pitch -= 360f;
+        if (pitch > 180f)
+            pitch -= 360f;
     }
 
     private void OnEnable()
@@ -69,39 +76,30 @@ public class Rotate : MonoBehaviour
     private void OnDisable()
     {
         MouseDelta.Disable();
+        Input = Vector2.zero;
     }
 
     private void Update()
     {
-        Vector2 input = MouseDelta.ReadValue<Vector2>();
-        RotatePlayer(input);
-    }
+        // Для Mouse Delta action должен быть привязан к <Mouse>/delta.
+        Input = MouseDelta.ReadValue<Vector2>();
 
-    private void RotatePlayer(Vector2 input)
-    {
-        // Горизонтальное движение мыши поворачивает игрока, вертикальное — камеру.
-        _yaw += input.x * SensitiveX;
-        _pitch -= input.y * SensitiveY;
+        if (FixedCamera)
+            return;
 
-        // Ограничиваем вертикальный угол, чтобы камера не вращалась слишком высоко или низко.
-        _pitch = Mathf.Clamp(
-            _pitch,
+        yaw += Input.x * SensitiveX;
+        pitch -= Input.y * SensitiveY;
+
+        pitch = Mathf.Clamp(
+            pitch,
             MinCameraAngle,
             MaxCameraAngle
         );
 
-        // Поворачиваем игрока только вокруг вертикальной оси.
-        transform.rotation = Quaternion.Euler(
-            0f,
-            _yaw,
-            0f
-        );
+        // Горизонтальное вращение — игрок.
+        transform.rotation = Quaternion.Euler(0f, yaw, 0f);
 
-        // Поворачиваем дочернюю камеру только по вертикальной оси.
-        Camera.localRotation = Quaternion.Euler(
-            _pitch,
-            0f,
-            0f
-        );
+        // Вертикальное вращение — локальный поворот камеры.
+        Camera.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
 }

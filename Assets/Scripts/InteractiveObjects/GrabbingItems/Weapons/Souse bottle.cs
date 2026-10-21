@@ -1,7 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
+public class SouceBottle
+{
+
+}
+
+
+
+
+
+
+/*/// <summary>
 /// Оптимизированный скрипт банки соуса (кетчуп, горчица, майонез).
 /// 
 /// Вешается на: GameObject банки.
@@ -235,4 +245,4 @@ public class SauceBottle : MonoBehaviour
             PourAudioSource.Stop();
         }
     }
-}
+}*/

@@ -1,79 +1,63 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Управляет захватом, перемещением и отпусканием интерактивных объектов.
-///
-/// Крепится на: GameObject игрока.
-/// Требует: LaunchBeam и Rigidbody у захватываемого объекта.
-/// Использует: Input Action для отпускания объекта.
-///
-/// Перемещает захваченный объект к точке перед игроком с помощью пружинной силы
-/// и демпфирования, плавно поворачивает его в сторону игрока и позволяет
-/// отпустить объект с импульсом в направлении взгляда.
+/// Управляет захватом, перемещением, вращением и отпусканием интерактивных объектов.
+/// Скрипт крепится к камере, дочерней к игроку. Rotate должен находиться на игроке.
 /// </summary>
 public class Grab : MonoBehaviour
 {
-    /// <summary>
-    /// Расстояние от игрока до точки удержания объекта.
-    /// </summary>
+    [field: SerializeField]
+    public InputAction ActionKey { get; private set; }
+
     [field: SerializeField]
     public float Distance { get; private set; }
 
-    /// <summary>
-    /// Текущий захваченный объект. Null, если захват не выполняется.
-    /// </summary>
     public GrabbingItem Item { get; private set; }
 
-    /// <summary>
-    /// Компонент, отвечающий за поиск интерактивных объектов.
-    /// </summary>
+    private IActivate activate;
+
     public LaunchBeam LaunchBeam { get; private set; }
 
-    /// <summary>
-    /// Input Action для отпускания захваченного объекта.
-    /// </summary>
     [field: SerializeField]
     public InputAction DropKey { get; private set; }
 
-    /// <summary>
-    /// Коэффициент пружинной силы, возвращающей объект к точке удержания.
-    /// </summary>
     [field: SerializeField]
     public float spring { get; private set; } = 20f;
 
-    /// <summary>
-    /// Коэффициент демпфирования, уменьшающего колебания объекта.
-    /// </summary>
     [field: SerializeField]
     public float damping { get; private set; } = 5f;
 
-    /// <summary>
-    /// Сила импульса, прикладываемого к объекту при отпускании.
-    /// </summary>
     [field: SerializeField]
     public float DropForce { get; private set; } = 5f;
 
-    /// <summary>
-    /// Скорость поворота захваченного объекта в сторону игрока.
-    /// </summary>
+    [field: SerializeField]
+    public InputAction RotateObjectKey { get; private set; }
+
+    [field: SerializeField]
+    public float ObjectRotationSensitivity { get; private set; } = 0.2f;
+
+    [field: SerializeField]
+    public float ObjectRotationSmoothness { get; private set; } = 12f;
+
+    private Vector3 grabPoint;
+    private Coroutine takeCoroutine;
+    private bool isRotating;
+    private bool previousFixedCamera;
+
+    private Quaternion targetObjectRotation;
+    private Quaternion cameraRotationOffset;
+
+    public static Grab Instance;
+
+    private Rotate Rotate;
+
     [field: SerializeField]
     public float RotationSpeed { get; private set; } = 5f;
 
-    // Текущая целевая позиция захваченного объекта.
-    private Vector3 grabPoint;
-
-    // Ссылка на корутину, управляющую удержанием объекта.
-    private Coroutine takeCoroutine;
-
-    // Позволяет другим компонентам получить доступ к единственному экземпляру Grab.
-    public static Grab Instance;
-
     private void Awake()
     {
-        // Не допускаем существования нескольких экземпляров Grab.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -82,9 +66,12 @@ public class Grab : MonoBehaviour
 
         Instance = this;
 
-        // Получаем компонент поиска с того же GameObject, если он не назначен.
         if (LaunchBeam == null)
             LaunchBeam = GetComponent<LaunchBeam>();
+
+        // Grab находится на камере, а Rotate — на родительском объекте игрока.
+        if (Rotate == null)
+            Rotate = GetComponentInParent<Rotate>();
     }
 
     private void OnDestroy()
@@ -95,96 +82,136 @@ public class Grab : MonoBehaviour
 
     private void OnEnable()
     {
-        LaunchBeam.BeamKey.canceled += OnEndTake;
+        if (LaunchBeam != null && LaunchBeam.BeamKey != null)
+            LaunchBeam.BeamKey.canceled += OnEndTake;
 
-        // Подписываемся на отпускание объекта и активируем соответствующее действие.
         DropKey.started += Drop;
         DropKey.Enable();
+
+        ActionKey.started += Activate;
+        ActionKey.Enable();
+
+        RotateObjectKey.started += StartObjectRotation;
+        RotateObjectKey.canceled += OnStopObjectRotation;
+        RotateObjectKey.Enable();
     }
 
     private void OnDisable()
     {
-        LaunchBeam.BeamKey.canceled -= OnEndTake;
+        if (LaunchBeam != null && LaunchBeam.BeamKey != null)
+            LaunchBeam.BeamKey.canceled -= OnEndTake;
 
         DropKey.started -= Drop;
         DropKey.Disable();
 
-        // Завершаем захват, если компонент отключается во время взаимодействия.
+        ActionKey.started -= Activate;
+        ActionKey.Disable();
+
+        RotateObjectKey.started -= StartObjectRotation;
+        RotateObjectKey.canceled -= OnStopObjectRotation;
+        RotateObjectKey.Disable();
+
+        StopObjectRotation();
         StopTake();
     }
 
     /// <summary>
-    /// Начинает удержание переданного объекта.
+    /// Начинает удержание объекта.
     /// </summary>
-    /// <param name="interactiveObject">Объект, который необходимо захватить.</param>
     public void StartTake(GrabbingItem interactiveObject)
     {
+        if (interactiveObject == null || interactiveObject.Rigidbody == null)
+            return;
+
+        StopTake();
+
         Item = interactiveObject;
+        activate = Item.GetComponent<IActivate>();
+
+        Item.Rigidbody.useGravity = false;
+
+        // Запоминаем начальную ориентацию предмета относительно камеры.
+        cameraRotationOffset =
+            Quaternion.Inverse(transform.rotation) *
+            Item.Rigidbody.rotation;
+
+        targetObjectRotation = Item.Rigidbody.rotation;
+
         takeCoroutine = StartCoroutine(Take());
     }
 
     /// <summary>
-    /// Удерживает объект на заданном расстоянии перед игроком
-    /// и плавно поворачивает его в сторону игрока.
+    /// Удерживает предмет и плавно обновляет его ориентацию.
     /// </summary>
     private IEnumerator Take()
     {
+        WaitForFixedUpdate wait = new WaitForFixedUpdate();
+
         while (Item != null)
         {
-            // Пересчитываем точку удержания с учётом текущего положения игрока.
+            if (Item.Rigidbody == null)
+                break;
+
+            // Вращаем предмет мышью, пока зажата клавиша вращения.
+            if (isRotating && Rotate != null)
+            {
+                Vector2 mouseDelta = Rotate.Input;
+
+                Quaternion yaw = Quaternion.AngleAxis(
+                    mouseDelta.x * ObjectRotationSensitivity,
+                    Vector3.up
+                );
+
+                Quaternion pitch = Quaternion.AngleAxis(
+                    -mouseDelta.y * ObjectRotationSensitivity,
+                    Vector3.right
+                );
+
+                cameraRotationOffset =
+                    yaw * pitch * cameraRotationOffset;
+            }
+
+            // Сохраняем ориентацию предмета относительно камеры.
+            targetObjectRotation =
+                transform.rotation * cameraRotationOffset;
+
+            // Плавное физическое вращение.
+            Item.Rigidbody.MoveRotation(
+                Quaternion.Slerp(
+                    Item.Rigidbody.rotation,
+                    targetObjectRotation,
+                    1f - Mathf.Exp(
+                        -ObjectRotationSmoothness * Time.fixedDeltaTime
+                    )
+                )
+            );
+
+            // Точка удержания перед камерой.
             grabPoint =
-                transform.position +
-                transform.forward * Distance;
+                transform.position + transform.forward * Distance;
 
             Vector3 positionError =
-                grabPoint - Item.transform.position;
+                grabPoint - Item.Rigidbody.position;
 
-            // Пружина тянет объект к целевой точке, демпфирование гасит его скорость.
             Vector3 force =
                 positionError * spring -
                 Item.Rigidbody.linearVelocity * damping;
 
             Item.Rigidbody.AddForce(force, ForceMode.Force);
 
-            // Определяем направление от объекта к игроку без учёта высоты.
-            Vector3 directionToPlayer =
-                transform.position - Item.transform.position;
-
-            directionToPlayer.y = 0f;
-
-            if (directionToPlayer.sqrMagnitude > 0.001f)
-            {
-                Quaternion targetRotation =
-                    Quaternion.LookRotation(directionToPlayer);
-
-                // Плавно поворачиваем объект к игроку с заданной угловой скоростью.
-                Quaternion newRotation =
-                    Quaternion.RotateTowards(
-                        Item.Rigidbody.rotation,
-                        targetRotation,
-                        RotationSpeed * Time.deltaTime
-                    );
-
-                Item.Rigidbody.MoveRotation(newRotation);
-            }
-
-            yield return null;
+            yield return wait;
         }
 
-        // Очищаем ссылку после естественного завершения корутины.
         takeCoroutine = null;
     }
 
-    /// <summary>
-    /// Завершает захват при отмене действия поиска.
-    /// </summary>
     private void OnEndTake(InputAction.CallbackContext context)
     {
         StopTake();
     }
 
     /// <summary>
-    /// Прекращает удержание объекта и сбрасывает состояние захвата.
+    /// Завершает удержание и сбрасывает состояние.
     /// </summary>
     public void StopTake()
     {
@@ -195,18 +222,24 @@ public class Grab : MonoBehaviour
         }
 
         if (Item != null)
+        {
+            if (Item.Rigidbody != null)
+                Item.Rigidbody.useGravity = true;
+
             Item.ObjectLost();
+        }
 
         Item = null;
+        activate = null;
+        isRotating = false;
     }
 
     /// <summary>
-    /// Отпускает объект и придаёт ему импульс в направлении взгляда игрока.
+    /// Отпускает предмет и придаёт ему импульс вперёд.
     /// </summary>
-    /// <param name="context">Контекст вызова Input Action.</param>
     private void Drop(InputAction.CallbackContext context)
     {
-        if (Item == null)
+        if (Item == null || Item.Rigidbody == null)
             return;
 
         Item.Rigidbody.AddForce(
@@ -215,8 +248,42 @@ public class Grab : MonoBehaviour
         );
 
         Item.ObjectDrop();
-
-        // Завершаем захват после передачи объекту импульса.
         StopTake();
+    }
+
+    private void Activate(InputAction.CallbackContext context)
+    {
+        activate?.Activate();
+    }
+
+    /// <summary>
+    /// Начинает вращение предмета.
+    /// </summary>
+    private void StartObjectRotation(InputAction.CallbackContext context)
+    {
+        if (Item == null || Rotate == null)
+            return;
+
+        previousFixedCamera = Rotate.FixedCamera;
+
+        isRotating = true;
+        Rotate.FixedCamera = true;
+    }
+
+    private void OnStopObjectRotation(InputAction.CallbackContext context)
+    {
+        StopObjectRotation();
+    }
+
+    /// <summary>
+    /// Завершает вращение мышью.
+    /// Предмет продолжает следовать за камерой, пока захвачен.
+    /// </summary>
+    private void StopObjectRotation()
+    {
+        isRotating = false;
+
+        if (Rotate != null)
+            Rotate.FixedCamera = previousFixedCamera;
     }
 }
