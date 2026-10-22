@@ -87,6 +87,7 @@ public class Movement : MonoBehaviour
         // Меняем скорость по горизонтальным осям, сохраняя вертикальную скорость,
         // чтобы не мешать гравитации и прыжкам.
         Vector3 velocity = Rigidbody.linearVelocity;
+
         velocity.x = moveDirection.x * speedNow;
         velocity.z = moveDirection.z * speedNow;
 

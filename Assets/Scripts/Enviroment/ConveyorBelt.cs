@@ -68,24 +68,24 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        InteractiveObject interactive =
-            other.GetComponent<InteractiveObject>();
+        Rigidbody rb =
+            other.GetComponent<Rigidbody>();
 
-        if (interactive == null)
+        if (rb == null)
             return;
 
-        itemsOnBelt.Add(interactive.Rigidbody);
+        itemsOnBelt.Add(rb);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        InteractiveObject interactive =
-            other.GetComponent<InteractiveObject>();
+        Rigidbody rb =
+            other.GetComponent<Rigidbody>();
 
-        if (interactive == null) 
+        if (rb == null) 
             return;
         
-        itemsOnBelt.Remove(interactive.Rigidbody);
+        itemsOnBelt.Remove(rb);
     }
 
     private void OnDisable()
@@ -128,10 +128,14 @@ public class ConveyorBelt : MonoBehaviour
         {
             if (rb == null || rb.isKinematic)
                 continue;
+            // Сохраняем скорость перпендикулярно поверхности,
+            // чтобы конвейер не подавлял падение и подпрыгивание предмета.
+            Vector3 normalVelocity =
+                Vector3.Project(rb.linearVelocity, BeltNormal);
 
-            // Выделяем составляющую скорости вдоль поверхности конвейера.
             Vector3 tangentVelocity =
                 Vector3.ProjectOnPlane(rb.linearVelocity, BeltNormal);
+            // Выделяем составляющую скорости вдоль поверхности конвейера.
 
             // Задаём скорость, к которой должен постепенно разогнаться предмет.
             Vector3 targetVelocity = BeltDirection * speed;
@@ -175,13 +179,14 @@ public class ConveyorBelt : MonoBehaviour
                 );
             }
 
-            // Сохраняем скорость перпендикулярно поверхности,
-            // чтобы конвейер не подавлял падение и подпрыгивание предмета.
-            Vector3 normalVelocity =
-                Vector3.Project(rb.linearVelocity, BeltNormal);
+            Vector3 velocityDifference =
+                targetVelocity - tangentVelocity;
 
-            rb.linearVelocity =
-                tangentVelocity + normalVelocity;
+            // Сила пропорциональна массе предмета.
+            Vector3 force =
+                velocityDifference * beltAcceleration * rb.mass;
+
+            rb.AddForce(force, ForceMode.Force);
         }
 
         // Удаляем ссылки на уничтоженные объекты.

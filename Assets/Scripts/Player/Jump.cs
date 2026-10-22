@@ -12,7 +12,9 @@ public class Jump : MonoBehaviour
     [field: SerializeField] public bool OverJump { get; private set; }
 
     private Rigidbody rb;
-    private bool canJump;
+    [field: SerializeField] public bool CanJump { get; private set; }
+
+    public bool InJump { get; private set; }
 
     private void OnEnable()
     {
@@ -34,10 +36,11 @@ public class Jump : MonoBehaviour
     private void JumpVoid(InputAction.CallbackContext context)
     {
         // Прыжок разрешён, если персонаж на земле или включён OverJump.
-        if (OverJump || canJump)
+        if (OverJump || CanJump)
         {
             rb.AddForce(0, JumpForce, 0);
-            canJump = false;
+            InJump = true;
+            CanJump = false;
         }
     }
 
@@ -51,7 +54,8 @@ public class Jump : MonoBehaviour
                 // Проверяем, что поверхность находится под персонажем, а не сбоку.
                 if (contact.normal.y > 0.5f)
                 {
-                    canJump = true;
+                    CanJump = true;
+                    InJump = false;
                     break;
                 }
             }
@@ -67,7 +71,8 @@ public class Jump : MonoBehaviour
                 // Сбрасываем возможность прыжка при потере контакта с землёй.
                 if (contact.normal.y > 0.5f)
                 {
-                    canJump = false;
+                    CanJump = false;
+                    InJump = true;
                     break;
                 }
             }

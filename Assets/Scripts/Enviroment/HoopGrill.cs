@@ -17,7 +17,11 @@ public class HoopGrill : MonoBehaviour
         // Начинаем приготовление, только если котлета движется вниз.
         if (cutlet != null && cutlet.Rigidbody.linearVelocity.y < -0.1f)
         {
+            if (cutlet.IsCooked)
+                return;
+
             cutlet.Cook();
+            BasketballScore.Instance.AddScore(transform, cutlet);
         }
     }
 }

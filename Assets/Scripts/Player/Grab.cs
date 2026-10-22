@@ -32,7 +32,7 @@ public class Grab : MonoBehaviour
     public GrabbingItem Item { get; private set; }
     public IActivate ItemActivate { get; private set; }
     public LaunchBeam LaunchBeam { get; private set; }
-
+    
 
 
     private Vector3 grabPoint;
@@ -46,7 +46,9 @@ public class Grab : MonoBehaviour
 
 
     public static Grab Instance;
+    [field: SerializeField] private Transform player;
 
+    public static Transform Player => Instance.player;
 
 
 
