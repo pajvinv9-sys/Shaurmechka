@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cutlet
   <CanBeGrab>k__BackingField: 1
+  <NeedRotateInStart>k__BackingField: 0
+  IngredientTag: 6
   cookedMaterial: {fileID: 2100000, guid: c6e7c0a5503ee8a488e9163f76eca7f3, type: 2}
 --- !u!54 &2028556841251001168
 Rigidbody:

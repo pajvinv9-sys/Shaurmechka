@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f66cf4fdc3ac340bfcb8c9cd0d0301, type: 3}
   m_Name: CookedCutlet
   m_EditorClassIdentifier: Assembly-CSharp::Recipes
-  RecipeName: CookedCutlet
   BaseIngredient: 0
-  OtherIngredients: 03000000
+  OtherIngredients: 05000000
   SpecialIngredient: 0
   MaxPoints: 50
   FailPenalty: 30

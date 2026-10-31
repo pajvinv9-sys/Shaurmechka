@@ -118,10 +118,10 @@ public class OrderSystem : MonoBehaviour
             float timeFactor = 1f - Mathf.Clamp01((Time.time - startTime) / recipe.BonusTime);
             points += recipe.MaxSpeedBonus * fraction * timeFactor;
             int total = Mathf.RoundToInt(points);
-            Debug.Log(
-            "Заказ: " + string.Join(", ", recipe.name) +
-            " | состав: " + string.Join(", ", baseIngredient.ingredientsInside) +
-            " | очки: " + total);
+            UIMessage.Show(
+            "Заказ: " + string.Join(", ", recipe.name) + '\n' +
+            "| состав: " + string.Join(", ", baseIngredient.ingredientsInside) + '\n' +
+            "| очки: " + total);
 
             PointsAwarded?.Invoke(total);
             Customer.React(fraction >= HappyThreshold);
@@ -137,9 +137,8 @@ public class OrderSystem : MonoBehaviour
             float timeFactor = 1f - Mathf.Clamp01((Time.time - startTime) / recipe.BonusTime);
             var points = recipe.MaxPoints + recipe.MaxSpeedBonus * timeFactor;
             var total = Mathf.RoundToInt(points);
-            Debug.Log(
-            "Заказ: " + string.Join(", ", recipe.name) +
-            " | очки: " + total);
+            UIMessage.Show("Заказ: " + string.Join(", ", recipe.name) + '\n' +
+            "| очки: " + total);
 
             PointsAwarded?.Invoke(total);
             Customer.React(true);
@@ -147,9 +146,9 @@ public class OrderSystem : MonoBehaviour
         else
         {
             var total = -recipe.FailPenalty;
-            Debug.Log(
-            "Заказ: " + string.Join(", ", recipe.name) +
-            " | очки: " + total);
+
+            UIMessage.Show("Заказ: " + string.Join(", ", recipe.name) + '\n' +
+            "| очки: " + total);
 
             PointsAwarded?.Invoke(total);
             Customer.React(false);
