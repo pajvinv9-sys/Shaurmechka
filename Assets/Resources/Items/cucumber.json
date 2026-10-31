@@ -1,0 +1,28 @@
+{
+  "id": "cucumber",
+  "ru": {
+    "gender": "masculine",
+    "forms": {
+      "singular": {
+        "nominative": "огурец",
+        "genitive": "огурца",
+        "dative": "огурцу",
+        "accusative": "огурец",
+        "instrumental": "огурцом",
+        "prepositional": "огурце"
+      },
+      "plural": {
+        "nominative": "огурцы",
+        "genitive": "огурцов",
+        "dative": "огурцам",
+        "accusative": "огурцы",
+        "instrumental": "огурцами",
+        "prepositional": "огурцах"
+      }
+    }
+  },
+  "en": {
+    "singular": "cucumber",
+    "plural": "cucumbers"
+  }
+}

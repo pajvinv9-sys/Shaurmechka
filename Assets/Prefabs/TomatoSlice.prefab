@@ -144,3 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TomatoSlice
   <CanBeGrab>k__BackingField: 1
+  <NeedRotateInStart>k__BackingField: 0
+  IngredientTag: 3

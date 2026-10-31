@@ -13,7 +13,8 @@ public class DeliveryZone : MonoBehaviour
     /// <summary>
     /// Вызывается до удаления блюда, чтобы подписчик успел прочитать его состав.
     /// </summary>
-    public event Action<Dish> DishDelivered;
+    public event Action<BaseIngredient> Delivered;
+    public event Action<Ingredient> DeliveredIngredient;
 
     /// <summary>
     /// Принимает ли зона блюда сейчас (OrderManager выключает её, пока заказа нет).
@@ -31,20 +32,29 @@ public class DeliveryZone : MonoBehaviour
         if (!IsAccepting)
             return;
 
-        Dish dish = other.GetComponentInParent<Dish>();
+        BaseIngredient baseIngredient = other.GetComponent<BaseIngredient>();
+        Ingredient ingredient = other.GetComponent<Ingredient>();
+        if (baseIngredient != null && baseIngredient.IsCooked)
+        {
+            Grab grab = Grab.Instance;
 
-        if (dish == null || dish.IsDelivered)
-            return;
+            if (grab != null && grab.Item != null && grab.Item.GetComponentInParent<BaseIngredient>() == baseIngredient)
+                grab.StopTake();
 
-        dish.MarkDelivered();
+            Delivered?.Invoke(baseIngredient);
 
-        // Если блюдо в руках, сначала отпускаем его, иначе Grab останется с мёртвой ссылкой.
-        Grab grab = Grab.Instance;
-        if (grab != null && grab.Item != null && grab.Item.GetComponentInParent<Dish>() == dish)
-            grab.StopTake();
+            Destroy(baseIngredient.gameObject);
+        }
+        else if (ingredient != null)
+        {
+            Grab grab = Grab.Instance;
 
-        DishDelivered?.Invoke(dish);
+            if (grab != null && grab.Item != null && grab.Item.GetComponentInParent<Ingredient>() == ingredient)
+                grab.StopTake();
 
-        Destroy(dish.gameObject);
+            DeliveredIngredient?.Invoke(ingredient);
+
+            Destroy(ingredient.gameObject);
+        }
     }
 }

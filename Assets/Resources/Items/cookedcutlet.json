@@ -1,0 +1,28 @@
+{
+  "id": "cookedcutlet",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "жареная котлета",
+        "genitive": "жареной котлеты",
+        "dative": "жареной котлете",
+        "accusative": "жареную котлету",
+        "instrumental": "жареной котлетой",
+        "prepositional": "жареной котлете"
+      },
+      "plural": {
+        "nominative": "жареные котлеты",
+        "genitive": "жареных котлет",
+        "dative": "жареным котлетам",
+        "accusative": "жареные котлеты",
+        "instrumental": "жареными котлетами",
+        "prepositional": "жареных котлетах"
+      }
+    }
+  },
+  "en": {
+    "singular": "fried cutlet",
+    "plural": "fried cutlets"
+  }
+}

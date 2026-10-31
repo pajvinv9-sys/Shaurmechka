@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CucumberSlice
   <CanBeGrab>k__BackingField: 1
+  <NeedRotateInStart>k__BackingField: 0
+  IngredientTag: 4
 --- !u!54 &4826031952524041267
 Rigidbody:
   m_ObjectHideFlags: 0

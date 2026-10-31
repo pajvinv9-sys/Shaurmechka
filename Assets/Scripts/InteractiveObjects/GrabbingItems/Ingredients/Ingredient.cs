@@ -4,6 +4,7 @@
 /// </summary>
 public abstract class Ingredient : GrabbingItem
 {
+    public IngredientTag IngredientTag;
     public override void ObjectDrop()
     {
         return;

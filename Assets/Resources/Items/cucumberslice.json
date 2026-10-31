@@ -1,0 +1,28 @@
+{
+  "id": "cucumberslice",
+  "ru": {
+    "gender": "masculine",
+    "forms": {
+      "singular": {
+        "nominative": "ломтик огурца",
+        "genitive": "ломтика огурца",
+        "dative": "ломтику огурца",
+        "accusative": "ломтик огурца",
+        "instrumental": "ломтиком огурца",
+        "prepositional": "ломтике огурца"
+      },
+      "plural": {
+        "nominative": "ломтики огурца",
+        "genitive": "ломтиков огурца",
+        "dative": "ломтикам огурца",
+        "accusative": "ломтики огурца",
+        "instrumental": "ломтиками огурца",
+        "prepositional": "ломтиках огурца"
+      }
+    }
+  },
+  "en": {
+    "singular": "cucumber slice",
+    "plural": "cucumber slices"
+  }
+}

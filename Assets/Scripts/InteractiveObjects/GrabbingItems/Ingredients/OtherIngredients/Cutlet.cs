@@ -29,6 +29,7 @@ public class Cutlet : Ingredient
         // Меняем внешний вид котлеты и сохраняем состояние готовности.
         meshRenderer.material = cookedMaterial;
         IsCooked = true;
+        IngredientTag = IngredientTag.CookedCutlet;
     }
 
     public override void ObjectDrop()

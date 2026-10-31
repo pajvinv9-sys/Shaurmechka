@@ -1,0 +1,28 @@
+{
+  "id": "tomato",
+  "ru": {
+    "gender": "masculine",
+    "forms": {
+      "singular": {
+        "nominative": "помидор",
+        "genitive": "помидора",
+        "dative": "помидору",
+        "accusative": "помидор",
+        "instrumental": "помидором",
+        "prepositional": "помидоре"
+      },
+      "plural": {
+        "nominative": "помидоры",
+        "genitive": "помидоров",
+        "dative": "помидорам",
+        "accusative": "помидоры",
+        "instrumental": "помидорами",
+        "prepositional": "помидорах"
+      }
+    }
+  },
+  "en": {
+    "singular": "tomato",
+    "plural": "tomatoes"
+  }
+}

@@ -2462,6 +2462,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -3476,6 +3484,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -3540,6 +3556,56 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+--- !u!1 &391708986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391708988}
+  - component: {fileID: 391708987}
+  m_Layer: 0
+  m_Name: RecipesInGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &391708987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391708986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ebc86cbe7322441a87522c9738d2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecipesInGame
+  recipes:
+  - {fileID: 11400000, guid: 5839a77c7bd69e64a9d8b3d63cbb73d8, type: 2}
+  - {fileID: 11400000, guid: 52b09628884842f47b2c7e382d888a97, type: 2}
+  - {fileID: 11400000, guid: 3e2d2200bf6c5f145b973b468d4e6a22, type: 2}
+  - {fileID: 11400000, guid: 71c2cd8673a5d474a82c61faa982b018, type: 2}
+  - {fileID: 11400000, guid: 90550c8c7cd136446ab5b456ad6c737b, type: 2}
+--- !u!4 &391708988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391708986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.97687, y: 0.34128, z: 0.61333}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &402708001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1950796487060132578, guid: 2323b4c4cb7f4344da5828d81ef14613, type: 3}
@@ -4135,6 +4201,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -4919,6 +4993,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -5119,6 +5201,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -5303,6 +5393,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -5679,6 +5777,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -5892,6 +5998,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -6594,6 +6708,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -7288,6 +7406,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -7360,6 +7486,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -7721,6 +7855,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -8065,6 +8207,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -8425,6 +8575,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -9396,6 +9554,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -10071,6 +10237,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -10794,6 +10968,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -11216,6 +11398,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -16451,6 +16641,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -17778,13 +17976,6 @@ MonoBehaviour:
   <Zone>k__BackingField: {fileID: 507717844}
   <MinDelay>k__BackingField: 5
   <MaxDelay>k__BackingField: 15
-  <AvailableTags>k__BackingField: 0000000001000000
-  <MinIngredients>k__BackingField: 1
-  <MaxIngredients>k__BackingField: 2
-  <MaxPoints>k__BackingField: 100
-  <FailPenalty>k__BackingField: 50
-  <MaxSpeedBonus>k__BackingField: 50
-  <BonusTime>k__BackingField: 60
   <HappyThreshold>k__BackingField: 0.5
 --- !u!4 &1424456783
 Transform:
@@ -19378,7 +19569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 766251848414058227, guid: 259255ee76d2e3e4982fa0b7aa691966, type: 3}
       propertyPath: m_Name
-      value: table (4)
+      value: table
       objectReference: {fileID: 0}
     - target: {fileID: 3300222760210282493, guid: 259255ee76d2e3e4982fa0b7aa691966, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -19606,6 +19797,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -21725,6 +21924,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -27338,20 +27545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50756905e705d0d48b41aa833260d971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RecipeBook
-  recipes:
-  - Name: "\u041E\u0431\u044B\u0447\u043D\u0430\u044F \u0448\u0430\u0443\u0440\u043C\u0430"
-    Base: 0
-    Ingredients: 0000000001000000020000000300000004000000
-    SpecialTouch: 0
-  - Name: "\u0421\u0430\u043B\u0430\u0442 \u0441 \u043F\u043E\u043C\u0438\u0434\u043E\u0440\u0430\u043C\u0438
-      \u0438 \u043E\u0433\u0443\u0440\u0446\u0430\u043C\u0438"
-    Base: 4
-    Ingredients: 000000000100000006000000
-    SpecialTouch: 2
-  - Name: "\u0411\u0443\u0440\u0433\u0435\u0440 \u043E\u0431\u044B\u0447\u043D\u044B\u0439"
-    Base: 3
-    Ingredients: 00000000040000000300000002000000
-    SpecialTouch: 1
+  recipes: []
 --- !u!4 &1808188465
 Transform:
   m_ObjectHideFlags: 0
@@ -28728,6 +28922,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -29105,6 +29307,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -29664,7 +29874,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 844806847637596558, guid: 3c0c273c2ac9a9844ba380cdfbdad9ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -29754,6 +29965,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -34669,6 +34888,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -35228,6 +35455,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
@@ -35880,6 +36115,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 643020747}
     m_Modifications:
     - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: FromEnum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
+      propertyPath: IngredientTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606616207763345650, guid: bba6deba5d3846a4dbb3fd10763f653a, type: 3}
       propertyPath: <UpwardBias>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -36170,3 +36413,4 @@ SceneRoots:
   - {fileID: 1308594242}
   - {fileID: 1424456783}
   - {fileID: 4800593457422446539}
+  - {fileID: 391708988}

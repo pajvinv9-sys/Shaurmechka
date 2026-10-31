@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8410001
+      value: 0.135
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.039
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -74,9 +74,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -9160360027895732038}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2606616207763345650}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       insertIndex: -1
@@ -90,19 +87,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
   m_PrefabInstance: {fileID: 2521373482391800493}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-9160360027895732038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3331781929484728316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36514f72a35d944fa45951e9df12624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dish
-  ingredients: 01000000
 --- !u!114 &2606616207763345650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,11 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
-  <SlicedPiecePrefab>k__BackingField: {fileID: 919132149155446097, guid: d6b2e6048570a124fa627c45f2e29286, type: 3}
+  IngredientTag: 1
+  <SlicedPiecePrefab>k__BackingField: {fileID: 7244278159662226191, guid: 75db32fe51c4b484f8849c69e22d5c78, type: 3}
   <SliceCount>k__BackingField: 5
-  <SeparationForce>k__BackingField: 3
-  <UpwardBias>k__BackingField: 3
-  <TorqueAmount>k__BackingField: 3
+  <SeparationForce>k__BackingField: 1
+  <UpwardBias>k__BackingField: 1
+  <TorqueAmount>k__BackingField: 1
   <stepOffset>k__BackingField: 0.1
 --- !u!54 &8419106420479631111
 Rigidbody:

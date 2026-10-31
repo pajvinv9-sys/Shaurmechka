@@ -1,0 +1,28 @@
+{
+  "id": "tomatoslice",
+  "ru": {
+    "gender": "masculine",
+    "forms": {
+      "singular": {
+        "nominative": "ломтик помидора",
+        "genitive": "ломтика помидора",
+        "dative": "ломтику помидора",
+        "accusative": "ломтик помидора",
+        "instrumental": "ломтиком помидора",
+        "prepositional": "ломтике помидора"
+      },
+      "plural": {
+        "nominative": "ломтики помидора",
+        "genitive": "ломтиков помидора",
+        "dative": "ломтикам помидора",
+        "accusative": "ломтики помидора",
+        "instrumental": "ломтиками помидора",
+        "prepositional": "ломтиках помидора"
+      }
+    }
+  },
+  "en": {
+    "singular": "tomato slice",
+    "plural": "tomato slices"
+  }
+}

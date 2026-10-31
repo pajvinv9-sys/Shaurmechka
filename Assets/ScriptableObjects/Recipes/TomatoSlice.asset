@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f66cf4fdc3ac340bfcb8c9cd0d0301, type: 3}
+  m_Name: TomatoSlice
+  m_EditorClassIdentifier: Assembly-CSharp::Recipes
+  BaseIngredient: 0
+  OtherIngredients: 03000000
+  SpecialIngredient: 0
+  MaxPoints: 50
+  FailPenalty: 30
+  MaxSpeedBonus: 20
+  BonusTime: 10
