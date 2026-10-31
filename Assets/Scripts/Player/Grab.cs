@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -85,6 +86,7 @@ public class Grab : MonoBehaviour
         DropKey.Enable();
 
         ActionKey.started += Activate;
+        ActionKey.canceled += StopActivate;
         ActionKey.Enable();
 
         RotateObjectKey.started += StartObjectRotation;
@@ -101,6 +103,7 @@ public class Grab : MonoBehaviour
         DropKey.Disable();
 
         ActionKey.started -= Activate;
+        ActionKey.canceled -= StopActivate;
         ActionKey.Disable();
 
         RotateObjectKey.started -= StartObjectRotation;
@@ -271,6 +274,11 @@ public class Grab : MonoBehaviour
     private void Activate(InputAction.CallbackContext context)
     {
         ItemActivate?.Activate();
+    }
+
+    private void StopActivate(InputAction.CallbackContext context)
+    {
+        ItemActivate?.StopActivate();
     }
 
     /// <summary>
