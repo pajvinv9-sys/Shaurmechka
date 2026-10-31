@@ -62,6 +62,19 @@ public class Movement : MonoBehaviour
         RunKey.performed -= OnRun;
         RunKey.canceled -= OnWalk;
         RunKey.Disable();
+
+        // Сбрасываем ввод и остаточную скорость, чтобы персонаж не скользил
+        // после блокировки управления (например, на время диалога).
+        _moveInput = Vector2.zero;
+        speedNow = Speed;
+
+        if (Rigidbody != null)
+        {
+            Vector3 velocity = Rigidbody.linearVelocity;
+            velocity.x = 0f;
+            velocity.z = 0f;
+            Rigidbody.linearVelocity = velocity;
+        }
     }
 
     private void OnMovement(InputAction.CallbackContext context)

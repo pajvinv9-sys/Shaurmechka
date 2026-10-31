@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 621978077767006356}
   - component: {fileID: 8269232619930743706}
   - component: {fileID: 7602608655829304502}
+  - component: {fileID: 7451432773379887017}
   - component: {fileID: 3071273423859575682}
   - component: {fileID: 8897564592712119734}
   - component: {fileID: 4767804652868576686}
@@ -119,6 +120,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7451432773379887017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146245176612406143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4161f65820c38645b5f0bd0c287b2f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputLock
+  <Movement>k__BackingField: {fileID: 3071273423859575682}
+  <Rotate>k__BackingField: {fileID: 4767804652868576686}
+  <Interactor>k__BackingField: {fileID: 4616157622145528580}
 --- !u!114 &3071273423859575682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +303,7 @@ MonoBehaviour:
   <SensitiveY>k__BackingField: 1.5
   <MinCameraAngle>k__BackingField: -80
   <MaxCameraAngle>k__BackingField: 80
+  <FixedCamera>k__BackingField: 0
 --- !u!114 &865678797148117300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +335,7 @@ MonoBehaviour:
     m_Flags: 0
   <JumpForce>k__BackingField: 1000
   <OverJump>k__BackingField: 0
+  <CanJump>k__BackingField: 0
 --- !u!1 &2165386034967718810
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +348,7 @@ GameObject:
   - component: {fileID: 7587760450473614885}
   - component: {fileID: 8379437761333580775}
   - component: {fileID: 7897704027429958040}
+  - component: {fileID: 4616157622145528580}
   - component: {fileID: 3585313877193432808}
   - component: {fileID: 548851900778798103}
   m_Layer: 0
@@ -457,6 +476,39 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &4616157622145528580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165386034967718810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f203fbdac5ed654c9c9cd045b822bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  <InteractKey>k__BackingField:
+    m_Name: Interact Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cf6a7b3b-6ea8-4c99-b119-b514a26be4bb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: e5c5187b-b877-499a-a313-4c60b24f9a55
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact Key
+      m_Flags: 0
+    m_Flags: 0
+  <MaxDistance>k__BackingField: 3
+  <InteractMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &3585313877193432808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,16 +521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a83b323bef314428f9ef4d839e4f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grab
-  <ActionKey>k__BackingField:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 1864404d-a6ea-46bf-b660-8f3bae78bc86
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  <Distance>k__BackingField: 3
   <DropKey>k__BackingField:
     m_Name: Drop Key
     m_Type: 0
@@ -496,10 +538,32 @@ MonoBehaviour:
       m_Action: Drop Key
       m_Flags: 0
     m_Flags: 0
+  <ActionKey>k__BackingField:
+    m_Name: Action Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1864404d-a6ea-46bf-b660-8f3bae78bc86
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  <RotateObjectKey>k__BackingField:
+    m_Name: Rotate Object Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3f6a9023-e0f4-4382-bd77-61992d73ef2e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  <Distance>k__BackingField: 3
   <spring>k__BackingField: 20
   <damping>k__BackingField: 5
-  <DropForce>k__BackingField: 10
   <RotationSpeed>k__BackingField: 360
+  <ObjectRotationSensitivity>k__BackingField: 10
+  <ObjectRotationSmoothness>k__BackingField: 12
+  <DropForce>k__BackingField: 10
+  player: {fileID: 0}
 --- !u!114 &548851900778798103
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -74,6 +74,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -9160360027895732038}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2606616207763345650}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
       insertIndex: -1
@@ -87,6 +90,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c49cd64b3334f2a44ae5922a4d0f81b1, type: 3}
   m_PrefabInstance: {fileID: 2521373482391800493}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9160360027895732038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3331781929484728316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36514f72a35d944fa45951e9df12624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dish
+  ingredients: 01000000
 --- !u!114 &2606616207763345650
 MonoBehaviour:
   m_ObjectHideFlags: 0
