@@ -83,15 +83,15 @@ public class OrderSystem : MonoBehaviour
     /// </summary>
     private DialogueLine[] BuildOrderLines()
     {
-        var counttext = "";
-        if (LocalizationHelper.GetGender(recipe.name, "ru") == "feminine")
-            counttext = "одну";
-        else counttext = "один";
+        return new[]
+        {
+            new DialogueLine { 
+                Speaker = "Клиент", 
+                Text = "Здравствуйте!" },
 
-            return new[]
-            {
-            new DialogueLine { Speaker = "Клиент", Text = "Здравствуйте!" },
-            new DialogueLine { Speaker = "Клиент", Text = $"Мне {counttext} {LocalizationHelper.GetItem(recipe.name, "ru", true, "accusative")}, пожалуйста"}
+            new DialogueLine { 
+                Speaker = "Клиент", 
+                Text = LocalizationHelper.GetPhrase("order_give_me_please","ru",$"recipe:{recipe.name.ToLower()}")}
         };
     }
 

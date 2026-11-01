@@ -1,0 +1,52 @@
+
+{
+  "id": "order_give_me_please",
+  "ru": {
+    "variants": [
+      {
+        "conditions": {
+          "recipe.gender": "masculine"
+        },
+        "texts": [
+          "Дайте мне, пожалуйста, один [recipe:accusative]",
+          "Я бы хотел один [recipe:accusative], пожалуйста",
+          "Можно мне один [recipe:accusative]?",
+          "Будьте добры, один [recipe:accusative]"
+        ]
+      },
+      {
+        "conditions": {
+          "recipe.gender": "feminine"
+        },
+        "texts": [
+          "Дайте мне, пожалуйста, одну [recipe:accusative]",
+          "Я бы хотела одну [recipe:accusative], пожалуйста",
+          "Можно мне одну [recipe:accusative]?",
+          "Будьте добры, одну [recipe:accusative]"
+        ]
+      },
+      {
+        "conditions": {
+          "recipe.gender": "neuter"
+        },
+        "texts": [
+          "Дайте мне, пожалуйста, одно [recipe:accusative]",
+          "Я бы хотел одно [recipe:accusative], пожалуйста",
+          "Можно мне одно [recipe:accusative]?"
+        ]
+      }
+    ]
+  },
+  "en": {
+    "variants": [
+      {
+        "texts": [
+          "Give me one [recipe:singular], please",
+          "I'd like one [recipe:singular], please",
+          "Can I have one [recipe:singular]?",
+          "One [recipe:singular], please!"
+        ]
+      }
+    ]
+  }
+}
