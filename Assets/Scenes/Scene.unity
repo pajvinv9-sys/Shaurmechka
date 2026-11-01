@@ -254,6 +254,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u043D\u043E\u0436 (1)"
       objectReference: {fileID: 0}
+    - target: {fileID: 8453978830347396047, guid: 39dfbd378f17cc74292c2274dea198fb, type: 3}
+      propertyPath: <ImpactForce>k__BackingField
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453978830347396047, guid: 39dfbd378f17cc74292c2274dea198fb, type: 3}
+      propertyPath: <ImpactReloading>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7002,6 +7010,10 @@ PrefabInstance:
     - target: {fileID: 7518404699327374229, guid: 39dfbd378f17cc74292c2274dea198fb, type: 3}
       propertyPath: m_Name
       value: "\u043D\u043E\u0436"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453978830347396047, guid: 39dfbd378f17cc74292c2274dea198fb, type: 3}
+      propertyPath: <ImpactForce>k__BackingField
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28644,7 +28656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50756905e705d0d48b41aa833260d971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RecipeBook
-  recipes: []
 --- !u!4 &1808188465
 Transform:
   m_ObjectHideFlags: 0

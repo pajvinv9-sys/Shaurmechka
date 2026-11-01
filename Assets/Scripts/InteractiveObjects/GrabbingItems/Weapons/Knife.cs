@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -9,16 +10,18 @@ using UnityEngine;
 /// Нарезка выполняется при соприкосновении с объектом, реализующим ISliced,
 /// если скорость ножа превышает MinCutSpeed.
 /// </summary>
-public class Knife : GrabbingItem
+public class Knife : GrabbingItem, IActivate
 {
     /// <summary>
     /// Минимальная скорость ножа, необходимая для нарезки объекта.
     /// </summary>
     [field: SerializeField] public float MinCutSpeed { get; private set; } = 1f;
     [field: SerializeField] private float Reloading { get; set; } = 0.5f;
-
+    [field: SerializeField] public float ImpactForce { get; private set; } = 10f;
+    [field: SerializeField] private float ImpactReloading { get; set; } = 1f;
     private float lastSlice;
-    
+    private Coroutine impact;
+
     public override void ObjectDrop()
     {
         return;
@@ -49,5 +52,27 @@ public class Knife : GrabbingItem
         if (Rigidbody.linearVelocity.magnitude < MinCutSpeed) return;
 
         ingredient.Slice();
+    }
+
+    public void Activate()
+    {
+        if (impact != null)
+            return;
+
+        impact = StartCoroutine(Impact());
+    }
+
+    public void StopActivate()
+    {
+        
+    }
+
+    private IEnumerator Impact()
+    {
+        Rigidbody.AddForce(-transform.up * ImpactForce);
+        Rigidbody.linearDamping = 0.1f;
+        yield return new WaitForSeconds(ImpactReloading);
+
+        impact = null;
     }
 }
