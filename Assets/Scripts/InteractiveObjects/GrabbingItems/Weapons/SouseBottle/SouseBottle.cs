@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SouseBottle : GrabbingItem, IActivate
 {
+    [Header("Настройки соуса")]
+    [field: SerializeField] public IngredientTag SauceTag { get; private set; } = IngredientTag.Ketchup;
+
     [Header("Particle System")]
     [SerializeField] private ParticleSystem paintParticles;
 
@@ -99,6 +101,13 @@ public class SouseBottle : GrabbingItem, IActivate
 
         if (count == 0)
             return;
+
+        // Засчитываем попадание соуса в состав лаваша
+        BaseIngredient baseIngredient = other.GetComponentInParent<BaseIngredient>();
+        if (baseIngredient != null)
+        {
+            baseIngredient.TryAddSauce(SauceTag);
+        }
 
         Debug.Log($"[PAINT] Collisions: {count}, Object: {other.name}");
 
