@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Базовый класс для основы блюда (например, лаваша).
-/// Принимает совместимые ингредиенты, прикрепляет их к себе,
+/// Принимает совместимые ингредиенты, аккуратно раскладывает их плашмя на своей поверхности,
 /// а при активации заменяет себя на префаб готового блюда.
 /// </summary>
 public abstract class BaseIngredient : GrabbingItem, IActivate, IInteractable
@@ -13,7 +13,7 @@ public abstract class BaseIngredient : GrabbingItem, IActivate, IInteractable
     public BaseIngredientCompatible BaseIngredientCompatible;
     public List<IngredientTag> ingredientsInside = new();
 
-    [Tooltip("Обязательные ингредиенты, которые должны быть ВСЕ (огурец, помидор, котлета).")]
+    [Tooltip("Обязательные ингредиенты, которые должны быть ВСЕ (помидор, огурец, котлета).")]
     [field: SerializeField] public List<IngredientTag> RequiredToFold { get; private set; } = new();
 
     [Tooltip("Список соусов, из которых достаточно добавить ХОТЯ БЫ ОДИН.")]
@@ -25,6 +25,13 @@ public abstract class BaseIngredient : GrabbingItem, IActivate, IInteractable
 
     [Tooltip("Смещение по высоте при появлении шаурмы, чтобы она не застряла в столе.")]
     [field: SerializeField] public Vector3 SpawnOffset { get; private set; } = new Vector3(0f, 0.15f, 0f);
+
+    [Header("Расположение начинки на лаваше")]
+    [Tooltip("Максимальное расстояние от центра лаваша (в долях от радиуса), чтобы кусочки не вылезали за края.")]
+    [field: SerializeField] public float MaxLocalRadius { get; private set; } = 0.3f;
+
+    [Tooltip("Высота ингредиента над центром лаваша в мировых единицах.")]
+    [field: SerializeField] public float SurfaceHeightOffset { get; private set; } = 0.015f;
 
     public bool IsCooked { get; private set; }
 
@@ -204,7 +211,7 @@ public abstract class BaseIngredient : GrabbingItem, IActivate, IInteractable
 
         ingredientsInside.Add(ingredient.IngredientTag);
 
-        // Прикрепляем ингредиент к лавашу, чтобы он лежал на нём и удалился вместе с ним
+        // Прикрепляем ингредиент к лавашу, выравнивая плашмя по высоте и радиусу
         AttachIngredientToLavash(ingredient);
     }
 
@@ -218,7 +225,50 @@ public abstract class BaseIngredient : GrabbingItem, IActivate, IInteractable
         if (ingredient.Rigidbody != null)
             Destroy(ingredient.Rigidbody);
 
-        ingredient.transform.SetParent(transform, true);
+        Transform itemTransform = ingredient.transform;
+
+        // 1. Определяем габариты кусочка по осям X, Y, Z до смены родителя
+        Vector3 size = itemTransform.lossyScale;
+        MeshFilter meshFilter = ingredient.GetComponentInChildren<MeshFilter>();
+        if (meshFilter != null && meshFilter.sharedMesh != null)
+        {
+            size = Vector3.Scale(meshFilter.sharedMesh.bounds.size, itemTransform.lossyScale);
+        }
+
+        // 2. Если самая тонкая сторона кусочка — ось X или Z, доворачиваем его на 90 градусов плашмя
+        Quaternion flatCorrection = Quaternion.identity;
+        if (size.x < size.y && size.x < size.z)
+        {
+            flatCorrection = Quaternion.Euler(0f, 0f, 90f);
+        }
+        else if (size.z < size.y && size.z < size.x)
+        {
+            flatCorrection = Quaternion.Euler(90f, 0f, 0f);
+        }
+
+        // 3. Переводим точку касания в локальные координаты лаваша и ограничиваем радиус
+        Vector3 localPos = transform.InverseTransformPoint(itemTransform.position);
+        Vector2 flatOffset = new Vector2(localPos.x, localPos.z);
+        if (flatOffset.magnitude > MaxLocalRadius)
+        {
+            flatOffset = flatOffset.normalized * Random.Range(0.05f, MaxLocalRadius);
+        }
+
+        // 4. Вычисляем мировую позицию на поверхности лаваша
+        float stackOffset = ingredientsInside.Count * 0.002f;
+        Vector3 worldTargetPos = transform.TransformPoint(new Vector3(flatOffset.x, 0f, flatOffset.y));
+        worldTargetPos += transform.up * (SurfaceHeightOffset + stackOffset);
+
+        itemTransform.position = worldTargetPos;
+
+        // 5. Укладываем кусочек плашмя со случайным поворотом вокруг вертикальной оси лаваша
+        itemTransform.rotation = Quaternion.LookRotation(transform.forward, transform.up)
+                                 * Quaternion.Euler(0f, Random.Range(0f, 360f), 0f)
+                                 * flatCorrection;
+
+        // 6. Прикрепляем к лавашу с сохранением мировых координат
+        itemTransform.SetParent(transform, true);
+
         Destroy(ingredient);
     }
 }
