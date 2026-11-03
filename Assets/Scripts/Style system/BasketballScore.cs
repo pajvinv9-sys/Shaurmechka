@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Рассчитывает базовые очки стиля за броски котлеты в кольцо
+/// и передаёт их в StyleManager.
+/// </summary>
 public class BasketballScore : MonoBehaviour
 {
     public static BasketballScore Instance { get; private set; }
@@ -34,11 +38,11 @@ public class BasketballScore : MonoBehaviour
             playerPosition = Vector3.zero;
             linearVelovity = 0;
             angularVelovity = 0;
+            multiplier = 1f;
         }
     }
 
     private ThrowData throwData = new();
-
 
     private void Awake()
     {
@@ -54,8 +58,7 @@ public class BasketballScore : MonoBehaviour
     public void AddScore(Transform BasketballHoop, Cutlet cutlet)
     {
         throwData.hoopPosition = BasketballHoop.position;
-        var score = 0f;
-        bool inHands = false;
+        int score = 0;
 
         if (Grab.Instance.Item != cutlet)
         {
@@ -63,17 +66,25 @@ public class BasketballScore : MonoBehaviour
         }
         else
         {
-            inHands = true;
-
             SetValuesOnThrow(Grab.Player.GetComponent<Rigidbody>());
             score = Mathf.Max(1, CalculateScore() / 5);
         }
 
-        UIMessage.Show($"Попадание! \nПолучено {score} очков стиля");
+        if (StyleManager.Instance != null)
+        {
+            StyleManager.Instance.AddStylePoints(score, "Попадание!");
+        }
+        else
+        {
+            UIMessage.Show($"Попадание! \nПолучено {score} очков стиля");
+        }
     }
 
-    public static void SetValuesOnThrow(Rigidbody player, float multyply=1)
+    public static void SetValuesOnThrow(Rigidbody player, float multyply = 1f)
     {
+        if (Instance == null || player == null)
+            return;
+
         Instance.throwData.RegisterThrow(player);
         Instance.throwData.multiplier = multyply;
     }
@@ -82,10 +93,12 @@ public class BasketballScore : MonoBehaviour
     {
         float calc = throwData.linearVelovity * 2f + throwData.angularVelovity + throwData.distance * 3f;
 
-        if (throwData.inJump) calc *= 1.5f;
-        
+        if (throwData.inJump)
+            calc *= 1.5f;
+
+        float currentMultiplier = throwData.multiplier;
         throwData.Clear();
 
-        return (int)Mathf.Round(calc * throwData.multiplier);
+        return (int)Mathf.Round(calc * currentMultiplier);
     }
 }

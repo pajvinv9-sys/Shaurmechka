@@ -31,7 +31,7 @@ public class Jump : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        GameCursor.Instance
+        // GameCursor.Instance
     }
 
     private void JumpVoid(InputAction.CallbackContext context)
@@ -40,8 +40,13 @@ public class Jump : MonoBehaviour
         if (OverJump || CanJump)
         {
             rb.AddForce(0, JumpForce, 0);
+            
             InJump = true;
             CanJump = false;
+            if (StyleManager.Instance != null)
+            {
+                StyleManager.Instance.AddStylePoints(1, "Прыжок!");
+            }
         }
     }
 
