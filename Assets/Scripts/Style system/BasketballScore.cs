@@ -1,11 +1,7 @@
 using UnityEngine;
 
-/// <summary>
-/// Рассчитывает базовые очки стиля за броски котлеты в кольцо
-/// и передаёт их в StyleManager.
-/// </summary>
-public class BasketballScore : MonoBehaviour
-{
+public class BasketballScore : MonoBehaviour 
+{ 
     public static BasketballScore Instance { get; private set; }
 
     private struct ThrowData
@@ -17,11 +13,18 @@ public class BasketballScore : MonoBehaviour
         public Vector3 hoopPosition;
         public float multiplier;
 
+        private Jump cachedJump;
+
         public float distance => (playerPosition - hoopPosition).magnitude;
 
         public void RegisterThrow(Rigidbody player)
         {
-            inJump = player.GetComponent<Jump>().InJump;
+            if (cachedJump == null && player != null)
+            {
+                cachedJump = player.GetComponent<Jump>();
+            }
+
+            inJump = cachedJump != null && cachedJump.InJump;
             playerPosition = player.transform.position;
             linearVelovity = player.linearVelocity.magnitude;
             angularVelovity = player.angularVelocity.magnitude;
@@ -38,7 +41,6 @@ public class BasketballScore : MonoBehaviour
             playerPosition = Vector3.zero;
             linearVelovity = 0;
             angularVelovity = 0;
-            multiplier = 1f;
         }
     }
 
@@ -55,10 +57,16 @@ public class BasketballScore : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
+
     public void AddScore(Transform BasketballHoop, Cutlet cutlet)
     {
         throwData.hoopPosition = BasketballHoop.position;
-        int score = 0;
+        var score = 0f;
 
         if (Grab.Instance.Item != cutlet)
         {
@@ -70,21 +78,13 @@ public class BasketballScore : MonoBehaviour
             score = Mathf.Max(1, CalculateScore() / 5);
         }
 
-        if (StyleManager.Instance != null)
-        {
-            StyleManager.Instance.AddStylePoints(score, "Попадание!");
-        }
-        else
-        {
-            UIMessage.Show($"Попадание! \nПолучено {score} очков стиля");
-        }
+        UIMessage.Show($"Попадание! \nПолучено {score} очков стиля");
     }
 
-    public static void SetValuesOnThrow(Rigidbody player, float multyply = 1f)
+    public static void SetValuesOnThrow(Rigidbody player, float multyply = 1)
     {
-        if (Instance == null || player == null)
-            return;
-
+        if (Instance == null || player == null) return;
+        
         Instance.throwData.RegisterThrow(player);
         Instance.throwData.multiplier = multyply;
     }
@@ -93,12 +93,10 @@ public class BasketballScore : MonoBehaviour
     {
         float calc = throwData.linearVelovity * 2f + throwData.angularVelovity + throwData.distance * 3f;
 
-        if (throwData.inJump)
-            calc *= 1.5f;
-
-        float currentMultiplier = throwData.multiplier;
+        if (throwData.inJump) calc *= 1.5f;
+        
         throwData.Clear();
 
-        return (int)Mathf.Round(calc * currentMultiplier);
+        return (int)Mathf.Round(calc * throwData.multiplier);
     }
 }
