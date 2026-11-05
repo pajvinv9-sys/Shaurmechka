@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc8e549ca2d84284a9995a1a407d15f0, type: 2}
+  - {fileID: 2100000, guid: 16c57dafe389dd44bb6460e1523fae14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   <BaseTag>k__BackingField: 1
   BaseIngredientCompatible: {fileID: 0}
   ingredientsInside: 
-  <RequiredToFold>k__BackingField: 
-  <AnySauceToFold>k__BackingField: 
   <CookedPrefab>k__BackingField: {fileID: 0}
   <SpawnOffset>k__BackingField: {x: 0, y: 0.15, z: 0}
+  <MaxLocalRadius>k__BackingField: 0.3
+  <SurfaceHeightOffset>k__BackingField: 0.015

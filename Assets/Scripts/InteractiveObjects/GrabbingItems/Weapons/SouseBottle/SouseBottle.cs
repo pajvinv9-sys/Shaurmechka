@@ -102,13 +102,6 @@ public class SouseBottle : GrabbingItem, IActivate
         if (count == 0)
             return;
 
-        // Засчитываем попадание соуса в состав лаваша
-        BaseIngredient baseIngredient = other.GetComponentInParent<BaseIngredient>();
-        if (baseIngredient != null)
-        {
-            baseIngredient.TryAddSauce(SauceTag);
-        }
-
         Debug.Log($"[PAINT] Collisions: {count}, Object: {other.name}");
 
         MeshCollider meshCollider = other.GetComponent<MeshCollider>();
