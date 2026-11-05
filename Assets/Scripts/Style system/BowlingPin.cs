@@ -4,7 +4,7 @@ using UnityEngine;
 public class BowlingPin : MonoBehaviour
 {
     [Tooltip("Минимальная скорость шара для зачёта удара.")]
-    [field: SerializeField] public float MinHitSpeed { get; private set; } = 1.5f;
+    [field: SerializeField] public float MinHitSpeed { get; private set; } = 1f;
 
     public bool IsKnockedDown { get; private set; }
 

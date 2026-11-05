@@ -6,10 +6,10 @@ public class BowlingScore : MonoBehaviour
     public static BowlingScore Instance { get; private set; }
 
     [Header("Настройки боулинга")]
-    [Tooltip("Количество кеглей, необходимое для страйка.")]
-    [field: SerializeField] public int PinsForStrike { get; private set; } = 10;
-    
-    [Tooltip("Время (в секундах) на падение остальных кеглей после первой сбитой.")]
+    [Tooltip("Количество помидоров, необходимое для страйка.")]
+    [field: SerializeField] public int PinsForStrike { get; private set; } = 5; // Изменено на 5 для страйка
+
+    [Tooltip("Время (в секундах) на падение остальных помидоров после первого сбитого.")]
     [field: SerializeField] public float CalculationWindow { get; private set; } = 2.5f;
 
     private struct ThrowData
@@ -66,9 +66,13 @@ public class BowlingScore : MonoBehaviour
         Instance.throwData.multiplier = multiplier;
     }
 
+    // Этот метод теперь будет вызываться из триггера
     public void RegisterPinHit()
     {
         knockedPinsThisThrow++;
+        
+        // Выводим количество упавших помидоров в консоль/UI (временно или постоянно)
+        Debug.Log($"Упало помидоров: {knockedPinsThisThrow}"); 
         
         if (!isCalculating)
         {
@@ -81,18 +85,19 @@ public class BowlingScore : MonoBehaviour
         isCalculating = true;
         yield return new WaitForSeconds(CalculationWindow);
 
-        bool isStrike = knockedPinsThisThrow >= PinsForStrike;
+        bool isStrike = knockedPinsThisThrow == PinsForStrike;
         float baseScore = throwData.linearVelovity * 2f + throwData.angularVelovity;
         
         if (throwData.inJump) baseScore *= 1.5f;
         
+        // Пересчет финального счета. 
         int finalScore = (int)Mathf.Round(baseScore * throwData.multiplier) + (knockedPinsThisThrow * 10);
         
         if (isStrike) finalScore *= 2; 
 
-        string trickName = isStrike ? "СТРАЙК!" : $"Сбито объектов: {knockedPinsThisThrow}";
+        // Обновленное сообщение, учитывающее помидоры
+        string trickName = isStrike ? "СТРАЙК!" : $"Сбито помидоров: {knockedPinsThisThrow}";
         
-        // Интеграция с системой комбо, если она активна
         if (StyleManager.Instance != null)
             StyleManager.Instance.AddStylePoints(finalScore, trickName);
         else
