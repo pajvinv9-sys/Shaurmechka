@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public class BasketballScore : MonoBehaviour
-{
+public class BasketballScore : MonoBehaviour 
+{ 
     public static BasketballScore Instance { get; private set; }
 
     private struct ThrowData
@@ -13,11 +13,18 @@ public class BasketballScore : MonoBehaviour
         public Vector3 hoopPosition;
         public float multiplier;
 
+        private Jump cachedJump;
+
         public float distance => (playerPosition - hoopPosition).magnitude;
 
         public void RegisterThrow(Rigidbody player)
         {
-            inJump = player.GetComponent<Jump>().InJump;
+            if (cachedJump == null && player != null)
+            {
+                cachedJump = player.GetComponent<Jump>();
+            }
+
+            inJump = cachedJump != null && cachedJump.InJump;
             playerPosition = player.transform.position;
             linearVelovity = player.linearVelocity.magnitude;
             angularVelovity = player.angularVelocity.magnitude;
@@ -39,7 +46,6 @@ public class BasketballScore : MonoBehaviour
 
     private ThrowData throwData = new();
 
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -51,11 +57,16 @@ public class BasketballScore : MonoBehaviour
         Instance = this;
     }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
+
     public void AddScore(Transform BasketballHoop, Cutlet cutlet)
     {
         throwData.hoopPosition = BasketballHoop.position;
         var score = 0f;
-        bool inHands = false;
 
         if (Grab.Instance.Item != cutlet)
         {
@@ -63,8 +74,6 @@ public class BasketballScore : MonoBehaviour
         }
         else
         {
-            inHands = true;
-
             SetValuesOnThrow(Grab.Player.GetComponent<Rigidbody>());
             score = Mathf.Max(1, CalculateScore() / 5);
         }
@@ -72,8 +81,10 @@ public class BasketballScore : MonoBehaviour
         UIMessage.Show($"Попадание! \nПолучено {score} очков стиля");
     }
 
-    public static void SetValuesOnThrow(Rigidbody player, float multyply=1)
+    public static void SetValuesOnThrow(Rigidbody player, float multyply = 1)
     {
+        if (Instance == null || player == null) return;
+        
         Instance.throwData.RegisterThrow(player);
         Instance.throwData.multiplier = multyply;
     }
