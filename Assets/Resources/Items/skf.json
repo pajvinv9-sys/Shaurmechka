@@ -1,0 +1,28 @@
+{
+  "id": "shawarmaketchup",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "шаурма с кетчупом",
+        "genitive": "шаурмы с кетчупом",
+        "dative": "шаурме с кетчупом",
+        "accusative": "шаурму с кетчупом",
+        "instrumental": "шаурмой с кетчупом",
+        "prepositional": "шаурме с кетчупом"
+      },
+      "plural": {
+        "nominative": "шаурмы с кетчупом",
+        "genitive": "шаурм с кетчупом",
+        "dative": "шаурмам с кетчупом",
+        "accusative": "шаурмы с кетчупом",
+        "instrumental": "шаурмами с кетчупом",
+        "prepositional": "шаурмах с кетчупом"
+      }
+    }
+  },
+  "en": {
+    "singular": "shawarma with ketchup",
+    "plural": "shawarmas with ketchup"
+  }
+}

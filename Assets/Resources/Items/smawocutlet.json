@@ -1,0 +1,28 @@
+{
+  "id": "vegetarianshawarmamayonnaise",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "вегетарианская шаурма с майонезом",
+        "genitive": "вегетарианской шаурмы с майонезом",
+        "dative": "вегетарианской шаурме с майонезом",
+        "accusative": "вегетарианскую шаурму с майонезом",
+        "instrumental": "вегетарианской шаурмой с майонезом",
+        "prepositional": "вегетарианской шаурме с майонезом"
+      },
+      "plural": {
+        "nominative": "вегетарианские шаурмы с майонезом",
+        "genitive": "вегетарианских шаурм с майонезом",
+        "dative": "вегетарианским шаурмам с майонезом",
+        "accusative": "вегетарианские шаурмы с майонезом",
+        "instrumental": "вегетарианскими шаурмами с майонезом",
+        "prepositional": "вегетарианских шаурмах с майонезом"
+      }
+    }
+  },
+  "en": {
+    "singular": "vegetarian shawarma with mayonnaise",
+    "plural": "vegetarian shawarmas with mayonnaise"
+  }
+}

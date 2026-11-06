@@ -1,0 +1,28 @@
+{
+  "id": "shawarmamayonnaise",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "шаурма с майонезом",
+        "genitive": "шаурмы с майонезом",
+        "dative": "шаурме с майонезом",
+        "accusative": "шаурму с майонезом",
+        "instrumental": "шаурмой с майонезом",
+        "prepositional": "шаурме с майонезом"
+      },
+      "plural": {
+        "nominative": "шаурмы с майонезом",
+        "genitive": "шаурм с майонезом",
+        "dative": "шаурмам с майонезом",
+        "accusative": "шаурмы с майонезом",
+        "instrumental": "шаурмами с майонезом",
+        "prepositional": "шаурмах с майонезом"
+      }
+    }
+  },
+  "en": {
+    "singular": "shawarma with mayonnaise",
+    "plural": "shawarmas with mayonnaise"
+  }
+}

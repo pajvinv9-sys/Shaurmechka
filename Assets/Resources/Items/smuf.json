@@ -1,0 +1,28 @@
+{
+  "id": "shawarmamustard",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "шаурма с горчицей",
+        "genitive": "шаурмы с горчицей",
+        "dative": "шаурме с горчицей",
+        "accusative": "шаурму с горчицей",
+        "instrumental": "шаурмой с горчицей",
+        "prepositional": "шаурме с горчицей"
+      },
+      "plural": {
+        "nominative": "шаурмы с горчицей",
+        "genitive": "шаурм с горчицей",
+        "dative": "шаурмам с горчицей",
+        "accusative": "шаурмы с горчицей",
+        "instrumental": "шаурмами с горчицей",
+        "prepositional": "шаурмах с горчицей"
+      }
+    }
+  },
+  "en": {
+    "singular": "shawarma with mustard",
+    "plural": "shawarmas with mustard"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "vegetarianshawarmamustard",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "вегетарианская шаурма с горчицей",
+        "genitive": "вегетарианской шаурмы с горчицей",
+        "dative": "вегетарианской шаурме с горчицей",
+        "accusative": "вегетарианскую шаурму с горчицей",
+        "instrumental": "вегетарианской шаурмой с горчицей",
+        "prepositional": "вегетарианской шаурме с горчицей"
+      },
+      "plural": {
+        "nominative": "вегетарианские шаурмы с горчицей",
+        "genitive": "вегетарианских шаурм с горчицей",
+        "dative": "вегетарианским шаурмам с горчицей",
+        "accusative": "вегетарианские шаурмы с горчицей",
+        "instrumental": "вегетарианскими шаурмами с горчицей",
+        "prepositional": "вегетарианских шаурмах с горчицей"
+      }
+    }
+  },
+  "en": {
+    "singular": "vegetarian shawarma with mustard",
+    "plural": "vegetarian shawarmas with mustard"
+  }
+}

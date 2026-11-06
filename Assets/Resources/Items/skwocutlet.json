@@ -1,0 +1,28 @@
+{
+  "id": "vegetarianshawarmaketchup",
+  "ru": {
+    "gender": "feminine",
+    "forms": {
+      "singular": {
+        "nominative": "вегетарианская шаурма с кетчупом",
+        "genitive": "вегетарианской шаурмы с кетчупом",
+        "dative": "вегетарианской шаурме с кетчупом",
+        "accusative": "вегетарианскую шаурму с кетчупом",
+        "instrumental": "вегетарианской шаурмой с кетчупом",
+        "prepositional": "вегетарианской шаурме с кетчупом"
+      },
+      "plural": {
+        "nominative": "вегетарианские шаурмы с кетчупом",
+        "genitive": "вегетарианских шаурм с кетчупом",
+        "dative": "вегетарианским шаурмам с кетчупом",
+        "accusative": "вегетарианские шаурмы с кетчупом",
+        "instrumental": "вегетарианскими шаурмами с кетчупом",
+        "prepositional": "вегетарианских шаурмах с кетчупом"
+      }
+    }
+  },
+  "en": {
+    "singular": "vegetarian shawarma with ketchup",
+    "plural": "vegetarian shawarmas with ketchup"
+  }
+}

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f66cf4fdc3ac340bfcb8c9cd0d0301, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: Assembly-CSharp::Recipes
-  RecipeName: "\u041F\u043E\u043C\u0438\u0434\u043E\u0440"
   BaseIngredient: 0
   OtherIngredients: 00000000
   SpecialIngredient: 0

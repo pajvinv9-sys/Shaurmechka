@@ -20,7 +20,7 @@ public class BowlingTargetArea : MonoBehaviour
             if (!countedTomatoes.Contains(rb))
             {
                 countedTomatoes.Add(rb);
-                
+
                 Debug.Log($"[Боулинг] Засчитано падение: {rb.gameObject.name}");
                 
                 if (BowlingScore.Instance != null)

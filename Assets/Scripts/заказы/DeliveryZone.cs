@@ -32,25 +32,35 @@ public class DeliveryZone : MonoBehaviour
         if (!IsAccepting)
             return;
 
-        BaseIngredient baseIngredient = other.GetComponent<BaseIngredient>();
-        Ingredient ingredient = other.GetComponent<Ingredient>();
+        BaseIngredient baseIngredient =
+            other.GetComponentInParent<BaseIngredient>();
+
+        Ingredient ingredient =
+            other.GetComponentInParent<Ingredient>();
+
         if (baseIngredient != null && baseIngredient.IsCooked)
         {
             Grab grab = Grab.Instance;
 
-            if (grab != null && grab.Item != null && grab.Item.GetComponentInParent<BaseIngredient>() == baseIngredient)
+            if (grab != null && grab.Item != null &&
+                grab.Item.GetComponentInParent<BaseIngredient>() == baseIngredient)
+            {
                 grab.StopTake();
+            }
 
             Delivered?.Invoke(baseIngredient);
 
-            Destroy(baseIngredient.gameObject);
+            baseIngredient.gameObject.SetActive(false);
         }
         else if (ingredient != null)
         {
             Grab grab = Grab.Instance;
 
-            if (grab != null && grab.Item != null && grab.Item.GetComponentInParent<Ingredient>() == ingredient)
+            if (grab != null && grab.Item != null &&
+                grab.Item.GetComponentInParent<Ingredient>() == ingredient)
+            {
                 grab.StopTake();
+            }
 
             DeliveredIngredient?.Invoke(ingredient);
 

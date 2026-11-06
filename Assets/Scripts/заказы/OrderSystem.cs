@@ -22,7 +22,7 @@ public class OrderSystem : MonoBehaviour
 
     [Header("Реакция клиента")]
     [Tooltip("Доля выполненного заказа, начиная с которой клиент доволен.")]
-    [field: SerializeField] public float HappyThreshold { get; private set; } = 0.5f;
+    [field: SerializeField] public float HappyThreshold { get; private set; } = 0.7f;
 
     public Recipe CurrentRecipe { get; private set; }
 
@@ -97,6 +97,7 @@ public class OrderSystem : MonoBehaviour
     private void GenerateOrder()
     {
         CurrentRecipe = RecipesInGame.GetRandomRecipe();
+        Debug.Log(CurrentRecipe.name);
     }
 
     private void OnOrderAccepted()
@@ -109,48 +110,61 @@ public class OrderSystem : MonoBehaviour
     {
         Zone.IsAccepting = false;
 
-        var pool = CurrentRecipe.OtherIngredients;
+        if (CurrentRecipe == null || baseIngredient == null)
+            return;
+
+        // Создаём копию требуемых ингредиентов рецепта
+        List<IngredientTag> remaining =
+            new List<IngredientTag>(CurrentRecipe.OtherIngredients);
+
         int matched = 0;
 
-        foreach (var c in CurrentRecipe.OtherIngredients)
+        // Проверяем состав блюда
+        foreach (IngredientTag ingredient in baseIngredient.ingredientsInside)
         {
-            if (pool.Remove(c))
+            if (remaining.Remove(ingredient))
                 matched++;
-
-            float fraction = baseIngredient.ingredientsInside.Count == 0
-                ? 1f
-                : (float)matched / baseIngredient.ingredientsInside.Count;
-
-            float points = Mathf.Lerp(
-                -CurrentRecipe.FailPenalty,
-                CurrentRecipe.MaxPoints,
-                fraction
-            );
-
-            float timeFactor = 1f - Mathf.Clamp01(
-                (Time.time - startTime) / CurrentRecipe.BonusTime
-            );
-
-            points += CurrentRecipe.MaxSpeedBonus * fraction * timeFactor;
-
-            int total = Mathf.RoundToInt(points);
-
-            UIMessage.Show(
-                "Заказ: " + string.Join(", ", CurrentRecipe.name) + '\n' +
-                "| состав: " + string.Join(", ", baseIngredient.ingredientsInside) + '\n' +
-                "| очки: " + total
-            );
-
-            PointsAwarded?.Invoke(total);
-            Customer.React(fraction >= HappyThreshold);
         }
+
+        // Доля выполненного заказа
+        float fraction = CurrentRecipe.OtherIngredients.Count == 0
+            ? 1f
+            : (float)matched / CurrentRecipe.OtherIngredients.Count;
+
+        fraction = Mathf.Clamp01(fraction);
+
+        // Расчёт очков
+        float points = Mathf.Lerp(
+            -CurrentRecipe.FailPenalty,
+            CurrentRecipe.MaxPoints,
+            fraction
+        );
+
+        float timeFactor = 1f - Mathf.Clamp01(
+            (Time.time - startTime) / CurrentRecipe.BonusTime
+        );
+
+        points += CurrentRecipe.MaxSpeedBonus * fraction * timeFactor;
+
+        int total = Mathf.RoundToInt(points);
+
+        UIMessage.Show(
+            "Заказ: " + CurrentRecipe.name + '\n' +
+            "| состав: " + string.Join(", ", baseIngredient.ingredientsInside) + '\n' +
+            "| совпадений: " + matched + '\n' +
+            "| очки: " + total
+        );
+
+        PointsAwarded?.Invoke(total);
+
+        bool isHappy = matched > 0 && fraction >= HappyThreshold;
+
+        Customer.React(isHappy);
     }
 
     private void OnDelivered(Ingredient ingredient)
     {
         Zone.IsAccepting = false;
-
-        Debug.Log(ingredient.IngredientTag + " " + CurrentRecipe.OtherIngredients[0]);
 
         if (CurrentRecipe.OtherIngredients.Contains(ingredient.IngredientTag))
         {
