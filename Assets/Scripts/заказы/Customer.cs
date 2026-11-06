@@ -121,6 +121,14 @@ public class Customer : MonoBehaviour, IInteractable
     {
         State = CustomerState.WaitingForDish;
         OrderAccepted?.Invoke();
+
+        string str = LocalizationHelper.GetItem(OrderSystem.CurrentOrder.name);
+        if (str.Length > 0)
+        {
+            str = char.ToUpper(str[0], System.Globalization.CultureInfo.CurrentCulture) + str.Substring(1);
+        }
+        UIMessage.Show("Текущий заказ: \n" + str, -1);
+
     }
 
     /// <summary>

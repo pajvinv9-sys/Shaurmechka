@@ -78,7 +78,7 @@ public class BasketballScore : MonoBehaviour
             score = Mathf.Max(1, CalculateScore() / 5);
         }
 
-        UIMessage.Show($"Попадание! \nПолучено {score} очков стиля");
+        UIMessage.Show($"Попадание! \nПолучено {score} очков стиля", 1);
     }
 
     public static void SetValuesOnThrow(Rigidbody player, float multyply = 1)

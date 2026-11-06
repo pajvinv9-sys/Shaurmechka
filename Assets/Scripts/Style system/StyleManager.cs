@@ -99,7 +99,7 @@ public class StyleManager : MonoBehaviour
             ? $"\nКомбо x{CurrentCombo} (Множитель x{CurrentMultiplier:0.##})"
             : string.Empty;
 
-        UIMessage.Show($"{trickName} \nПолучено {finalScore} очков стиля{comboInfo}");
+        UIMessage.Show($"{trickName} \nПолучено {finalScore} очков стиля{comboInfo}", 1);
     }
 
     /// <summary>

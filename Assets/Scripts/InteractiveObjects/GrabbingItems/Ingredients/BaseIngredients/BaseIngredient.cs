@@ -135,7 +135,7 @@ public abstract class BaseIngredient : GrabbingItem, IActivate
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (IsCooked || !hasSauce || BaseIngredientCompatible == null || BaseIngredientCompatible.CompatibleIngredients == null)
+        if (IsCooked || BaseIngredientCompatible == null || BaseIngredientCompatible.CompatibleIngredients == null)
             return;
 
         if (collision.gameObject.GetComponent<BaseIngredient>() != null)

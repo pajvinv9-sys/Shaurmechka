@@ -191,14 +191,15 @@ public class Grab : MonoBehaviour
             else
             {
                 Vector3 directionToPlayer =
-                transform.position - Item.Rigidbody.position;
+                    transform.position - Item.Rigidbody.position;
 
                 directionToPlayer.y = 0f;
 
                 if (directionToPlayer.sqrMagnitude > 0.001f)
                 {
                     Quaternion targetRotation =
-                        Quaternion.LookRotation(directionToPlayer, Vector3.up);
+                        Quaternion.LookRotation(directionToPlayer, Vector3.up)
+                        * Item.RotateInStart;
 
                     Item.Rigidbody.MoveRotation(
                         Quaternion.RotateTowards(

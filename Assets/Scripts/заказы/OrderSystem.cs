@@ -22,7 +22,7 @@ public class OrderSystem : MonoBehaviour
 
     [Header("Реакция клиента")]
     [Tooltip("Доля выполненного заказа, начиная с которой клиент доволен.")]
-    [field: SerializeField] public float HappyThreshold { get; private set; } = 0.7f;
+    [field: SerializeField] public float HappyThreshold { get; private set; } = 1;
 
     public Recipe CurrentRecipe { get; private set; }
 
@@ -30,6 +30,7 @@ public class OrderSystem : MonoBehaviour
 
     private float startTime;
 
+    public static Recipe CurrentOrder => Instance.CurrentRecipe;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -152,7 +153,7 @@ public class OrderSystem : MonoBehaviour
             "Заказ: " + CurrentRecipe.name + '\n' +
             "| состав: " + string.Join(", ", baseIngredient.ingredientsInside) + '\n' +
             "| совпадений: " + matched + '\n' +
-            "| очки: " + total
+            "| очки: " + total, 2
         );
 
         PointsAwarded?.Invoke(total);
@@ -177,7 +178,7 @@ public class OrderSystem : MonoBehaviour
 
             UIMessage.Show(
                 "Заказ: " + string.Join(", ", CurrentRecipe.name) + '\n' +
-                "| очки: " + total
+                "| очки: " + total, 1
             );
 
             PointsAwarded?.Invoke(total);
@@ -189,7 +190,7 @@ public class OrderSystem : MonoBehaviour
 
             UIMessage.Show(
                 "Заказ: " + string.Join(", ", CurrentRecipe.name) + '\n' +
-                "| очки: " + total
+                "| очки: " + total, 1
             );
 
             PointsAwarded?.Invoke(total);

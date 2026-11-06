@@ -42,10 +42,6 @@ public class Jump : MonoBehaviour
             
             InJump = true;
             CanJump = false;
-            if (StyleManager.Instance != null)
-            {
-                StyleManager.Instance.AddStylePoints(1, "Прыжок!");
-            }
         }
     }
 

@@ -12,6 +12,7 @@ public abstract class GrabbingItem : InteractiveObject
     // Определяет, разрешено ли захватывать объект в данный момент.
     [field: SerializeField] public bool CanBeGrab { get; set; } = true;
     [field: SerializeField] public bool NeedRotateInStart { get; private set; } = false;
+    [field: SerializeField] public Quaternion RotateInStart { get; private set; }
 
     public override void ObjectFound()
     {
