@@ -1,17 +1,17 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
 
 /// <summary>
-/// Управляет циклом заказов: вызывает клиента через случайный интервал,
-/// генерирует заказ, проверяет сданное блюдо и считает очки.
-///
-/// Крепится на: отдельный объект сцены (OrderSystem).
+/// Управляет циклом заказов.
+/// Singleton.
 /// </summary>
 public class OrderSystem : MonoBehaviour
 {
+    public static OrderSystem Instance { get; private set; }
+
     [Header("Ссылки")]
     [field: SerializeField] public Customer Customer { get; private set; }
     [field: SerializeField] public DeliveryZone Zone { get; private set; }
@@ -24,17 +24,22 @@ public class OrderSystem : MonoBehaviour
     [Tooltip("Доля выполненного заказа, начиная с которой клиент доволен.")]
     [field: SerializeField] public float HappyThreshold { get; private set; } = 0.5f;
 
-    /// <summary>
-    /// Текущий заказ: список тегов, которые должны быть в блюде.
-    /// </summary>
-    private Recipe recipe;
+    public Recipe CurrentRecipe { get; private set; }
 
-    /// <summary>
-    /// Вызывается после проверки блюда с итоговыми очками (будущий ScoreManager подпишется сюда).
-    /// </summary>
     public event Action<int> PointsAwarded;
 
     private float startTime;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -46,10 +51,23 @@ public class OrderSystem : MonoBehaviour
 
     private void OnDisable()
     {
-        Customer.OrderAccepted -= OnOrderAccepted;
-        Customer.Left -= ScheduleNextCustomer;
-        Zone.Delivered -= OnDelivered;
-        Zone.DeliveredIngredient -= OnDelivered;
+        if (Customer != null)
+        {
+            Customer.OrderAccepted -= OnOrderAccepted;
+            Customer.Left -= ScheduleNextCustomer;
+        }
+
+        if (Zone != null)
+        {
+            Zone.Delivered -= OnDelivered;
+            Zone.DeliveredIngredient -= OnDelivered;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 
     private void Start()
@@ -59,7 +77,6 @@ public class OrderSystem : MonoBehaviour
 
     private void ScheduleNextCustomer()
     {
-        // Пока заказа нет, зона блюда не принимает.
         Zone.IsAccepting = false;
         StartCoroutine(CustomerArrivesAfterDelay());
     }
@@ -67,32 +84,19 @@ public class OrderSystem : MonoBehaviour
     private IEnumerator CustomerArrivesAfterDelay()
     {
         GenerateOrder();
-        Customer.Arrive(BuildOrderLines());
+        Customer.Arrive();
 
-        yield return new WaitForSeconds(UnityEngine.Random.Range(MinDelay, MaxDelay));
+        yield return new WaitForSeconds(
+            UnityEngine.Random.Range(MinDelay, MaxDelay)
+        );
     }
 
     /// <summary>
-    /// Создаёт случайный заказ
+    /// Создаёт случайный заказ.
     /// </summary>
     private void GenerateOrder()
-        => recipe = RecipesInGame.GetRandomRecipe();
-
-    /// <summary>
-    /// Собирает реплики с текстом заказа. Тексты пока заглушки.
-    /// </summary>
-    private DialogueLine[] BuildOrderLines()
     {
-        return new[]
-        {
-            new DialogueLine { 
-                Speaker = "Клиент", 
-                Text = "Здравствуйте!" },
-
-            new DialogueLine { 
-                Speaker = "Клиент", 
-                Text = LocalizationHelper.GetPhrase("order_give_me_please","ru",$"recipe:{recipe.name.ToLower()}")}
-        };
+        CurrentRecipe = RecipesInGame.GetRandomRecipe();
     }
 
     private void OnOrderAccepted()
@@ -103,25 +107,39 @@ public class OrderSystem : MonoBehaviour
 
     private void OnDelivered(BaseIngredient baseIngredient)
     {
-        // Больше блюд не принимаем, пока не придёт следующий клиент.
         Zone.IsAccepting = false;
 
-        var pool = recipe.OtherIngredients;
+        var pool = CurrentRecipe.OtherIngredients;
         int matched = 0;
-        foreach(var c in recipe.OtherIngredients)
+
+        foreach (var c in CurrentRecipe.OtherIngredients)
         {
             if (pool.Remove(c))
                 matched++;
 
-            float fraction = baseIngredient.ingredientsInside.Count == 0 ? 1f : (float)matched / baseIngredient.ingredientsInside.Count;
-            float points = Mathf.Lerp(-recipe.FailPenalty, recipe.MaxPoints, fraction);
-            float timeFactor = 1f - Mathf.Clamp01((Time.time - startTime) / recipe.BonusTime);
-            points += recipe.MaxSpeedBonus * fraction * timeFactor;
+            float fraction = baseIngredient.ingredientsInside.Count == 0
+                ? 1f
+                : (float)matched / baseIngredient.ingredientsInside.Count;
+
+            float points = Mathf.Lerp(
+                -CurrentRecipe.FailPenalty,
+                CurrentRecipe.MaxPoints,
+                fraction
+            );
+
+            float timeFactor = 1f - Mathf.Clamp01(
+                (Time.time - startTime) / CurrentRecipe.BonusTime
+            );
+
+            points += CurrentRecipe.MaxSpeedBonus * fraction * timeFactor;
+
             int total = Mathf.RoundToInt(points);
+
             UIMessage.Show(
-            "Заказ: " + string.Join(", ", recipe.name) + '\n' +
-            "| состав: " + string.Join(", ", baseIngredient.ingredientsInside) + '\n' +
-            "| очки: " + total);
+                "Заказ: " + string.Join(", ", CurrentRecipe.name) + '\n' +
+                "| состав: " + string.Join(", ", baseIngredient.ingredientsInside) + '\n' +
+                "| очки: " + total
+            );
 
             PointsAwarded?.Invoke(total);
             Customer.React(fraction >= HappyThreshold);
@@ -131,24 +149,34 @@ public class OrderSystem : MonoBehaviour
     private void OnDelivered(Ingredient ingredient)
     {
         Zone.IsAccepting = false;
-        Debug.Log(ingredient.IngredientTag + " " + recipe.OtherIngredients[0]);
-        if (recipe.OtherIngredients.Contains(ingredient.IngredientTag))
+
+        Debug.Log(ingredient.IngredientTag + " " + CurrentRecipe.OtherIngredients[0]);
+
+        if (CurrentRecipe.OtherIngredients.Contains(ingredient.IngredientTag))
         {
-            float timeFactor = 1f - Mathf.Clamp01((Time.time - startTime) / recipe.BonusTime);
-            var points = recipe.MaxPoints + recipe.MaxSpeedBonus * timeFactor;
+            float timeFactor = 1f - Mathf.Clamp01(
+                (Time.time - startTime) / CurrentRecipe.BonusTime
+            );
+
+            var points = CurrentRecipe.MaxPoints + CurrentRecipe.MaxSpeedBonus * timeFactor;
             var total = Mathf.RoundToInt(points);
-            UIMessage.Show("Заказ: " + string.Join(", ", recipe.name) + '\n' +
-            "| очки: " + total);
+
+            UIMessage.Show(
+                "Заказ: " + string.Join(", ", CurrentRecipe.name) + '\n' +
+                "| очки: " + total
+            );
 
             PointsAwarded?.Invoke(total);
             Customer.React(true);
         }
         else
         {
-            var total = -recipe.FailPenalty;
+            var total = -CurrentRecipe.FailPenalty;
 
-            UIMessage.Show("Заказ: " + string.Join(", ", recipe.name) + '\n' +
-            "| очки: " + total);
+            UIMessage.Show(
+                "Заказ: " + string.Join(", ", CurrentRecipe.name) + '\n' +
+                "| очки: " + total
+            );
 
             PointsAwarded?.Invoke(total);
             Customer.React(false);

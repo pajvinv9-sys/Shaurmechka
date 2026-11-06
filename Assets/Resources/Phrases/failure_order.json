@@ -1,0 +1,31 @@
+{
+    "id": "failure_order.json",
+    "ru": {
+        "variants": [
+            {
+                "texts": [
+                    "Это не то, что я просил...",
+                    "Кажется, вы перепутали мой заказ.",
+                    "Я ожидал(а) чего-то получше.",
+                    "Здесь чего-то не хватает.",
+                    "Честно говоря, мне это совсем не понравилось.",
+                    "Серьёзно? И за это я заплатил?"
+                ]
+            }
+        ]
+    },
+    "en": {
+        "variants": [
+            {
+                "texts": [
+                    "This isn't what I asked for…",
+                    "I think you got my order mixed up.",
+                    "I expected something better.",
+                    "Something is missing here.",
+                    "Honestly, I didn't like this at all.",
+                    "Seriously? And I paid for this?"
+                ]
+            }
+        ]
+    }
+}

@@ -31,7 +31,6 @@ public class Jump : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        GameCursor.Instance
     }
 
     private void JumpVoid(InputAction.CallbackContext context)

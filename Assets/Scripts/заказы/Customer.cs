@@ -80,14 +80,13 @@ public class Customer : MonoBehaviour, IInteractable
     /// Клиент приходит и ждёт, пока игрок примет заказ.
     /// </summary>
     /// <param name="lines">Реплики с текстом заказа.</param>
-    public void Arrive(DialogueLine[] lines)
+    public void Arrive()
     {
         if (Visual == null) Debug.LogError("Customer: не назначен Visual", this);
         if (Neutral == null) Debug.LogError("Customer: не назначен Neutral", this);
         if (Happy == null) Debug.LogError("Customer: не назначен Happy", this);
         if (Angry == null) Debug.LogError("Customer: не назначен Angry", this);
-        // ... остальной код без изменений
-        orderLines = lines;
+
         SetEmotion(Neutral);
         Visual.SetActive(true);
         State = CustomerState.WaitingToOrder;
@@ -97,6 +96,21 @@ public class Customer : MonoBehaviour, IInteractable
     {
         if (State != CustomerState.WaitingToOrder)
             return;
+
+        var speaker = LocalizationHelper.GetStringFromJSON("", "dialogs", "client");
+        var greeting = LocalizationHelper.GetPhrase("greetings");
+        var recipe = OrderSystem.Instance.CurrentRecipe.name.ToLower();
+        Debug.Log(recipe);
+        orderLines = new[]
+        {
+            new DialogueLine {
+                Speaker = speaker,
+                Text = greeting },
+
+            new DialogueLine {
+                Speaker = speaker,
+                Text = LocalizationHelper.GetPhrase("order_give_me_please",$"recipe:{recipe.ToLower()}")}
+        };
 
         // Заказ считается принятым, когда игрок пролистал диалог до конца.
         if (DialogueManager.Instance.StartDialogue(orderLines, OnOrderTold))
@@ -118,13 +132,12 @@ public class Customer : MonoBehaviour, IInteractable
         State = CustomerState.Reacting;
         SetEmotion(happy ? Happy : Angry);
 
-        // Заглушки: настоящие тексты заменим здесь.
         DialogueLine[] lines =
         {
             new DialogueLine
             {
-                Speaker = "Клиент",
-                Text = happy ? "Отлично, спасибо!" : "Это не то, что я просил..."
+                Speaker = LocalizationHelper.GetStringFromJSON("", "dialogs", "client"),
+                Text = happy ? LocalizationHelper.GetPhrase("thanks") : LocalizationHelper.GetPhrase("failure_order")
             }
         };
 

@@ -1,0 +1,33 @@
+{
+    "id": "greetings",
+    "ru": {
+        "variants": [
+            {
+                "texts": [
+                    "Здравствуйте!",
+                    "Добрый день!",
+                    "Привет!",
+                    "...",
+                    "Так, здравствуйте. Давайте побыстрее, я тороплюсь.",
+                    "Привет… Надеюсь, у вас есть что-нибудь подходящее под моё настроение.",
+                    "Привет! Надеюсь, у вас есть хорошая шаурма, а не обычная бурда."
+                ]
+            }
+        ]
+    },
+    "en": {
+        "variants": [
+            {
+                "texts": [
+                    "Hello!",
+                    "Hi! It's a perfect day!",
+                    "Hey! Hope you've got some good shawarma, not the usual stuff.",
+                    "Alright, hello. Let's make it quick, I'm in a hurry.",
+                    "Hey! I'm in the mood for something tasty today!",
+                    "...",
+                    "Hey… I hope you have something that matches my mood."
+                ]
+            }
+        ]
+    }
+}

@@ -15,6 +15,13 @@ public static class LocalizationHelper
     private static readonly Dictionary<string, JObject> cache =
         new Dictionary<string, JObject>();
 
+    public static string Language = "ru";
+
+    public static void ChangeLanguage(string language)
+    {
+        Language = language.ToLower();
+    }
+
     private static JObject GetJson(string path, string itemName)
     {
         itemName = itemName.ToLower();
@@ -49,39 +56,36 @@ public static class LocalizationHelper
 
     public static string GetItem(
         string itemName,
-        string language,
         bool isSingular = true,
         string grammaticalCase = "nominative")
     {
-        language = language.ToLower();
 
         JObject doc = GetJson("Items/", itemName);
 
-        if (language == "ru")
+        if (Language == "ru")
         {
             return (string)doc["ru"]?["forms"]?
                 [isSingular ? "singular" : "plural"]?
                 [grammaticalCase.ToLower()];
         }
 
-        if (language == "en")
+        if (Language == "en")
         {
             return (string)doc["en"]?
                 [isSingular ? "singular" : "plural"];
         }
 
         throw new ArgumentException(
-            "Неподдерживаемый язык: " + language
+            "Неподдерживаемый язык: " + Language
         );
     }
 
     public static string GetGender(
-        string itemName,
-        string language = "ru")
+        string itemName)
     {
         JObject doc = GetJson("Items/", itemName);
 
-        return (string)doc[language.ToLower()]?["gender"];
+        return (string)doc[Language]?["gender"];
     }
 
     // ==========================================
@@ -90,14 +94,12 @@ public static class LocalizationHelper
 
     public static string GetPhrase(
         string phraseName,
-        string language,
         params string[] adds)
     {
-        language = language.ToLower();
 
         JObject doc = GetJson("Phrases/", phraseName);
 
-        JArray variants = doc[language]?["variants"] as JArray;
+        JArray variants = doc[Language]?["variants"] as JArray;
 
         if (variants == null || variants.Count == 0)
         {
@@ -107,7 +109,7 @@ public static class LocalizationHelper
         }
 
         // Создаём словарь переданных предметов.
-        // Например: recipe:tomato
+        // Например: CurrentRecipe:tomato
         Dictionary<string, string> items =
             new Dictionary<string, string>();
 
@@ -130,8 +132,7 @@ public static class LocalizationHelper
         {
             if (CheckConditions(
                 variant["conditions"] as JObject,
-                items,
-                language))
+                items))
             {
                 suitableVariants.Add(variant);
             }
@@ -184,8 +185,7 @@ public static class LocalizationHelper
 
                 return ResolveCommand(
                     itemName,
-                    command,
-                    language
+                    command
                 );
             }
         );
@@ -197,8 +197,7 @@ public static class LocalizationHelper
 
     private static bool CheckConditions(
         JObject conditions,
-        Dictionary<string, string> items,
-        string language)
+        Dictionary<string, string> items)
     {
         // Если условий нет, вариант подходит всегда.
         if (conditions == null)
@@ -206,7 +205,7 @@ public static class LocalizationHelper
 
         foreach (JProperty condition in conditions.Properties())
         {
-            // Например: recipe.gender
+            // Например: CurrentRecipe.gender
             string[] parts = condition.Name.Split('.');
 
             if (parts.Length != 2)
@@ -222,8 +221,7 @@ public static class LocalizationHelper
 
             string actualValue = GetItemProperty(
                 itemName,
-                property,
-                language
+                property
             );
 
             string expectedValue = condition.Value.ToString()
@@ -245,15 +243,14 @@ public static class LocalizationHelper
 
     private static string GetItemProperty(
         string itemName,
-        string property,
-        string language)
+        string property)
     {
         JObject doc = GetJson("Items/", itemName);
 
         // Сейчас поддерживаем gender.
         // В дальнейшем сюда можно добавить другие свойства.
         if (property == "gender")
-            return (string)doc[language]?["gender"];
+            return (string)doc[Language]?["gender"];
 
         throw new Exception(
             "Неизвестное свойство предмета: " + property
@@ -266,21 +263,20 @@ public static class LocalizationHelper
 
     private static string ResolveCommand(
         string itemName,
-        string command,
-        string language)
+        string command)
     {
         switch (command)
         {
             // Именительный падеж
             case "singular":
                 return GetItem(
-                    itemName, language, true, "nominative"
+                    itemName, true, "nominative"
                 );
 
             // Множественное число
             case "plural":
                 return GetItem(
-                    itemName, language, false, "nominative"
+                    itemName, false, "nominative"
                 );
 
             // Грамматические падежи
@@ -293,7 +289,6 @@ public static class LocalizationHelper
 
                 return GetItem(
                     itemName,
-                    language,
                     true,
                     command
                 );
@@ -304,6 +299,24 @@ public static class LocalizationHelper
                 );
         }
     }
+
+    // ==========================================
+    // STRING EXTRACTER
+    // ==========================================
+
+    public static string GetStringFromJSON(string path, string fileName, string stringID)
+    {
+        var json = GetJson(path, fileName);
+
+        if (json == null)
+        {
+            Debug.LogError("Такого JSON нет");
+            return null;
+        }
+
+        return json[stringID][Language].ToString();
+    }
+
 
     // ==========================================
     // CACHE MANAGEMENT

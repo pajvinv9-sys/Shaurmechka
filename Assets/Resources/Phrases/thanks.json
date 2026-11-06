@@ -1,0 +1,33 @@
+{
+    "id": "thanks",
+    "ru": {
+        "variants": [
+            {
+                "texts": [
+                    "Отлично, спасибо!",
+                    "Именно то, что я хотел!",
+                    "Выглядит замечательно!",
+                    "Всё супер, спасибо!",
+                    "Прекрасно! Не могу дождаться, чтобы попробовать!",
+                    "То, что нужно!",
+                    "Очень вкусно, спасибо!"
+                ]
+            }
+        ]
+    },
+    "en": {
+        "variants": [
+            {
+                "texts": [
+                    "Great, thank you!",
+                    "Just what I wanted!",
+                    "Looks amazing!",
+                    "Everything is great, thanks!",
+                    "Perfect! Can't wait to try it!",
+                    "Just what I needed!",
+                    "It's delicious, thank you!"
+                ]
+            }
+        ]
+    }
+}
