@@ -46,14 +46,6 @@ public abstract class BaseIngredient : GrabbingItem, IActivate
         base.Awake();
     }
 
-    public override void ObjectDrop()
-    {
-    }
-
-    public override void ObjectLost()
-    {
-    }
-
     /// <summary>
     /// Завершает сборку блюда: создаёт префаб готового блюда, передаёт ему список добавленных ингредиентов
     /// для последующей проверки в OrderSystem и удаляет заготовку.

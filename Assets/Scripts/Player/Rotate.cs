@@ -1,29 +1,24 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Управляет вращением игрока и камеры от движения мыши.
-/// Скрипт должен висеть на игроке.
+/// Управляет вращением игрока и камеры от мыши.
+/// Скрипт должен находиться на игроке.
 /// </summary>
 public class Rotate : MonoBehaviour
 {
-    /// <summary>
-    /// Камера, являющаяся дочерним объектом игрока.
-    /// </summary>
     [field: SerializeField]
     public Transform Camera { get; private set; }
 
-    /// <summary>
-    /// Input Action с binding на <Mouse>/delta.
-    /// </summary>
     [field: SerializeField]
     public InputAction MouseDelta { get; private set; }
 
     [field: SerializeField]
-    public float SensitiveX { get; private set; } = 1f;
+    public float SensitiveX { get; private set; } = 0.1f;
 
     [field: SerializeField]
-    public float SensitiveY { get; private set; } = 1f;
+    public float SensitiveY { get; private set; } = 0.1f;
 
     [field: SerializeField]
     public float MinCameraAngle { get; private set; } = -80f;
@@ -31,32 +26,25 @@ public class Rotate : MonoBehaviour
     [field: SerializeField]
     public float MaxCameraAngle { get; private set; } = 80f;
 
+    [field: SerializeField]
+    public float SmoothSpeed { get; private set; } = 20f;
+
+    [field: SerializeField]
+    public bool FixedCamera { get; set; }
+
     private float yaw;
     private float pitch;
 
-    /// <summary>
-    /// Дельта мыши, считанная за текущий кадр.
-    /// </summary>
-    public Vector2 Input { get; private set; }
+    private Vector2 mouseInput;
+    private Vector2 currentInput;
 
-    /// <summary>
-    /// Если true, камера не вращается от мыши.
-    /// </summary>
-    [field: SerializeField]
-    public bool FixedCamera { get; set; }
+    public Vector2 Input { get; private set; }
 
     private void Awake()
     {
         if (Camera == null)
         {
-            Debug.LogError("Camera не назначена в Rotate.", this);
-            enabled = false;
-            return;
-        }
-
-        if (MouseDelta == null || MouseDelta.bindings.Count == 0)
-        {
-            Debug.LogError("MouseDelta не назначен в Rotate.", this);
+            Debug.LogError("Camera не назначена.", this);
             enabled = false;
             return;
         }
@@ -76,19 +64,31 @@ public class Rotate : MonoBehaviour
     private void OnDisable()
     {
         MouseDelta.Disable();
+
+        mouseInput = Vector2.zero;
+        currentInput = Vector2.zero;
         Input = Vector2.zero;
     }
 
     private void Update()
     {
-        // Для Mouse Delta action должен быть привязан к <Mouse>/delta.
-        Input = MouseDelta.ReadValue<Vector2>();
+        mouseInput = MouseDelta.ReadValue<Vector2>();
+        Input = mouseInput;
+    }
 
+    private void LateUpdate()
+    {
         if (FixedCamera)
             return;
 
-        yaw += Input.x * SensitiveX;
-        pitch -= Input.y * SensitiveY;
+        currentInput = Vector2.Lerp(
+            currentInput,
+            mouseInput,
+            SmoothSpeed * Time.deltaTime
+        );
+
+        yaw += currentInput.x * SensitiveX;
+        pitch -= currentInput.y * SensitiveY;
 
         pitch = Mathf.Clamp(
             pitch,
@@ -96,10 +96,12 @@ public class Rotate : MonoBehaviour
             MaxCameraAngle
         );
 
-        // Горизонтальное вращение — игрок.
         transform.rotation = Quaternion.Euler(0f, yaw, 0f);
 
-        // Вертикальное вращение — локальный поворот камеры.
-        Camera.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        Camera.localRotation = Quaternion.Euler(
+            pitch,
+            0f,
+            0f
+        );
     }
 }

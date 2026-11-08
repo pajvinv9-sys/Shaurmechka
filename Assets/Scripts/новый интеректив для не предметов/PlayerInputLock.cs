@@ -14,7 +14,6 @@ public class PlayerInputLock : MonoBehaviour
     [field: SerializeField] public Movement Movement { get; private set; }
     [field: SerializeField] public Rotate Rotate { get; private set; }
     [field: SerializeField] public Jump Jump { get; private set; }
-    [field: SerializeField] public PlayerInteractor Interactor { get; private set; }
 
     // Счётчик нужен, чтобы вложенные блокировки не снимали друг друга раньше времени.
     private int lockCount;
@@ -68,7 +67,5 @@ public class PlayerInputLock : MonoBehaviour
         if (Movement != null) Movement.enabled = value;
         if (Rotate != null) Rotate.enabled = value;
         if (Jump != null) Jump.enabled = value;
-        // Interactor не выключаем, а блокируем флагом (см. PlayerInteractor.IsBlocked).
-        if (Interactor != null) Interactor.IsBlocked = !value;
     }
 }

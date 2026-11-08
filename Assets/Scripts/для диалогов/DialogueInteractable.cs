@@ -5,12 +5,12 @@ using UnityEngine;
 ///
 /// Крепится на: объект с обычным (не триггерным) коллайдером.
 /// </summary>
-public class DialogueInteractable : MonoBehaviour, IInteractable
+public class DialogueInteractable : InteractiveObject
 {
     [field: SerializeField] public DialogueData Dialogue { get; private set; }
     [field: SerializeField] public string InteractionPrompt { get; private set; } = "Осмотреть";
 
-    public void Interact()
+    public override void ObjectFound()
     {
         DialogueManager.Instance.StartDialogue(Dialogue);
     }

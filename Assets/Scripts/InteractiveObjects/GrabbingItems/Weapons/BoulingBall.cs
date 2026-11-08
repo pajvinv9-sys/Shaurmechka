@@ -17,6 +17,8 @@ public class BoulingBall : GrabbingItem
 
     public override void ObjectLost()
     {
+        base.ObjectLost();
+
         Rigidbody.mass = Mass;
         if (Grab.Player != null)
         {
@@ -26,6 +28,8 @@ public class BoulingBall : GrabbingItem
 
     public override void ObjectDrop()
     {
+        base.ObjectDrop();
+
         Rigidbody.mass = Mass;
         if (Grab.Player != null)
         {

@@ -101,7 +101,7 @@ public class BowlingScore : MonoBehaviour
         if (StyleManager.Instance != null)
             StyleManager.Instance.AddStylePoints(finalScore, trickName);
         else
-            UIMessage.Show($"{trickName} \nПолучено {finalScore} очков стиля", 1);
+            UIMessage.ShowAndReturn($"{trickName} \nПолучено {finalScore} очков стиля", 3);
 
         knockedPinsThisThrow = 0;
         isCalculating = false;

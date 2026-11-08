@@ -16,6 +16,8 @@ public abstract class GrabbingItem : InteractiveObject
 
     public override void ObjectFound()
     {
+        base.ObjectFound();
+
         // Игнорируем обнаружение, если захват объекта запрещён.
         if (!CanBeGrab)
             return;
@@ -28,11 +30,17 @@ public abstract class GrabbingItem : InteractiveObject
     /// Вызывается при прекращении выбора объекта.
     /// Реализация определяется в классе-наследнике.
     /// </summary>
-    public abstract void ObjectLost();
+    public virtual void ObjectLost()
+    {
+        UIMessage.HideHelp();
+    }
 
     /// <summary>
     /// Вызывается при отпускании объекта игроком.
     /// Реализация определяется в классе-наследнике.
     /// </summary>
-    public abstract void ObjectDrop();
+    public virtual void ObjectDrop()
+    {
+        UIMessage.HideHelp();
+    }
 }

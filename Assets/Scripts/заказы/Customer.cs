@@ -20,7 +20,7 @@ public enum CustomerState
 /// Крепится на: корневой объект клиента (он всегда активен).
 /// Вся видимая часть лежит в дочернем объекте Visual, который включается и выключается.
 /// </summary>
-public class Customer : MonoBehaviour, IInteractable
+public class Customer : InteractiveObject
 {
         [Header("Визуал")]
     [field: SerializeField] public GameObject Visual { get; private set; }
@@ -47,8 +47,9 @@ public class Customer : MonoBehaviour, IInteractable
     private DialogueLine[] orderLines;
     private Camera cam;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Visual.SetActive(false);
     }
 
@@ -92,8 +93,10 @@ public class Customer : MonoBehaviour, IInteractable
         State = CustomerState.WaitingToOrder;
     }
 
-    public void Interact()
+    public override void ObjectFound()
     {
+        base.ObjectFound();
+
         if (State != CustomerState.WaitingToOrder)
             return;
 
@@ -159,5 +162,13 @@ public class Customer : MonoBehaviour, IInteractable
         Visual.SetActive(false);
         State = CustomerState.Away;
         Left?.Invoke();
+    }
+
+    public override void ObjectSighted()
+    {
+        if (State == CustomerState.WaitingToOrder)
+        {
+            UIMessage.ShowHelp(HelpTextOnSighted);
+        }
     }
 }

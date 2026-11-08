@@ -5,15 +5,7 @@
 public abstract class Ingredient : GrabbingItem
 {
     public IngredientTag IngredientTag;
-    public override void ObjectDrop()
-    {
-        return;
-    }
 
-    public override void ObjectLost()
-    {
-        return;
-    }
 
     /// <summary>
     /// Определяет процесс приготовления ингредиента.

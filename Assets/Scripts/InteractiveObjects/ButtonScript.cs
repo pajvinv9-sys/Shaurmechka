@@ -17,7 +17,16 @@ public class ButtonScript : InteractiveObject
 
     public override void ObjectFound()
     {
+        Debug.Log("BUTTON FOUND");
+        base.ObjectFound();
+
         StartCoroutine(Indentation());
+    }
+
+    public override void ObjectSighted()
+    {
+        Debug.Log("BUTTON SIGHTED");
+        base.ObjectSighted();
     }
 
     private IEnumerator Indentation()

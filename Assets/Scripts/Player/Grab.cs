@@ -267,9 +267,10 @@ public class Grab : MonoBehaviour
             transform.forward * DropForce,
             ForceMode.Impulse
         );
-
+        LaunchBeam.IgnoreUntilLookAway(Item);
         Item.ObjectDrop();
         StopTake();
+        
     }
 
     private void Activate(InputAction.CallbackContext context)

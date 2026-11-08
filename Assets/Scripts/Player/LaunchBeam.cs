@@ -1,133 +1,238 @@
-using System;
-using System.Collections;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Управляет лучом поиска интерактивных объектов перед игроком.
+/// Управляет поиском и взаимодействием с интерактивными объектами.
 ///
-/// Крепится на: GameObject игрока.
-/// Использует: Input Action для активации луча.
+/// BeamKey:
+/// - При удержании вызывает ObjectFound() один раз для каждого объекта.
 ///
-/// Основная логика:
-/// - Запускает поиск при нажатии BeamKey.
-/// - Выпускает Raycast в направлении взгляда объекта.
-/// - Ищет InteractiveObject на объекте или его родителях.
-/// - Ограничивает дальность поиска параметром MaxLengthOfBeam.
-/// - Передаёт найденный объект в обработчик взаимодействия.
-/// - Останавливает поиск при отпускании клавиши или отключении компонента.
+/// Наведение:
+/// - При наведении на новый объект вызывает ObjectSighted().
+/// - При потере объекта вызывает ObjectDisappeared().
+///
+/// После броска объект нельзя повторно захватить,
+/// пока игрок не отведёт от него взгляд.
+///
+/// Луч выпускается постоянно.
 /// </summary>
 public class LaunchBeam : MonoBehaviour
 {
-    /// <summary>
-    /// Input Action для активации луча поиска.
-    /// </summary>
+    [Header("Поиск объектов (Grab)")]
+
     [field: SerializeField]
     public InputAction BeamKey { get; private set; }
 
-    /// <summary>
-    /// Максимальная дальность действия луча поиска.
-    /// </summary>
     [field: SerializeField]
-    public float MaxLengthOfBeam { get; private set; }
+    public float MaxLengthOfBeam { get; private set; } = 5f;
 
-    // Луч и результат его пересечения с объектами сцены.
-    private Ray ray;
-    private RaycastHit hit;
 
-    // Ссылка на текущую корутину поиска, чтобы не запускать её повторно.
-    private Coroutine searchingCoroutine;
+    [Header("Взаимодействие (Interact)")]
+
+    [field: SerializeField]
+    public float MaxDistance { get; private set; } = 3f;
+
+    [field: SerializeField]
+    public LayerMask InteractMask { get; private set; } = ~0;
+
+
+    [Header("Состояние")]
+
+    /// <summary>
+    /// Блокирует поиск и взаимодействие.
+    /// Например, во время диалога.
+    /// </summary>
+    public bool IsBlocked { get; set; }
+
+    /// <summary>
+    /// Объект, на который игрок смотрит в данный момент.
+    /// </summary>
+    public InteractiveObject CurrentTarget { get; private set; }
+
+
+    private readonly RaycastHit[] hits = new RaycastHit[16];
+
+    private InteractiveObject lastFoundObject;
+    private InteractiveObject lastSightedObject;
+
+    /// <summary>
+    /// Объект, который недавно бросили.
+    /// Повторный захват запрещён до потери наведения.
+    /// </summary>
+    private InteractiveObject recentlyDroppedObject;
+
 
     private void OnEnable()
     {
         BeamKey.Enable();
-
-        // Запускаем поиск при нажатии и останавливаем при отпускании клавиши.
-        BeamKey.started += OnLaunchBeam;
-        BeamKey.canceled += OnStopBeam;
     }
+
 
     private void OnDisable()
     {
-        BeamKey.started -= OnLaunchBeam;
-        BeamKey.canceled -= OnStopBeam;
         BeamKey.Disable();
 
-        // При отключении компонента прекращаем поиск и текущее взаимодействие.
-        StopSearching();
+        ResetTargets();
+        recentlyDroppedObject = null;
     }
 
-    public void StartSearching()
+
+    private void Update()
     {
-        // Не допускаем одновременного запуска нескольких корутин поиска.
-        if (searchingCoroutine != null)
+        if (IsBlocked)
+        {
+            ResetTargets();
+            return;
+        }
+
+        // Если игрок держит предмет, фиксируем цель на нём.
+        if (Grab.Instance != null && Grab.Instance.Item != null)
+        {
+            InteractiveObject heldObject =
+                Grab.Instance.Item.GetComponentInParent<InteractiveObject>();
+
+            if (CurrentTarget != heldObject)
+            {
+                if (CurrentTarget != null)
+                    CurrentTarget.ObjectDisappeared();
+
+                CurrentTarget = heldObject;
+
+                lastFoundObject = null;
+                lastSightedObject = null;
+            }
+
+            return;
+        }
+
+        // Постоянно ищем объект перед камерой.
+        InteractiveObject newTarget = FindTarget();
+
+        if (CurrentTarget != newTarget)
+        {
+            if (CurrentTarget != null)
+                CurrentTarget.ObjectDisappeared();
+
+            CurrentTarget = newTarget;
+
+            lastFoundObject = null;
+            lastSightedObject = null;
+        }
+
+        // Снимаем блокировку после того, как игрок отвёл взгляд.
+        if (CurrentTarget != recentlyDroppedObject)
+        {
+            recentlyDroppedObject = null;
+        }
+
+        if (CurrentTarget == null)
             return;
 
-        searchingCoroutine = StartCoroutine(Searching());
-    }
-
-    /// <summary>
-    /// Ищет интерактивный объект перед игроком, пока удерживается BeamKey.
-    /// </summary>
-    private IEnumerator Searching()
-    {
-        while (BeamKey.IsPressed())
+        if (BeamKey.IsPressed())
         {
-            // Каждый кадр проверяем пространство перед игроком с учётом его текущего направления.
-            ray = new Ray(transform.position, transform.forward);
-
-            if (Physics.Raycast(ray, out hit, MaxLengthOfBeam))
+            // Захват объекта выполняется только один раз.
+            if (lastFoundObject != CurrentTarget)
             {
-                // Ищем компонент на объекте попадания или выше по иерархии.
-                InteractiveObject newItem =
-                    hit.collider.GetComponentInParent<InteractiveObject>();
+                lastFoundObject = CurrentTarget;
 
-                if (newItem != null)
+                if (CurrentTarget != recentlyDroppedObject)
                 {
-                    // Передаём найденный объект его собственному обработчику обнаружения.
-                    newItem.ObjectFound();
-                    yield break;
+                    CurrentTarget.ObjectFound();
                 }
             }
 
-            // Продолжаем поиск на следующем кадре.
-            yield return null;
+            lastSightedObject = null;
         }
+        else
+        {
+            // Подсказка появляется только при новом наведении.
+            if (lastSightedObject != CurrentTarget)
+            {
+                lastSightedObject = CurrentTarget;
+                CurrentTarget.ObjectSighted();
+            }
 
-        // Сбрасываем ссылку после естественного завершения поиска.
-        searchingCoroutine = null;
+            lastFoundObject = null;
+        }
     }
 
-    public void StopSearching()
-    {
-        if (searchingCoroutine != null)
-        {
-            StopCoroutine(searchingCoroutine);
-            searchingCoroutine = null;
-        }
-
-        // Если объект удерживается, прекращаем взаимодействие с ним.
-        if (Grab.Instance != null && Grab.Instance.Item != null)
-        {
-            Grab.Instance.StopTake();
-        }
-    }
 
     /// <summary>
-    /// Обрабатывает отпускание клавиши поиска.
+    /// Вызывается при броске объекта.
+    /// Запрещает повторный захват до потери наведения.
     /// </summary>
-    /// <param name="context">Контекст вызова Input Action.</param>
-    private void OnStopBeam(InputAction.CallbackContext context)
+    public void IgnoreUntilLookAway(InteractiveObject obj)
     {
-        StopSearching();
+        recentlyDroppedObject = obj;
     }
 
+
     /// <summary>
-    /// Обрабатывает нажатие клавиши и запускает поиск.
+    /// Ищет ближайший интерактивный объект перед камерой.
     /// </summary>
-    /// <param name="context">Контекст вызова Input Action.</param>
-    private void OnLaunchBeam(InputAction.CallbackContext context)
+    private InteractiveObject FindTarget()
     {
-        StartSearching();
+        float maxDistance = BeamKey.IsPressed()
+            ? MaxLengthOfBeam
+            : MaxDistance;
+
+        int count = Physics.RaycastNonAlloc(
+            transform.position,
+            transform.forward,
+            hits,
+            maxDistance,
+            InteractMask,
+            QueryTriggerInteraction.Collide
+        );
+        
+        Transform held = Grab.Instance != null &&
+                         Grab.Instance.Item != null
+            ? Grab.Instance.Item.transform
+            : null;
+
+        float nearestDistance = float.MaxValue;
+        InteractiveObject result = null;
+
+        for (int i = 0; i < count; i++)
+        {
+            RaycastHit currentHit = hits[i];
+
+            if (currentHit.distance >= nearestDistance)
+                continue;
+
+            // Игнорируем предмет, который находится в руках.
+            if (held != null &&
+                (currentHit.collider.transform == held ||
+                 currentHit.collider.transform.IsChildOf(held)))
+            {
+                continue;
+            }
+
+            // Ближайший объект перекрывает остальные цели,
+            // даже если сам не является интерактивным.
+            nearestDistance = currentHit.distance;
+
+            result = currentHit.collider
+                .GetComponentInParent<InteractiveObject>();
+        }
+
+        return result;
+    }
+
+
+    /// <summary>
+    /// Сбрасывает текущую цель и уведомляет её об исчезновении.
+    /// </summary>
+    private void ResetTargets()
+    {
+        if (CurrentTarget != null)
+        {
+            CurrentTarget.ObjectDisappeared();
+        }
+
+        CurrentTarget = null;
+        lastFoundObject = null;
+        lastSightedObject = null;
     }
 }

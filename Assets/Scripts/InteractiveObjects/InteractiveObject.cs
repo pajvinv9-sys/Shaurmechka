@@ -13,7 +13,8 @@ public abstract class InteractiveObject : MonoBehaviour
     // Компоненты физики, необходимые для взаимодействия с объектом.
     public Rigidbody Rigidbody { get; private set; }
     public Collider Collider { get; private set; }
-
+    [field: SerializeField] public string HelpTextOnFound { get; private set; }
+    [field: SerializeField] public string HelpTextOnSighted { get; private set; }
     protected virtual void Awake()
     {
         Rigidbody = GetComponent<Rigidbody>();
@@ -24,5 +25,25 @@ public abstract class InteractiveObject : MonoBehaviour
     /// Вызывается при обнаружении объекта лучом поиска.
     /// Реализация определяется в классе-наследнике.
     /// </summary>
-    public abstract void ObjectFound();
+    public virtual void ObjectFound()
+    {
+        if (HelpTextOnFound != "")
+            UIMessage.ShowHelp(HelpTextOnFound);
+    }
+
+    /// <summary>
+    /// Вызывается при обнаружении объекта лучом (при незажатой кнопке поиска).
+    /// Реализация определяется в классе-наследнике.
+    /// </summary>
+    public virtual void ObjectSighted()
+    {
+        if (HelpTextOnSighted != "")
+            UIMessage.ShowHelp(HelpTextOnSighted);
+    }
+    public virtual void ObjectDisappeared()
+    {
+        if (Grab.Instance.Item != this)
+            UIMessage.HideHelp();
+    }
+    
 }

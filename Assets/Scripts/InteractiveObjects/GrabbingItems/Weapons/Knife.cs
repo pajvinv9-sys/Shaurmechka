@@ -22,16 +22,6 @@ public class Knife : GrabbingItem, IActivate
     private float lastSlice;
     private Coroutine impact;
 
-    public override void ObjectDrop()
-    {
-        return;
-    }
-
-    public override void ObjectLost()
-    {
-        return;
-    }
-
     /// <summary>
     /// Проверяет возможность нарезки объекта при входе в триггер ножа.
     /// </summary>

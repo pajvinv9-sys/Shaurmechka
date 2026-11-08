@@ -908,6 +908,7 @@ GameObject:
   - component: {fileID: 4449664172659099399}
   - component: {fileID: 3162104097703056909}
   - component: {fileID: 6959358526889619551}
+  - component: {fileID: 3231841628340906030}
   m_Layer: 0
   m_Name: InfiniteBox
   m_TagString: Untagged
@@ -1065,6 +1066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81889d4c280e7244cbc5317c3b3e5ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InfiniteBox
+  <HelpTextOnFound>k__BackingField: 
+  <HelpTextOnSighted>k__BackingField: 
   <ContentPrefab>k__BackingField: {fileID: 4792110335883684534, guid: 6185955f4137b41428a2aea7a510f13d, type: 3}
 --- !u!65 &4449664172659099399
 BoxCollider:
@@ -1129,6 +1132,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.057232816, y: 1, z: 0.9970072}
   m_Center: {x: 0.47138354, y: 0, z: -0.0014964546}
+--- !u!65 &3231841628340906030
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095992375775651238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.4061161, z: 1}
+  m_Center: {x: 0, y: 0.20305803, z: 0}
 --- !u!1 &4132892139293916111
 GameObject:
   m_ObjectHideFlags: 0

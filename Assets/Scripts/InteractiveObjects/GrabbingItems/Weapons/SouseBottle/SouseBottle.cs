@@ -47,10 +47,15 @@ public class SouseBottle : GrabbingItem, IActivate
 
     public override void ObjectDrop()
     {
+        base.ObjectDrop();
+
+        StopActivate();
     }
 
     public override void ObjectLost()
     {
+        base.ObjectLost();
+
         StopActivate();
     }
 

@@ -74,6 +74,7 @@ public class DialogueManager : MonoBehaviour
     /// <returns>true, если диалог запущен.</returns>
     public bool StartDialogue(DialogueLine[] lines, Action onFinished = null)
     {
+        UIMessage.ShowHelp("Нажимайте ЛКМ для чтения диалога");
         if (IsPlaying || Time.frameCount == endFrame || lines == null || lines.Length == 0)
             return false;
 
@@ -124,5 +125,6 @@ public class DialogueManager : MonoBehaviour
         onFinished = null;
         currentLines = null;
         callback?.Invoke();
+        UIMessage.HideHelp();
     }
 }
