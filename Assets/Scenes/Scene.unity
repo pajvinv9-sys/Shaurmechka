@@ -653,6 +653,143 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30952560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &36924266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36924267}
+  - component: {fileID: 36924269}
+  - component: {fileID: 36924268}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &36924267
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36924266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 952990238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -493.9}
+  m_SizeDelta: {x: 0, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &36924268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36924266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 16
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &36924269
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36924266}
+  m_CullTransparentMesh: 1
 --- !u!1 &41334805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,14 +1681,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98553107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2137172216}
   - {fileID: 1122607404}
-  m_Father: {fileID: 882057338}
+  m_Father: {fileID: 952990238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19612446, y: 0.082}
   m_AnchorMax: {x: 0.81100005, y: 0.31639585}
@@ -5694,6 +5831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -6002,6 +6144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -12808,6 +12955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIMessage
   messageText: {fileID: 1352600844}
+  helpText: {fileID: 36924268}
 --- !u!4 &651292840
 Transform:
   m_ObjectHideFlags: 0
@@ -12816,12 +12964,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651292838}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.94923, y: -0, z: -7.78429}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -961.9492, y: -540, z: -7.78429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 952990238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &657042802
 PrefabInstance:
@@ -14373,6 +14521,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -15253,44 +15406,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c309a31e5f4054a089be7f256a3443df, type: 3}
---- !u!1 &846092084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2165386034967718810, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
+--- !u!114 &846092086 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 548851900778798103, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
   m_PrefabInstance: {fileID: 2143684517}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &846092085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846092084}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f203fbdac5ed654c9c9cd045b822bdf, type: 3}
+  m_Script: {fileID: 11500000, guid: ef15b3378a63cfe47b33b20224cd069a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  <InteractKey>k__BackingField:
-    m_Name: Interact Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 75d15402-9b1b-451a-b120-0d6ca8de2e04
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: b7eef78a-f4f1-48c4-9013-9d8b6960da26
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact Key
-      m_Flags: 0
-    m_Flags: 0
-  <MaxDistance>k__BackingField: 3
-  <InteractMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  m_EditorClassIdentifier: Assembly-CSharp::LaunchBeam
 --- !u!4 &846421836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5767520551045952993, guid: 9b146895821d7b841a00494bc103dac9, type: 3}
@@ -15801,124 +15927,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872564618}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &882057336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 882057338}
-  - component: {fileID: 882057337}
-  - component: {fileID: 882057341}
-  - component: {fileID: 882057340}
-  - component: {fileID: 882057339}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &882057337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882057336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db72c9af19c611b4382f09830164100d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
-  <Panel>k__BackingField: {fileID: 98553107}
-  <SpeakerText>k__BackingField: {fileID: 2137172218}
-  <BodyText>k__BackingField: {fileID: 1122607402}
---- !u!224 &882057338
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882057336}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 98553108}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &882057339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882057336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &882057340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882057336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &882057341
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882057336}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1001 &887873116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16673,6 +16681,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -16804,6 +16817,7 @@ GameObject:
   - component: {fileID: 952990237}
   - component: {fileID: 952990236}
   - component: {fileID: 952990235}
+  - component: {fileID: 952990239}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -16886,8 +16900,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1308594242}
+  - {fileID: 651292840}
+  - {fileID: 98553108}
   - {fileID: 1352600843}
   - {fileID: 2061159632}
+  - {fileID: 36924267}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -16895,6 +16913,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &952990239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952990234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db72c9af19c611b4382f09830164100d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
+  <Panel>k__BackingField: {fileID: 98553107}
+  <SpeakerText>k__BackingField: {fileID: 2137172218}
+  <BodyText>k__BackingField: {fileID: 1122607402}
 --- !u!4 &954261318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8374679005182213863, guid: 3c0c273c2ac9a9844ba380cdfbdad9ad, type: 3}
@@ -23851,7 +23884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24807,6 +24840,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -30767,14 +30805,14 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: c0d1aa65-c9e9-46aa-ab29-49b09f801552
-      m_Path: <Keyboard>/e
+      m_Path: <Mouse>/leftButton
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Next Key
       m_Flags: 0
     m_Flags: 0
-  <UI>k__BackingField: {fileID: 882057337}
+  <UI>k__BackingField: {fileID: 952990239}
 --- !u!4 &1308594242
 Transform:
   m_ObjectHideFlags: 0
@@ -30783,12 +30821,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308594240}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.24468, y: 0, z: -1.17252}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -962.2447, y: -540, z: -1.17252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 952990238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1313482839 stripped
 Transform:
@@ -30846,6 +30884,13 @@ PrefabInstance:
     - target: {fileID: 5571193219941651919, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174163098282212640, guid: 9d7d1b360ae351d469d4aa1c7c4d72f8, type: 3}
+      propertyPath: <HelpTextOnSighted>k__BackingField
+      value: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435 \u041B\u041A\u041C \u0438
+        \u043F\u043E\u0442\u044F\u043D\u0438\u0442\u0435 \u0432\u0432\u0435\u0440\u0445,
+        \u0447\u0442\u043E\u0431\u044B \u0432\u044B\u0442\u0430\u0449\u0438\u0442\u044C
+        \u043A\u043E\u0442\u043B\u0435\u0442\u0443"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33452,6 +33497,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -35170,6 +35220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -41001,6 +41056,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -41717,6 +41777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23740de6ac1d9cd4c919907de94fb3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueInteractable
+  <HelpTextOnFound>k__BackingField: 
+  <HelpTextOnSighted>k__BackingField: 
   <Dialogue>k__BackingField: {fileID: 11400000, guid: 1e4012398f5f25346bc670d023833952, type: 2}
   <InteractionPrompt>k__BackingField: "\u041E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C"
 --- !u!114 &1710217791 stripped
@@ -42089,6 +42151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -42405,6 +42472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -48119,6 +48191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -48276,6 +48353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff8011726c9e3f43899fedc3b96d094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoulingBall
+  <HelpTextOnFound>k__BackingField: "\u0420\u0430\u0437\u0433\u043E\u043D\u0438\u0442\u0435\u0441\u044C
+    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u041A\u041C \u0434\u043B\u044F
+    \u0431\u0440\u043E\u0441\u043A\u0430"
+  <HelpTextOnSighted>k__BackingField: "\u0417\u0430\u0436\u043C\u0438\u0442\u0435
+    \u041B\u041A\u041C \u0434\u043B\u044F \u0437\u0430\u0445\u0432\u0430\u0442\u0430"
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 0
   <RotateInStart>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
@@ -48846,8 +48928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputLock
   <Movement>k__BackingField: {fileID: 1900983255}
   <Rotate>k__BackingField: {fileID: 545115169}
-  <Jump>k__BackingField: {fileID: 0}
-  <Interactor>k__BackingField: {fileID: 846092085}
+  <Jump>k__BackingField: {fileID: 1900983256}
 --- !u!114 &1900983255 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3071273423859575682, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
@@ -57197,6 +57278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 548851900778798103, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
+      propertyPath: <InteractKey>k__BackingField.m_Name
+      value: Interact Key
+      objectReference: {fileID: 0}
     - target: {fileID: 836223180149063054, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.4
@@ -57377,6 +57462,10 @@ PrefabInstance:
       propertyPath: <Jump>k__BackingField
       value: 
       objectReference: {fileID: 1900983256}
+    - target: {fileID: 7451432773379887017, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
+      propertyPath: <Interactor>k__BackingField
+      value: 
+      objectReference: {fileID: 846092086}
     - target: {fileID: 7587760450473614885, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       propertyPath: field of view
       value: 59.7
@@ -57405,16 +57494,14 @@ PrefabInstance:
       propertyPath: m_AngularDamping
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4616157622145528580, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1146245176612406143, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1900983252}
-    - targetCorrespondingSourceObject: {fileID: 2165386034967718810, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 846092085}
   m_SourcePrefab: {fileID: 100100000, guid: 3339594cca233284eb6ba690dd7a0966, type: 3}
 --- !u!1 &2144978411 stripped
 GameObject:
@@ -57820,6 +57907,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1179408021569809448, guid: 9b146895821d7b841a00494bc103dac9, type: 3}
+      propertyPath: <HelpTextOnFound>k__BackingField
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179408021569809448, guid: 9b146895821d7b841a00494bc103dac9, type: 3}
+      propertyPath: <HelpTextOnSighted>k__BackingField
+      value: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u041B\u041A\u041C \u0434\u043B\u044F
+        \u0432\u0437\u044F\u0442\u0438\u044F \u0437\u0430\u043A\u0430\u0437\u0430"
+      objectReference: {fileID: 0}
     - target: {fileID: 1599857569358967902, guid: 9b146895821d7b841a00494bc103dac9, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2652
@@ -57956,11 +58052,8 @@ SceneRoots:
   - {fileID: 1808188465}
   - {fileID: 743431612}
   - {fileID: 1375043824}
-  - {fileID: 651292840}
   - {fileID: 952990238}
   - {fileID: 635217008}
-  - {fileID: 882057338}
-  - {fileID: 1308594242}
   - {fileID: 1424456783}
   - {fileID: 4800593457422446539}
   - {fileID: 391708988}
