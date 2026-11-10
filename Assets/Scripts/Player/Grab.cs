@@ -42,7 +42,7 @@ public class Grab : MonoBehaviour
     private Quaternion targetObjectRotation;
     private Quaternion cameraRotationOffset;
     private Rotate Rotate;
-
+    private bool didGrabbingItemHaveGravity;
 
 
     public static Grab Instance;
@@ -125,6 +125,7 @@ public class Grab : MonoBehaviour
         Item = interactiveObject;
         ItemActivate = Item.GetComponent<IActivate>();
 
+        didGrabbingItemHaveGravity = Item.Rigidbody.useGravity;
         Item.Rigidbody.useGravity = false;
 
         // Запоминаем начальную ориентацию предмета относительно камеры.
@@ -244,7 +245,7 @@ public class Grab : MonoBehaviour
         if (Item != null)
         {
             if (Item.Rigidbody != null)
-                Item.Rigidbody.useGravity = true;
+                Item.Rigidbody.useGravity = didGrabbingItemHaveGravity;
 
             Item.ObjectLost();
         }

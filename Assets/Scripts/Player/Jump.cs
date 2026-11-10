@@ -9,7 +9,7 @@ public class Jump : MonoBehaviour
     [field: SerializeField] public float JumpForce { get; private set; }
 
     // Если включено, прыжок доступен даже без контакта с землёй.
-    [field: SerializeField] public bool OverJump { get; private set; }
+    public bool OverJump { get; set; }
 
     private Rigidbody rb;
     [field: SerializeField] public bool CanJump { get; private set; }

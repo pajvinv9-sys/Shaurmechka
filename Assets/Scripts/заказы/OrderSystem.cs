@@ -100,7 +100,7 @@ public class OrderSystem : MonoBehaviour
         CurrentRecipe = RecipesInGame.GetRandomRecipe();
         Debug.Log(CurrentRecipe.name);
     }
-
+    
     private void OnOrderAccepted()
     {
         startTime = Time.time;

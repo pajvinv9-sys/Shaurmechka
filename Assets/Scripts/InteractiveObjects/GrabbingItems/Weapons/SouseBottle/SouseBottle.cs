@@ -26,6 +26,9 @@ public class SouseBottle : GrabbingItem, IActivate
             return;
 
         isPainting = true;
+        var main = paintParticles.main;
+        main.gravityModifier = Rigidbody.useGravity ? 1 : 0;
+
         paintParticles.Play();
 
         paintCoroutine = StartCoroutine(Paint());
