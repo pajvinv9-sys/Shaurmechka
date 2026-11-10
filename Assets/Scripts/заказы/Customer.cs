@@ -130,7 +130,7 @@ public class Customer : InteractiveObject
         {
             str = char.ToUpper(str[0], System.Globalization.CultureInfo.CurrentCulture) + str.Substring(1);
         }
-        UIMessage.Show("Текущий заказ: \n" + str, -1);
+        UIMessage.Show("Текущий заказ: " + str, -1);
 
     }
 

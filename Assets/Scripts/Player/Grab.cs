@@ -13,7 +13,6 @@ public class Grab : MonoBehaviour
     [field: SerializeField] public InputAction DropKey { get; private set; }
     [field: SerializeField] public InputAction ActionKey { get; private set; }
     [field: SerializeField] public InputAction RotateObjectKey { get; private set; }
-    public InputAction TakeKey => LaunchBeam.BeamKey;
 
     [Header("Параметры перемещения")]
     [field: SerializeField] public float Distance { get; private set; }

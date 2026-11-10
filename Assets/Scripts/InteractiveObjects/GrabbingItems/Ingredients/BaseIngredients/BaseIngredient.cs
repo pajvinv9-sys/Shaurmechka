@@ -103,7 +103,6 @@ public abstract class BaseIngredient : GrabbingItem, IActivate
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("p");
         if (IsCooked || hasSauce || BaseIngredientCompatible == null || BaseIngredientCompatible.CompatibleIngredients == null)
             return;
 
@@ -119,6 +118,8 @@ public abstract class BaseIngredient : GrabbingItem, IActivate
         IngredientTag sauceTag = sauceBottle.SauceTag;
         if (!BaseIngredientCompatible.CompatibleIngredients.Contains(sauceTag))
             return;
+
+        EnsureCorrectOrientation();
 
         hasSauce = true;
         ingredientsInside.Add(sauceTag);
@@ -146,7 +147,7 @@ public abstract class BaseIngredient : GrabbingItem, IActivate
         {
             Grab.Instance.StopTake();
         }
-
+        EnsureCorrectOrientation();
         ingredientsInside.Add(tag);
         SpawnVisualForTag(tag, ingredient);
     }
@@ -183,6 +184,24 @@ public abstract class BaseIngredient : GrabbingItem, IActivate
         if (collidedIngredient != null)
         {
             Destroy(collidedIngredient.gameObject);
+        }
+    }
+    /// <summary>
+    /// Проверяет ориентацию основы и переворачивает её,
+    /// если добавляется первый ингредиент.
+    /// </summary>
+    private void EnsureCorrectOrientation()
+    {
+        if (ingredientsInside.Count > 0)
+            return;
+
+        // Проверяем, куда направлена верхняя сторона основы
+        float dot = Vector3.Dot(transform.up, Vector3.up);
+
+        // Если верх основы направлен вниз — переворачиваем
+        if (dot < 0f)
+        {
+            transform.Rotate(180f, 0f, 0f, Space.Self);
         }
     }
 }

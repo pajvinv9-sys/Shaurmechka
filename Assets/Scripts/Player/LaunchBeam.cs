@@ -48,7 +48,7 @@ public class LaunchBeam : MonoBehaviour
     /// <summary>
     /// Объект, на который игрок смотрит в данный момент.
     /// </summary>
-    public InteractiveObject CurrentTarget { get; private set; }
+    public static InteractiveObject CurrentTarget { get; private set; }
 
 
     private readonly RaycastHit[] hits = new RaycastHit[16];
@@ -61,7 +61,6 @@ public class LaunchBeam : MonoBehaviour
     /// Повторный захват запрещён до потери наведения.
     /// </summary>
     private InteractiveObject recentlyDroppedObject;
-
 
     private void OnEnable()
     {
