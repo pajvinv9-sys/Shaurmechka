@@ -7,8 +7,6 @@ public class Movement : MonoBehaviour
     // Скорость перемещения персонажа.
     [field: SerializeField] public float Speed { get; private set; } = 5f;
     [field: SerializeField] public float RunModify { get; private set; } = 5f;
-    [field: SerializeField] public int RunFieldOfView { get; private set; } = 65;
-    [field: SerializeField] public int WalkFieldOfView { get; private set; } = 60;
     public Rigidbody Rigidbody { get; private set; }
 
     // Действие Input System, отвечающее за ввод направления движения.
@@ -17,8 +15,12 @@ public class Movement : MonoBehaviour
 
     private Vector2 _moveInput;
     private float speedNow;
-    private Coroutine _cameraCoroutine;
-    [field: SerializeField] public Camera Camera { get; private set; }
+
+    public bool IsWalk => Speed > 0 && !RunKey.IsPressed() && _moveInput.magnitude > 0.01f;
+    public bool IsRun => Speed > 0 && RunModify > 1 && RunKey.IsPressed() && _moveInput.magnitude > 0.01f;
+    public bool IsStay => _moveInput.magnitude < 0.01f;
+
+
 
     private void Awake()
     {
@@ -110,41 +112,10 @@ public class Movement : MonoBehaviour
     private void OnRun(InputAction.CallbackContext context)
     {
         speedNow = Speed * RunModify;
-        ChangeCameraFOV(RunFieldOfView);
     }
 
     private void OnWalk(InputAction.CallbackContext context)
     {
         speedNow = Speed;
-        ChangeCameraFOV(WalkFieldOfView);
-    }
-
-    private void ChangeCameraFOV(int to)
-    {
-        if (_cameraCoroutine != null)
-        {
-            StopCoroutine(_cameraCoroutine);
-        }
-
-        _cameraCoroutine = StartCoroutine(ChangeFieldOfCamera(to));
-    }
-
-    private IEnumerator ChangeFieldOfCamera(float to)
-    {
-        float speed = 40f;
-
-        while (!Mathf.Approximately(Camera.fieldOfView, to))
-        {
-            Camera.fieldOfView = Mathf.MoveTowards(
-                Camera.fieldOfView,
-                to,
-                speed * Time.deltaTime
-            );
-
-            yield return null;
-        }
-
-        Camera.fieldOfView = to;
-        _cameraCoroutine = null;
     }
 }

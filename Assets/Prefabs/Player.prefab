@@ -37,7 +37,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6329255796999793450}
+  - {fileID: 3227648828227454178}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &621978077767006356
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputLock
   <Movement>k__BackingField: {fileID: 3071273423859575682}
   <Rotate>k__BackingField: {fileID: 4767804652868576686}
-  <Interactor>k__BackingField: {fileID: 4616157622145528580}
+  <Jump>k__BackingField: {fileID: 865678797148117300}
 --- !u!114 &3071273423859575682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,8 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   <Speed>k__BackingField: 6
   <RunModify>k__BackingField: 5
-  <RunFieldOfView>k__BackingField: 65
-  <WalkFieldOfView>k__BackingField: 60
   <MovementKeys>k__BackingField:
     m_Name: Movement Keys
     m_Type: 0
@@ -207,9 +205,16 @@ MonoBehaviour:
     m_Id: 2df89250-b6f0-44ac-9b9a-d5df6ee0e592
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a4ce62d2-df82-44bb-9828-d42f1938ace1
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Run Key
+      m_Flags: 0
     m_Flags: 0
-  <Camera>k__BackingField: {fileID: 0}
 --- !u!54 &8897564592712119734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -249,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a36d529afbaab438d2630bf5a44ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotate
-  <Camera>k__BackingField: {fileID: 6329255796999793450}
+  <CameraPivot>k__BackingField: {fileID: 3227648828227454178}
   <MouseDelta>k__BackingField:
     m_Name: Mouse Delta
     m_Type: 0
@@ -303,6 +308,7 @@ MonoBehaviour:
   <SensitiveY>k__BackingField: 1.5
   <MinCameraAngle>k__BackingField: -80
   <MaxCameraAngle>k__BackingField: 80
+  <SmoothSpeed>k__BackingField: 20
   <FixedCamera>k__BackingField: 0
 --- !u!114 &865678797148117300
 MonoBehaviour:
@@ -334,8 +340,39 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   <JumpForce>k__BackingField: 1000
-  <OverJump>k__BackingField: 0
   <CanJump>k__BackingField: 0
+--- !u!1 &1336189980123288750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5929501902837454287}
+  m_Layer: 0
+  m_Name: EffectsPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5929501902837454287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336189980123288750}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6329255796999793450}
+  m_Father: {fileID: 3227648828227454178}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2165386034967718810
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +385,6 @@ GameObject:
   - component: {fileID: 7587760450473614885}
   - component: {fileID: 8379437761333580775}
   - component: {fileID: 7897704027429958040}
-  - component: {fileID: 4616157622145528580}
   - component: {fileID: 3585313877193432808}
   - component: {fileID: 548851900778798103}
   m_Layer: 0
@@ -367,11 +403,11 @@ Transform:
   m_GameObject: {fileID: 2165386034967718810}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.53, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 836223180149063054}
+  m_Father: {fileID: 5929501902837454287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7587760450473614885
 Camera:
@@ -476,39 +512,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &4616157622145528580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2165386034967718810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f203fbdac5ed654c9c9cd045b822bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
-  <InteractKey>k__BackingField:
-    m_Name: Interact Key
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: cf6a7b3b-6ea8-4c99-b119-b514a26be4bb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: e5c5187b-b877-499a-a313-4c60b24f9a55
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact Key
-      m_Flags: 0
-    m_Flags: 0
-  <MaxDistance>k__BackingField: 3
-  <InteractMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &3585313877193432808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,3 +597,39 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   <MaxLengthOfBeam>k__BackingField: 4
+  <MaxDistance>k__BackingField: 3
+  <InteractMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &3242807447447965268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3227648828227454178}
+  m_Layer: 0
+  m_Name: Camera Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3227648828227454178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242807447447965268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.53, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5929501902837454287}
+  m_Father: {fileID: 836223180149063054}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

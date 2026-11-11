@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class Rotate : MonoBehaviour
 {
     [field: SerializeField]
-    public Transform Camera { get; private set; }
+    public Transform CameraPivot { get; private set; }
 
     [field: SerializeField]
     public InputAction MouseDelta { get; private set; }
@@ -42,7 +42,7 @@ public class Rotate : MonoBehaviour
 
     private void Awake()
     {
-        if (Camera == null)
+        if (CameraPivot == null)
         {
             Debug.LogError("Camera не назначена.", this);
             enabled = false;
@@ -50,7 +50,7 @@ public class Rotate : MonoBehaviour
         }
 
         yaw = transform.eulerAngles.y;
-        pitch = Camera.localEulerAngles.x;
+        pitch = CameraPivot.localEulerAngles.x;
 
         if (pitch > 180f)
             pitch -= 360f;
@@ -98,7 +98,7 @@ public class Rotate : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, yaw, 0f);
 
-        Camera.localRotation = Quaternion.Euler(
+        CameraPivot.localRotation = Quaternion.Euler(
             pitch,
             0f,
             0f
