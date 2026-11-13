@@ -16,8 +16,6 @@ public class Grab : MonoBehaviour
 
     [Header("Параметры перемещения")]
     [field: SerializeField] public float Distance { get; private set; }
-    [field: SerializeField] public float spring { get; private set; } = 20f;
-    [field: SerializeField] public float damping { get; private set; } = 5f;
 
     [Header("Параметры вращения")]
     [field: SerializeField] public float RotationSpeed { get; private set; } = 5f;
@@ -43,7 +41,7 @@ public class Grab : MonoBehaviour
     private Quaternion cameraRotationOffset;
     private Rotate Rotate;
     private bool didGrabbingItemHaveGravity;
-
+    private bool wasRotate;
 
     public static Grab Instance;
     [field: SerializeField] private Transform player;
@@ -125,8 +123,8 @@ public class Grab : MonoBehaviour
         Item = interactiveObject;
         ItemActivate = Item.GetComponent<IActivate>();
 
-        didGrabbingItemHaveGravity = Item.Rigidbody.useGravity;
-        Item.Rigidbody.useGravity = false;
+        //didGrabbingItemHaveGravity = Item.Rigidbody.useGravity;
+        //Item.Rigidbody.useGravity = false;
 
         // Запоминаем начальную ориентацию предмета относительно камеры.
         cameraRotationOffset =
@@ -145,78 +143,21 @@ public class Grab : MonoBehaviour
     {
         WaitForFixedUpdate wait = new WaitForFixedUpdate();
 
-        var wasRotate = !Item.NeedRotateInStart;
+        wasRotate = !Item.NeedRotateInStart;
 
         while (Item != null)
         {
             if (Item.Rigidbody == null)
                 break;
 
-            // Вращаем предмет мышью, пока зажата клавиша вращения.
-            if (isRotating && Rotate != null)
-            {
-                wasRotate = true;
-                Vector2 mouseDelta = Rotate.Input;
+            RotateItem();
 
-                Quaternion yaw = Quaternion.AngleAxis(
-                    mouseDelta.x * ObjectRotationSensitivity,
-                    Vector3.up
-                );
-
-                Quaternion pitch = Quaternion.AngleAxis(
-                    -mouseDelta.y * ObjectRotationSensitivity,
-                    Vector3.right
-                );
-
-                cameraRotationOffset = yaw * pitch * cameraRotationOffset;
-            }
-
-            if (wasRotate)
-            {
-                // Сохраняем ориентацию предмета относительно камеры.
-                targetObjectRotation =
-                    transform.rotation * cameraRotationOffset;
-
-                // Плавное физическое вращение.
-                Item.Rigidbody.MoveRotation(
-                    Quaternion.Slerp(
-                        Item.Rigidbody.rotation,
-                        targetObjectRotation,
-                        1f - Mathf.Exp(
-                            -ObjectRotationSmoothness * Time.fixedDeltaTime
-                        )
-                    )
-                );
-            }
-            else
-            {
-                Vector3 directionToPlayer =
-                    transform.position - Item.Rigidbody.position;
-
-                directionToPlayer.y = 0f;
-
-                if (directionToPlayer.sqrMagnitude > 0.001f)
-                {
-                    Quaternion targetRotation =
-                        Quaternion.LookRotation(directionToPlayer, Vector3.up)
-                        * Item.RotateInStart;
-
-                    Item.Rigidbody.MoveRotation(
-                        Quaternion.RotateTowards(
-                            Item.Rigidbody.rotation,
-                            targetRotation,
-                            RotationSpeed * Time.fixedDeltaTime
-                        )
-                    );
-                }
-            }
-            
             // Точка удержания перед камерой.
             grabPoint = transform.position + transform.forward * Distance;
 
             Vector3 positionError = grabPoint - Item.Rigidbody.position;
 
-            Vector3 force = positionError * spring - Item.Rigidbody.linearVelocity * damping;
+            Vector3 force = positionError * Item.SpringInHands - Item.Rigidbody.linearVelocity * Item.DampingInHands;
 
             Item.Rigidbody.AddForce(force, ForceMode.Force);
 
@@ -244,9 +185,9 @@ public class Grab : MonoBehaviour
 
         if (Item != null)
         {
-            if (Item.Rigidbody != null)
-                Item.Rigidbody.useGravity = didGrabbingItemHaveGravity;
-
+            /*if (Item.Rigidbody != null)
+                Item.Rigidbody.useGravity = didGrabbingItemHaveGravity;*/
+        
             Item.ObjectLost();
         }
 
@@ -311,5 +252,67 @@ public class Grab : MonoBehaviour
 
         if (Rotate != null)
             Rotate.FixedCamera = previousFixedCamera;
+    }
+
+    private void RotateItem()
+    {
+        // Вращаем предмет мышью, пока зажата клавиша вращения.
+        if (isRotating && Rotate != null)
+        {
+            wasRotate = true;
+            Vector2 mouseDelta = Rotate.Input;
+
+            Quaternion yaw = Quaternion.AngleAxis(
+                mouseDelta.x * ObjectRotationSensitivity,
+                Vector3.up
+            );
+
+            Quaternion pitch = Quaternion.AngleAxis(
+                -mouseDelta.y * ObjectRotationSensitivity,
+                Vector3.right
+            );
+
+            cameraRotationOffset = yaw * pitch * cameraRotationOffset;
+        }
+
+        if (wasRotate)
+        {
+            // Сохраняем ориентацию предмета относительно камеры.
+            targetObjectRotation =
+                transform.rotation * cameraRotationOffset;
+
+            // Плавное физическое вращение.
+            Item.Rigidbody.MoveRotation(
+                Quaternion.Slerp(
+                    Item.Rigidbody.rotation,
+                    targetObjectRotation,
+                    1f - Mathf.Exp(
+                        -ObjectRotationSmoothness * Time.fixedDeltaTime
+                    )
+                )
+            );
+        }
+        else
+        {
+            Vector3 directionToPlayer =
+                transform.position - Item.Rigidbody.position;
+
+            directionToPlayer.y = 0f;
+
+            if (directionToPlayer.sqrMagnitude > 0.001f)
+            {
+                Quaternion targetRotation =
+                    Quaternion.LookRotation(directionToPlayer, Vector3.up)
+                    * Item.RotateInStart;
+
+                Item.Rigidbody.MoveRotation(
+                    Quaternion.RotateTowards(
+                        Item.Rigidbody.rotation,
+                        targetRotation,
+                        RotationSpeed * Time.fixedDeltaTime
+                    )
+                );
+            }
+        }
     }
 }

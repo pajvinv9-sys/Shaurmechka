@@ -13,6 +13,14 @@ public abstract class GrabbingItem : InteractiveObject
     [field: SerializeField] public bool CanBeGrab { get; set; } = true;
     [field: SerializeField] public bool NeedRotateInStart { get; private set; } = false;
     [field: SerializeField] public Quaternion RotateInStart { get; private set; }
+    [field: SerializeField] public float SpringInHands { get; private set; } = 20f;
+    [field: SerializeField] public float DampingInHands { get; private set; } = 5f;
+
+    public float Mass 
+    {
+        get => Rigidbody.mass;
+        private set => Rigidbody.mass = value;
+    }
 
     public override void ObjectFound()
     {
