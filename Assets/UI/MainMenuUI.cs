@@ -20,7 +20,7 @@ public class MainMenuUI : MonoBehaviour
     {
         ui.RegisterPanel("MainPanel");
 
-        ui.RegisterButton("StartButtonMain", () => SceneManager.LoadScene("SampleScene"));
+        ui.RegisterButton("StartButtonMain", () => SceneManager.LoadScene("Scene"));
         ui.RegisterButton("OptionsButtonMain", () => ui.SetPanel("OptionsPanel"));
         ui.RegisterButton("ExitButtonMain",
             #if UNITY_EDITOR

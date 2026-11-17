@@ -58,7 +58,6 @@ public abstract class SlicedIngredient : Ingredient, ISliced
                 piecePosition,
                 spawnRotation
             );
-
             piece.name = $"{gameObject.name}_Piece_{i + 1}";
 
             // Добавляем маркер интерактивности, если его нет в префабе.
@@ -79,7 +78,7 @@ public abstract class SlicedIngredient : Ingredient, ISliced
             // между частями, сохраняя минимально допустимое значение.
             if (Rigidbody != null)
             {
-                pieceRb.mass = Mathf.Max(0.05f, Rigidbody.mass / SliceCount);
+                pieceRb.useGravity = Rigidbody.useGravity;
             }
 
             // Чем дальше часть от центра в списке, тем сильнее она получает

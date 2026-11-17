@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7586609238480029040}
   - component: {fileID: 8918900357311594826}
   - component: {fileID: 4730749914257065402}
-  - component: {fileID: 5326504404384542766}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -91,29 +90,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5326504404384542766
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944183475110737418}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2588454798936872253
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +119,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.68001, y: 7.98719, z: 12.61796}
-  m_LocalScale: {x: 0.58457, y: 0.58457, z: 0.58457}
+  m_LocalScale: {x: 0.24352835, y: 0.24352835, z: 0.24352835}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7586609238480029040}
@@ -163,7 +139,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2588454798936872253}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -219,8 +195,16 @@ MonoBehaviour:
   <HelpTextOnSighted>k__BackingField: 
   <CanBeGrab>k__BackingField: 1
   <NeedRotateInStart>k__BackingField: 1
-  <RotateInStart>k__BackingField: {x: 0.008726535, y: 0, z: 0, w: 0.9999619}
+  <RotateInStart>k__BackingField: {x: 0.1736483, y: 0, z: 0, w: -0.9848077}
+  <SpringInHands>k__BackingField: 30
+  <DampingInHands>k__BackingField: 10
+  <LocalDropForce>k__BackingField: 0.2
+  <RotateRelativeToCamera>k__BackingField: 1
+  <RotationSpeed>k__BackingField: 3
+  <ObjectRotationSensitivity>k__BackingField: 10
+  <ObjectRotationSmoothness>k__BackingField: 12
   <Distance>k__BackingField: 100
+  ray: {fileID: 4306501128532601717}
 --- !u!1 &4109896036579761313
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +216,6 @@ GameObject:
   - component: {fileID: 6125863553602264284}
   - component: {fileID: 7910224991022113013}
   - component: {fileID: 6126024751925787150}
-  - component: {fileID: 6650024772430998776}
   m_Layer: 0
   m_Name: Capsule (2)
   m_TagString: Untagged
@@ -312,29 +295,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6650024772430998776
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4109896036579761313}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4306501128532601717
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +306,8 @@ GameObject:
   - component: {fileID: 8882534162558479219}
   - component: {fileID: 9072598203460522420}
   - component: {fileID: 19167907931598868}
-  - component: {fileID: 7543884171812798268}
+  - component: {fileID: 4903383874097070469}
+  - component: {fileID: 7307845234580853083}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -426,8 +387,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7543884171812798268
-CapsuleCollider:
+--- !u!65 &4903383874097070469
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -441,14 +402,24 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Size: {x: 1.0000002, y: 2.0000005, z: 1.0000006}
+  m_Center: {x: -0.000030457973, y: 0.000000059604645, z: -0.000000089406996}
+--- !u!114 &7307845234580853083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306501128532601717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543c9ad2d1924fa4bbae77807d53d35f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttractorGunRay
 --- !u!1 &4401886466450238275
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +431,6 @@ GameObject:
   - component: {fileID: 613257812868181273}
   - component: {fileID: 4827979718511608169}
   - component: {fileID: 8459723438520883061}
-  - component: {fileID: 1421614983402466268}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -540,29 +510,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1421614983402466268
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4401886466450238275}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &584120045546826966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -631,7 +578,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM-Stud (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: df6cf6f258c4a4779a62d9a0187c2c5a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -709,7 +657,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM-Ring
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: 2b99eb94a691b42ab980826f80b14a50, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -775,7 +724,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GM-Stud
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: df6cf6f258c4a4779a62d9a0187c2c5a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

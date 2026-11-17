@@ -42,9 +42,9 @@ public class Rotate : MonoBehaviour
 
     private void Awake()
     {
-        if (CameraPivot == null)
+        if (CameraPivot == null || MouseDelta == null)
         {
-            Debug.LogError("Camera не назначена.", this);
+            Debug.LogError("CameraPivot или MouseDelta не назначены.", this);
             enabled = false;
             return;
         }
@@ -58,12 +58,14 @@ public class Rotate : MonoBehaviour
 
     private void OnEnable()
     {
-        MouseDelta.Enable();
+        if (MouseDelta != null)
+            MouseDelta.Enable();
     }
 
     private void OnDisable()
     {
-        MouseDelta.Disable();
+        if (MouseDelta != null)
+            MouseDelta.Disable();
 
         mouseInput = Vector2.zero;
         currentInput = Vector2.zero;
@@ -90,18 +92,10 @@ public class Rotate : MonoBehaviour
         yaw += currentInput.x * SensitiveX;
         pitch -= currentInput.y * SensitiveY;
 
-        pitch = Mathf.Clamp(
-            pitch,
-            MinCameraAngle,
-            MaxCameraAngle
-        );
+        pitch = Mathf.Clamp(pitch, MinCameraAngle, MaxCameraAngle);
 
         transform.rotation = Quaternion.Euler(0f, yaw, 0f);
 
-        CameraPivot.localRotation = Quaternion.Euler(
-            pitch,
-            0f,
-            0f
-        );
+        CameraPivot.localRotation = Quaternion.Euler(pitch, 0f, 0f);
     }
 }

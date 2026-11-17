@@ -16,6 +16,7 @@ public class GameCursor : MonoBehaviour
 
     // Текущее состояние фиксации курсора.
     public bool IsLocked { get; private set; }
+    [field: SerializeField] public bool LockInAwake {  get; private set; }
 
     private void Awake()
     {
@@ -28,10 +29,8 @@ public class GameCursor : MonoBehaviour
 
         Instance = this;
 
-        // Сохраняем объект при переходе между сценами.
-        DontDestroyOnLoad(gameObject);
-
-        Lock();
+        if (LockInAwake) Lock();
+        else Unlock();
     }
 
     private void OnDestroy()

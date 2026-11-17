@@ -1,5 +1,7 @@
 
 using System.Collections;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weightlessness : GameEvent
@@ -22,6 +24,8 @@ public class Weightlessness : GameEvent
         // Защита от повторной активации
         if (deactivateCoroutine != null)
             StopCoroutine(deactivateCoroutine);
+
+        IsActive = true;
 
         Deactivate();
 
@@ -51,9 +55,7 @@ public class Weightlessness : GameEvent
             jump.OverJump = true;
         }
 
-        deactivateCoroutine = StartCoroutine(
-            WaitToDeactivate(EventDuration)
-        );
+        deactivateCoroutine = StartCoroutine(WaitToDeactivate(EventDuration));
     }
 
     public override void Deactivate()
@@ -83,6 +85,8 @@ public class Weightlessness : GameEvent
         }
 
         jumps = null;
+
+        IsActive = false;
 
         deactivateCoroutine = null;
     }
