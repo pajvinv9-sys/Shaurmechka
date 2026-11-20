@@ -22,25 +22,25 @@ public static class LocalizationHelper
         Language = language.ToLower();
     }
 
-    private static JObject GetJson(string path, string itemName)
+    public static JObject GetJson(string path, string jsonName)
     {
-        itemName = itemName.ToLower();
+        jsonName = jsonName.ToLower();
 
         // Важно: учитываем путь, чтобы Items и Phrases
         // с одинаковыми id не конфликтовали в кэше.
-        string cacheKey = path + itemName;
+        string cacheKey = path + jsonName;
 
         if (cache.TryGetValue(cacheKey, out JObject doc))
             return doc;
 
         TextAsset file = Resources.Load<TextAsset>(
-            path + itemName
+            path + jsonName
         );
 
         if (file == null)
         {
             throw new FileNotFoundException(
-                "Не найден JSON: " + path + itemName
+                "Не найден JSON: " + path + jsonName
             );
         }
 

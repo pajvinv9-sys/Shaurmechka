@@ -42,6 +42,22 @@ public class Rotate : MonoBehaviour
 
     private void Awake()
     {
+        SensitiveX = UIController.LoadFloat(
+            "",
+            "settings",
+            "SensX",
+            50f
+        );
+
+        SensitiveY = UIController.LoadFloat(
+            "",
+            "settings",
+            "SensY",
+            50f
+        );
+
+
+
         if (CameraPivot == null || MouseDelta == null)
         {
             Debug.LogError("CameraPivot или MouseDelta не назначены.", this);
