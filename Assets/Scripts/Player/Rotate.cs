@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -56,8 +55,6 @@ public class Rotate : MonoBehaviour
             50f
         );
 
-
-
         if (CameraPivot == null || MouseDelta == null)
         {
             Debug.LogError("CameraPivot или MouseDelta не назначены.", this);
@@ -90,14 +87,24 @@ public class Rotate : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenuUI.IsPaused)
+        {
+            mouseInput = Vector2.zero;
+            Input = Vector2.zero;
+            return;
+        }
+
         mouseInput = MouseDelta.ReadValue<Vector2>();
         Input = mouseInput;
     }
 
     private void LateUpdate()
     {
-        if (FixedCamera)
+        if (PauseMenuUI.IsPaused || FixedCamera)
+        {
+            currentInput = Vector2.zero;
             return;
+        }
 
         currentInput = Vector2.Lerp(
             currentInput,

@@ -1,0 +1,43 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="PausePanel" style="flex-grow: 1; justify-content: center; align-items: center; background-color: rgba(0, 0, 0, 0.55); display: none;">
+        <ui:VisualElement name="PauseBox" style="width: 46%; min-width: 520px; padding-top: 40px; padding-bottom: 40px; padding-left: 44px; padding-right: 44px; background-color: rgb(99, 103, 58); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; border-left-width: 7px; border-right-width: 7px; border-top-width: 7px; border-bottom-width: 7px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+            <ui:Label text="ПАУЗА" style="font-size: 54px; -unity-font-style: bold; -unity-text-align: middle-center; color: rgb(202, 202, 202); margin-bottom: 32px;"/>
+            <ui:Button text="Продолжить игру" name="ResumeButton" style="height: 82px; font-size: 32px; color: rgb(0, 0, 0); margin-bottom: 18px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-width: 4px; border-color: rgb(0, 0, 0);"/>
+            <ui:Button text="Настройки" name="OptionsButton" style="height: 82px; font-size: 32px; color: rgb(0, 0, 0); margin-bottom: 18px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-width: 4px; border-color: rgb(0, 0, 0);"/>
+            <ui:Button text="Выйти в меню" name="MainMenuButton" style="height: 82px; font-size: 32px; color: rgb(0, 0, 0); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-width: 4px; border-color: rgb(0, 0, 0);"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="OptionsPanel" style="flex-grow: 1; margin-top: 1.5%; margin-right: 2%; margin-bottom: 1.5%; margin-left: 2%; background-color: rgb(99, 103, 58); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; color: rgb(202, 202, 202); justify-content: space-between; display: none;">
+        <ui:ScrollView name="ScrollView" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" style="flex-grow: 1; border-bottom-width: 5px; border-bottom-color: rgb(0, 0, 0); padding-top: 4px; padding-bottom: 6px; padding-left: 8px; padding-right: 8px;">
+            <ui:VisualElement name="SensXElement" style="justify-content: space-between; border-radius: 18px; border-width: 5px; border-color: rgb(0, 0, 0); margin-top: 6px; margin-right: 10px; margin-bottom: 6px; margin-left: 10px; padding-top: 8px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+                <ui:Label text="Чувствительность мыши (горизонтальная ось)" style="font-size: 28px; margin-bottom: 8px; color: rgb(202, 202, 202);"/>
+                <ui:Slider label="" value="5" low-value="1" high-value="10" name="SensX" style="height: 28px; padding-left: 2%; padding-right: 2%;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="SensYElement" style="justify-content: space-between; border-radius: 18px; border-width: 5px; border-color: rgb(0, 0, 0); margin-top: 6px; margin-right: 10px; margin-bottom: 6px; margin-left: 10px; padding-top: 8px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+                <ui:Label text="Чувствительность мыши (вертикальная ось)" style="font-size: 28px; margin-bottom: 8px; color: rgb(202, 202, 202);"/>
+                <ui:Slider label="" value="5" low-value="1" high-value="10" name="SensY" style="height: 28px; padding-left: 2%; padding-right: 2%;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="VolumeElement" style="justify-content: space-between; border-radius: 18px; border-width: 5px; border-color: rgb(0, 0, 0); margin-top: 6px; margin-right: 10px; margin-bottom: 6px; margin-left: 10px; padding-top: 8px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+                <ui:Label text="Громкость" style="font-size: 28px; margin-bottom: 8px; color: rgb(202, 202, 202);"/>
+                <ui:Slider label="" value="80" low-value="0" high-value="100" name="MasterVolume" style="height: 28px; padding-left: 2%; padding-right: 2%;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="LanguageElement" style="flex-direction: row; justify-content: space-between; align-items: center; border-radius: 18px; border-width: 5px; border-color: rgb(0, 0, 0); margin-top: 6px; margin-right: 10px; margin-bottom: 6px; margin-left: 10px; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+                <ui:Label text="Язык диалогов" style="font-size: 28px; color: rgb(202, 202, 202);"/>
+                <ui:VisualElement name="LanguageSwitch" style="flex-direction: row; align-items: center;">
+                    <ui:Button text="RU" name="LangRuButton" style="height: 52px; width: 96px; font-size: 24px; -unity-font-style: bold; color: rgb(0, 0, 0); background-color: rgb(225, 225, 225); margin-right: 8px; border-radius: 14px; border-width: 3px; border-color: rgb(0, 0, 0);"/>
+                    <ui:Button text="EN" name="LangEnButton" style="height: 52px; width: 96px; font-size: 24px; -unity-font-style: bold; color: rgb(0, 0, 0); background-color: rgb(140, 144, 96); border-radius: 14px; border-width: 3px; border-color: rgb(0, 0, 0);"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="ControlsLinkElement" style="flex-direction: row; justify-content: space-between; align-items: center; border-radius: 18px; border-width: 5px; border-color: rgb(0, 0, 0); margin-top: 6px; margin-right: 10px; margin-bottom: 6px; margin-left: 10px; padding-top: 10px; padding-right: 20px; padding-bottom: 10px; padding-left: 20px;">
+                <ui:Label text="Управление" style="font-size: 28px; color: rgb(202, 202, 202);"/>
+                <ui:Button text="Открыть" name="ControlsButton" style="height: 52px; min-width: 200px; font-size: 24px; color: rgb(0, 0, 0); border-radius: 14px; border-width: 3px; border-color: rgb(0, 0, 0);"/>
+            </ui:VisualElement>
+        </ui:ScrollView>
+        <ui:Button text="Назад" name="BackToPauseButton" style="align-self: flex-end; margin-right: 18px; margin-bottom: 12px; margin-top: 10px; margin-left: 18px; padding-left: 30px; padding-right: 30px; height: 64px; width: 180px; border-radius: 20px; border-width: 4px; border-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-size: 28px; -unity-text-align: middle-center;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="ControlsPanel" style="flex-grow: 1; margin-top: 2%; margin-right: 2%; margin-bottom: 2%; margin-left: 2%; background-color: rgb(99, 103, 58); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px; color: rgb(202, 202, 202); justify-content: space-between; display: none;">
+        <ui:Label text="УПРАВЛЕНИЕ" style="font-size: 46px; -unity-font-style: bold; margin-top: 24px; margin-left: 28px; color: rgb(202, 202, 202);"/>
+        <ui:VisualElement name="ControlsContent" style="flex-grow: 1; border-radius: 23px; border-width: 7px; border-color: rgb(0, 0, 0); margin-top: 15px; margin-right: 20px; margin-bottom: 10px; margin-left: 20px; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px;"/>
+        <ui:Button text="Назад" name="BackToOptionsButton" style="align-self: flex-end; margin-right: 20px; margin-bottom: 20px; margin-top: 20px; margin-left: 20px; padding-left: 40px; padding-right: 40px; height: 88px; width: 210px; border-radius: 25px; border-width: 5px; border-color: rgb(0, 0, 0); color: rgb(0, 0, 0); font-size: 34px; -unity-text-align: middle-center;"/>
+    </ui:VisualElement>
+</ui:UXML>
