@@ -28,10 +28,27 @@ public class Radio : GrabbingItem, IActivate
     private bool started;
     private float checkAfter;
     private bool hasFocus = true;
+    private float masterVolume;
+    private float currentVolume;
+
+    private void UpdateParams()
+    {
+        masterVolume = UIController.LoadFloat(
+            "",
+            "settings",
+            "MasterVolume",
+            50f
+        );
+
+        currentVolume = volume * masterVolume;
+        Source.volume = currentVolume;
+    }
 
     protected override void Awake()
     {
         base.Awake();
+
+        UpdateParams();
 
         if (Source == null)
         {
@@ -43,6 +60,8 @@ public class Radio : GrabbingItem, IActivate
         Source.playOnAwake = false;
         Source.loop = false;
         Source.volume = volume;
+
+        UIController.UpdateParams += UpdateParams;
     }
 
     private void OnEnable()
@@ -96,8 +115,9 @@ public class Radio : GrabbingItem, IActivate
             return;
 
         volume = Mathf.Clamp01(volume + Mathf.Sign(scroll) * volumeStep);
+        currentVolume = volume * masterVolume;
 
-        Source.volume = volume;
+        Source.volume = currentVolume;
     }
 
     private void NextTrack()
