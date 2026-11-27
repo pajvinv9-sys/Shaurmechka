@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc798d265c932346a3a21ecb29366e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameCursor
+  <LockInAwake>k__BackingField: 1
   unlockButton:
     m_Name: Unlock Button
     m_Type: 0

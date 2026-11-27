@@ -129,6 +129,11 @@ MonoBehaviour:
   <RotateInStart>k__BackingField: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   <SpringInHands>k__BackingField: 20
   <DampingInHands>k__BackingField: 5
+  <LocalDropForce>k__BackingField: 0.3
+  <RotateRelativeToCamera>k__BackingField: 1
+  <RotationSpeed>k__BackingField: 5
+  <ObjectRotationSensitivity>k__BackingField: 10
+  <ObjectRotationSmoothness>k__BackingField: 12
   <MinCutSpeed>k__BackingField: 0.5
   <Reloading>k__BackingField: 0.5
   <ImpactForce>k__BackingField: 300

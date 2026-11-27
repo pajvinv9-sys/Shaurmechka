@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,10 +21,10 @@ public class Rotate : MonoBehaviour
     public float SensitiveY { get; private set; } = 0.1f;
 
     [field: SerializeField]
-    public float MinCameraAngle { get; private set; } = -80f;
+    public float MinCameraAngle { get; private set; } = -90f;
 
     [field: SerializeField]
-    public float MaxCameraAngle { get; private set; } = 80f;
+    public float MaxCameraAngle { get; private set; } = 90f;
 
     [field: SerializeField]
     public float SmoothSpeed { get; private set; } = 20f;
@@ -39,7 +40,7 @@ public class Rotate : MonoBehaviour
 
     public Vector2 Input { get; private set; }
 
-    private void Awake()
+    private void UpdateParams()
     {
         SensitiveX = UIController.LoadFloat(
             "",
@@ -54,6 +55,11 @@ public class Rotate : MonoBehaviour
             "SensY",
             50f
         );
+    }
+
+    private void Awake()
+    {
+        UpdateParams();
 
         if (CameraPivot == null || MouseDelta == null)
         {
@@ -67,6 +73,8 @@ public class Rotate : MonoBehaviour
 
         if (pitch > 180f)
             pitch -= 360f;
+
+        UIController.UpdateParams += UpdateParams;
     }
 
     private void OnEnable()
@@ -83,6 +91,11 @@ public class Rotate : MonoBehaviour
         mouseInput = Vector2.zero;
         currentInput = Vector2.zero;
         Input = Vector2.zero;
+    }
+
+    private void OnDestroy()
+    {
+        UIController.UpdateParams -= UpdateParams;
     }
 
     private void Update()
@@ -115,10 +128,24 @@ public class Rotate : MonoBehaviour
         yaw += currentInput.x * SensitiveX;
         pitch -= currentInput.y * SensitiveY;
 
-        pitch = Mathf.Clamp(pitch, MinCameraAngle, MaxCameraAngle);
+        pitch = Mathf.Clamp(
+            pitch,
+            MinCameraAngle,
+            MaxCameraAngle
+        );
 
-        transform.rotation = Quaternion.Euler(0f, yaw, 0f);
+        // Вращение игрока по горизонтали
+        transform.rotation = Quaternion.Euler(
+            0f,
+            yaw,
+            0f
+        );
 
-        CameraPivot.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        // Вращение камеры по вертикали
+        CameraPivot.localRotation = Quaternion.Euler(
+            pitch,
+            0f,
+            0f
+        );
     }
 }

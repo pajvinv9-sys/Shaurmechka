@@ -15,6 +15,8 @@ public class UIController
     private readonly Dictionary<string, VisualElement> panels = new();
     private readonly List<Action> cleanupActions = new();
 
+    public static Action UpdateParams;
+
     // ================================================
     // CONSTRUCTOR
     // ================================================
@@ -560,6 +562,8 @@ public class UIController
 
             Debug.Log($"Сохранено: {key} = {json[key]}");
             Debug.Log($"Путь: {savePath}");
+
+            UpdateParams?.Invoke();
         }
         catch (Exception e)
         {
